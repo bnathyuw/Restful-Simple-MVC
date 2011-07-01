@@ -1,0 +1,11 @@
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Unit.Tests.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Unit.Tests.pdb
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\nunit.framework.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Web.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Rhino.Mocks.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\StructureMap.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Web.pdb
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\StructureMap.xml
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\Playground.Unit.Tests.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\Playground.Unit.Tests.pdb
