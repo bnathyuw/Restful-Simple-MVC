@@ -1,0 +1,16 @@
+﻿@model Playground.Web.Exceptions.InternalServerErrorException
+
+@{
+    ViewBag.Title = "Internal Server Error";
+}
+
+<h2>Page Not Found</h2>
+
+<p>@((Int32)Model.HttpStatusCode) @Model.HttpStatusCode</p>
+<p>@Model.Message</p>
+<pre>@Model.StackTrace</pre>
+@if (Model.InnerException != null)
+{
+	<p>@Model.InnerException.Message</p>
+	<pre>@Model.InnerException.StackTrace</pre>
+}

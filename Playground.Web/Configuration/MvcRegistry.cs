@@ -7,8 +7,10 @@ namespace Playground.Web.Configuration
 	internal class MvcRegistry:Registry
 	{
 		public MvcRegistry() {
-			For<IActionInvoker>().Use<MyActionInvoker>();
 
+			For<IContextResponseTypeResolver>().Use(new ContextResponseTypeResolver(new RouteDataResponseTypeResolver(), new AcceptHeaderResponseTypeResolver(new AcceptHeaderParser(),new EnumNameParser<ResponseType>() )));
+			For<IActionInvoker>().Use<RestfulActionInvoker>();
+			For<ITypedResultFactory>().Use<TypedResultFactory>();
 			SetAllProperties(c => c.OfType<IActionInvoker>());
 		}
 	}

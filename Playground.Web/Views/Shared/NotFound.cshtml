@@ -1,0 +1,9 @@
+﻿@model Playground.Web.Exceptions.NotFoundException
+
+@{
+    ViewBag.Title = "Not Found";
+}
+
+<h2>Page Not Found</h2>
+
+<p>@((Int32)Model.HttpStatusCode) @Model.HttpStatusCode</p>

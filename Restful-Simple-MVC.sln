@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Web", "Playgroun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Unit.Tests", "Playground.Unit.Tests\Playground.Unit.Tests.csproj", "{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Integration.Tests", "Playground.Integration.Tests\Playground.Integration.Tests.csproj", "{ECA0016E-43A8-4132-9CA9-5607DC013E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.SmokeTests", "Playground.SmokeTests\Playground.SmokeTests.csproj", "{A4377747-7D0F-4A4B-A036-18958FCFB1C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA0016E-43A8-4132-9CA9-5607DC013E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA0016E-43A8-4132-9CA9-5607DC013E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA0016E-43A8-4132-9CA9-5607DC013E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA0016E-43A8-4132-9CA9-5607DC013E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4377747-7D0F-4A4B-A036-18958FCFB1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4377747-7D0F-4A4B-A036-18958FCFB1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4377747-7D0F-4A4B-A036-18958FCFB1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4377747-7D0F-4A4B-A036-18958FCFB1C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

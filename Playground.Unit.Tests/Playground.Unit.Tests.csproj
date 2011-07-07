@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Mvc\AcceptHeaderResponseTypeResolverTests.cs" />
     <Compile Include="Mvc\ContextResponseTypeResolverTests.cs" />
+    <Compile Include="Mvc\RestfulActionInvokerTests.cs" />
     <Compile Include="Mvc\RouteDataResponseTypeResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

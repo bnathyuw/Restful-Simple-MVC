@@ -1,0 +1,9 @@
+﻿@model Playground.Web.Exceptions.RestfulException
+
+@{
+    ViewBag.Title = "Exception";
+}
+
+<h2>Exception</h2>
+
+<p>Exception @((Int32)Model.HttpStatusCode) @Model.HttpStatusCode thrown</p>

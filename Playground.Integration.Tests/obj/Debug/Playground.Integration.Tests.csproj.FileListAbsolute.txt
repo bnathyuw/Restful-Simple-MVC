@@ -1,0 +1,10 @@
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Integration.Tests.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Integration.Tests.pdb
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\nunit.framework.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Web.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\StructureMap.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Web.pdb
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\StructureMap.xml
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\Playground.Integration.Tests.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\Playground.Integration.Tests.pdb
