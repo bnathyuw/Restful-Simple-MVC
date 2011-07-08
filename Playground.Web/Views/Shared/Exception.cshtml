@@ -1,0 +1,9 @@
+﻿@model Playground.Web.Exceptions.RestfulException
+
+@{
+    ViewBag.Title = String.Format("{0} {1}", (int)Model.HttpStatusCode, Model.HttpStatusCode);
+}
+
+<h1>@((Int32)Model.HttpStatusCode) @Model.HttpStatusCode</h1>
+
+@Html.DisplayForModel()

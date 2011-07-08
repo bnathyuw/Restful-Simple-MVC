@@ -8,19 +8,19 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="test" priority="0" />
+      <Item value="test" priority="2" />
       <Item value="webRequest" priority="0" />
-      <Item value="Assert`0" priority="2" />
-      <Item value="Is`0" priority="2" />
+      <Item value="Assert`0" priority="4" />
+      <Item value="Is`0" priority="3" />
       <Item value="request" priority="0" />
-      <Item value="new" priority="9" />
+      <Item value="new" priority="12" />
       <Item value="HttpWebRequest`0" priority="2" />
-      <Item value="public" priority="2" />
-      <Item value="object" priority="1" />
+      <Item value="public" priority="6" />
+      <Item value="object" priority="2" />
       <Item value="return" priority="8" />
       <Item value="ctor" priority="3" />
       <Item value="httpStatusCode" priority="6" />
-      <Item value="routes" priority="0" />
+      <Item value="routes" priority="1" />
       <Item value="_httpStatusCode" priority="0" />
       <Item value="override" priority="0" />
       <Item value="if" priority="2" />
@@ -28,12 +28,12 @@
       <Item value="as" priority="1" />
       <Item value="RestfulException`0" priority="2" />
       <Item value="Controller`0" priority="0" />
-      <Item value="controllerContext" priority="1" />
-      <Item value="context" priority="5" />
+      <Item value="controllerContext" priority="3" />
+      <Item value="context" priority="6" />
       <Item value="CreateTypedResult`0" priority="0" />
       <Item value="true" priority="0" />
-      <Item value="var" priority="0" />
-      <Item value="restfulException" priority="2" />
+      <Item value="var" priority="3" />
+      <Item value="restfulException" priority="3" />
       <Item value="null" priority="1" />
       <Item value="base" priority="4" />
       <Item value="HttpStatusCode`0" priority="7" />
@@ -46,13 +46,30 @@
       <Item value="BadGatewayException`0" priority="0" />
       <Item value="NotFoundException`0" priority="0" />
       <Item value="HttpStatusCodeResult`0" priority="0" />
-      <Item value="throw" priority="0" />
-      <Item value="Exception" priority="0" />
+      <Item value="throw" priority="1" />
+      <Item value="Exception" priority="1" />
       <Item value="protected" priority="0" />
-      <Item value="string" priority="1" />
+      <Item value="string" priority="2" />
       <Item value="Exception`0" priority="0" />
       <Item value="message" priority="3" />
       <Item value="innerException" priority="4" />
+      <Item value="ViewName" priority="0" />
+      <Item value="actionDescriptor" priority="1" />
+      <Item value="private" priority="0" />
+      <Item value="readonly" priority="0" />
+      <Item value="_typedResultFactory" priority="0" />
+      <Item value="_dependencyResolver" priority="0" />
+      <Item value="typeof" priority="1" />
+      <Item value="ITypedResultFactory`0" priority="4" />
+      <Item value="typedResultResolver" priority="0" />
+      <Item value="For`0" priority="0" />
+      <Item value="TypedResultFactory`0" priority="0" />
+      <Item value="su" priority="0" />
+      <Item value="_actionInvoker" priority="0" />
+      <Item value="actionName" priority="0" />
+      <Item value="actionReturnValue" priority="1" />
+      <Item value="MockRepository`0" priority="0" />
+      <Item value="ActionDescriptor`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Net.WebRequest">
       <Item value="Create`0" priority="0" />
@@ -62,13 +79,14 @@
       <Item value="Headers" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="That`0" priority="2" />
+      <Item value="That`0" priority="4" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Is">
       <Item value="Not" priority="1" />
-      <Item value="EqualTo`0" priority="0" />
+      <Item value="EqualTo`0" priority="1" />
       <Item value="StringContaining`0" priority="0" />
       <Item value="StringStarting`0" priority="0" />
+      <Item value="TypeOf`1" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Net.WebHeaderCollection">
       <Item value="Add`0" priority="2" />
@@ -80,11 +98,11 @@
       <Item value="Accept" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.Routing.RouteCollection">
-      <Item value="MapRoute`0" priority="0" />
+      <Item value="MapRoute`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.Mvc.ExceptionContext">
       <Item value="Exception" priority="5" />
-      <Item value="Result" priority="1" />
+      <Item value="Result" priority="2" />
       <Item value="ExceptionHandled" priority="0" />
       <Item value="ParentActionViewContext" priority="0" />
     </ItemStatistics>
@@ -107,59 +125,92 @@
       <Item value="ViewData" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Playground.Web.Exceptions.RestfulException">
-      <Item value="HttpStatusCode" priority="0" />
+      <Item value="HttpStatusCode" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ControllerContext">
+      <Item value="Controller" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ActionDescriptor">
+      <Item value="ActionName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Playground.Web.Mvc.ITypedResultFactory">
+      <Item value="Build`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Playground.Web.Configuration.StructureMapDependencyResolver">
+      <Item value="GetService`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1">
+      <Item value="Use`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.MockRepository">
+      <Item value="GenerateStub`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Playground.Web.Mvc.RestfulActionInvoker">
+      <Item value="InvokeAction`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="ECA0016E-43A8-4132-9CA9-5607DC013E7F/d:Configuration/f:MvcRegistryTests.cs" caret="168" fromTop="6" />
       <File id="A4377747-7D0F-4A4B-A036-18958FCFB1C1/f:SmokeTests.cs" caret="1019" fromTop="32" />
       <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:ContextResponseTypeResolver.cs" caret="840" fromTop="17" />
       <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Home/f:Get.cshtml" caret="143" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="550" fromTop="22" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:HomeController.cs" caret="171" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="321" fromTop="12" />
       <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/f:Web.config" caret="139" fromTop="4" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:BadGatewayException.cs" caret="281" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:NotFoundException.cs" caret="267" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="471" fromTop="17" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:AmbiguousException.cs" caret="277" fromTop="8" />
       <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:Error.cshtml" caret="0" fromTop="0" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:MyActionInvoker.cs" caret="1422" fromTop="35" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="689" fromTop="16" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:InternalServerErrorException.cs" caret="275" fromTop="8" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Configuration/f:MvcRegistry.cs" caret="132" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Configuration/f:StructureMapDependencyResolver.cs" caret="285" fromTop="12" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:RestfulException.cshtml" caret="0" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:NotFound.cshtml" caret="179" fromTop="8" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:NotFoundException.cs" caret="84" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="0" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:InternalServerErrorException.cs" caret="84" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:BadGatewayException.cs" caret="0" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:AmbiguousException.cs" caret="285" fromTop="10" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="772" fromTop="22" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="0" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="385" fromTop="12" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:InternalServerError.cshtml" caret="259" fromTop="10" />
+      <File id="ECA0016E-43A8-4132-9CA9-5607DC013E7F/d:Configuration/f:MvcRegistryTests.cs" caret="0" fromTop="0" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RouteDataResponseTypeResolver.cs" caret="0" fromTop="0" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:ContextResponseTypeResolverTests.cs" caret="8973" fromTop="27" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:AcceptHeaderResponseTypeResolverTests.cs" caret="631" fromTop="6" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:BrokenController.cs" caret="161" fromTop="9" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:ITypedResultFactory.cs" caret="114" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:TypedResultFactory.cs" caret="384" fromTop="13" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="985" fromTop="30" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:RestfulActionInvoker.cs" caret="590" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="A4377747-7D0F-4A4B-A036-18958FCFB1C1/f:SmokeTests.cs" caret="770" fromTop="27" />
-      <File id="A4377747-7D0F-4A4B-A036-18958FCFB1C1/f:SmokeTests.cs" caret="550" fromTop="20" />
-      <File id="A4377747-7D0F-4A4B-A036-18958FCFB1C1/f:SmokeTests.cs" caret="823" fromTop="28" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Home/f:Get.cshtml" caret="21" fromTop="0" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:RestfulActionInvoker.cs" caret="269" fromTop="7" />
+      <File id="ECA0016E-43A8-4132-9CA9-5607DC013E7F/d:Configuration/f:MvcRegistryTests.cs" caret="477" fromTop="12" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Configuration/f:MvcRegistry.cs" caret="530" fromTop="12" />
+      <File id="ECA0016E-43A8-4132-9CA9-5607DC013E7F/d:Configuration/f:MvcRegistryTests.cs" caret="842" fromTop="25" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:RestfulActionInvoker.cs" caret="133" fromTop="6" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:NotFound.cshtml" caret="179" fromTop="8" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:NotFoundException.cs" caret="84" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:InternalServerErrorException.cs" caret="84" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="152" fromTop="6" />
       <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="0" fromTop="0" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="149" fromTop="4" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="268" fromTop="7" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="937" fromTop="31" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="648" fromTop="26" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:HomeController.cs" caret="171" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:MyActionInvoker.cs" caret="1841" fromTop="41" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:MyActionInvoker.cs" caret="2258" fromTop="44" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:MyActionInvoker.cs" caret="1433" fromTop="33" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="0" fromTop="5" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="280" fromTop="9" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="321" fromTop="22" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:ExceptionController.cs" caret="321" fromTop="11" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="0" fromTop="15" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:NotFoundException.cs" caret="287" fromTop="12" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="0" fromTop="9" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="251" fromTop="6" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="371" fromTop="10" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:AmbiguousException.cs" caret="277" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:NotFoundException.cs" caret="267" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:BadGatewayException.cs" caret="281" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="0" fromTop="0" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:RestfulException.cs" caret="471" fromTop="17" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:ExceptionFactory.cs" caret="689" fromTop="16" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Exceptions/f:InternalServerErrorException.cs" caret="275" fromTop="8" />
-      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:MyActionInvoker.cs" caret="2215" fromTop="39" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="1011" fromTop="39" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="1171" fromTop="45" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="190" fromTop="5" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="317" fromTop="10" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/f:Global.asax.cs" caret="648" fromTop="22" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:BrokenController.cs" caret="155" fromTop="4" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Controllers/f:BrokenController.cs" caret="250" fromTop="12" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:InternalServerError.cshtml" caret="111" fromTop="3" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:InternalServerError.cshtml" caret="383" fromTop="12" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Views/d:Shared/f:InternalServerError.cshtml" caret="294" fromTop="10" />
+      <File id="B9F80384-6B88-4796-994A-E9C26DC885B8/d:Mvc/f:TypedResultFactory.cs" caret="1049" fromTop="29" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1774" fromTop="20" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1774" fromTop="15" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="285" fromTop="10" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1774" fromTop="30" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1774" fromTop="33" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1780" fromTop="40" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1537" fromTop="33" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="983" fromTop="30" />
+      <File id="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8/d:Mvc/f:RestfulActionInvokerTests.cs" caret="1045" fromTop="33" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

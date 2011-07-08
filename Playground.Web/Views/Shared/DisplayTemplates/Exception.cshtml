@@ -1,0 +1,13 @@
+﻿@model Exception
+
+@if (!string.IsNullOrWhiteSpace(Model.Message)) { 
+	<p>@Model.Message</p>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.StackTrace)) { 
+	<pre>@Model.StackTrace</pre>
+}
+
+@if (Model.InnerException != null) { 
+	@Html.DisplayFor(model => model.InnerException)
+}

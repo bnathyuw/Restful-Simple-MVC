@@ -51,11 +51,7 @@
   <Module PersistentId="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.EnterpriseServices_1" />
   <Module PersistentId="nunit.framework, Version=2.5.8.10295, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" ModuleId="nunit.framework" />
   <Module PersistentId="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f" ModuleId="Rhino.Mocks" />
-  <Module PersistentId="JetBrains.Annotations, Version=5.1.3000.12, Culture=neutral, PublicKeyToken=1010a0d8d6380325" ModuleId="JetBrains.Annotations" />
-  <Module PersistentId="Playground.Unit.Tests, Version=1.0.0.0, Culture=neutral" ModuleId="Playground.Unit.Tests_1" />
   <Module PersistentId="Playground.Web, Version=1.0.0.0, Culture=neutral" ModuleId="Playground.Web_1" />
-  <Module PersistentId="Playground.SmokeTests, Version=1.0.0.0, Culture=neutral" ModuleId="Playground.SmokeTests_1" />
-  <Module PersistentId="Playground.Integration.Tests, Version=1.0.0.0, Culture=neutral" ModuleId="Playground.Integration.Tests_1" />
   <Module PersistentId="System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.IdentityModel" />
   <Module PersistentId="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Runtime.Serialization" />
   <Module PersistentId="System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.ServiceModel" />
@@ -65,4 +61,5 @@
   <Module PersistentId="System.ServiceModel.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.ServiceModel.Activities" />
   <Module PersistentId="System.WorkflowServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.WorkflowServices" />
   <Module PersistentId="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.WebPages.Deployment" />
+  <Module PersistentId="JetBrains.Annotations, Version=5.1.3000.12, Culture=neutral, PublicKeyToken=1010a0d8d6380325" ModuleId="JetBrains.Annotations" />
 </Modules>
