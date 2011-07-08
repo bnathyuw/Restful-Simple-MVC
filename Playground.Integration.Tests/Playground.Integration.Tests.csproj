@@ -47,10 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\MvcRegistryTests.cs" />
+    <Compile Include="Mvc\Configuration\MvcRegistryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Playground.Mvc\Playground.Mvc.csproj">
+      <Project>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</Project>
+      <Name>Playground.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Playground.Web\Playground.Web.csproj">
       <Project>{B9F80384-6B88-4796-994A-E9C26DC885B8}</Project>
       <Name>Playground.Web</Name>

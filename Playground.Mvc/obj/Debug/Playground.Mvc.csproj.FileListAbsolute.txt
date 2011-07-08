@@ -1,0 +1,7 @@
+C:\Projects\Playground20110614MVC\Playground.Mvc\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Playground20110614MVC\Playground.Mvc\bin\Debug\Playground.Mvc.dll
+C:\Projects\Playground20110614MVC\Playground.Mvc\bin\Debug\Playground.Mvc.pdb
+C:\Projects\Playground20110614MVC\Playground.Mvc\obj\Debug\Playground.Mvc.dll
+C:\Projects\Playground20110614MVC\Playground.Mvc\obj\Debug\Playground.Mvc.pdb
+C:\Projects\Playground20110614MVC\Playground.Mvc\bin\Debug\StructureMap.dll
+C:\Projects\Playground20110614MVC\Playground.Mvc\bin\Debug\StructureMap.xml

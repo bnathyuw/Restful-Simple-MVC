@@ -16,3 +16,5 @@ C:\Projects\Playground20110614MVC\Playground.Web\bin\StructureMap.xml
 C:\Projects\Playground20110614MVC\Playground.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Playground20110614MVC\Playground.Web\obj\Debug\Playground.Web.dll
 C:\Projects\Playground20110614MVC\Playground.Web\obj\Debug\Playground.Web.pdb
+C:\Projects\Playground20110614MVC\Playground.Web\bin\Playground.Mvc.dll
+C:\Projects\Playground20110614MVC\Playground.Web\bin\Playground.Mvc.pdb

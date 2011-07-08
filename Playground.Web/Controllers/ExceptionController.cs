@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using Playground.Web.Exceptions;
+using Playground.Mvc.Exceptions;
 
 namespace Playground.Web.Controllers
 {

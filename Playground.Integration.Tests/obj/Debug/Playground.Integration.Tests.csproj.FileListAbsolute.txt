@@ -8,3 +8,5 @@ C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Structu
 C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\Playground.Integration.Tests.dll
 C:\Projects\Playground20110614MVC\Playground.Integration.Tests\obj\Debug\Playground.Integration.Tests.pdb
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Mvc.dll
+C:\Projects\Playground20110614MVC\Playground.Integration.Tests\bin\Debug\Playground.Mvc.pdb

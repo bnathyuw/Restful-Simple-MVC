@@ -1,6 +1,6 @@
 using System.Web.Mvc;
 using NUnit.Framework;
-using Playground.Web.Mvc;
+using Playground.Mvc;
 using Rhino.Mocks;
 
 namespace Playground.Unit.Tests.Mvc

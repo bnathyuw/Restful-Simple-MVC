@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using Playground.Web.Mvc;
+using Playground.Mvc;
 
 namespace Playground.Unit.Tests.Mvc
 {

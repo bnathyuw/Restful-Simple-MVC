@@ -9,3 +9,5 @@ C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\StructureMap.x
 C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\Playground.Unit.Tests.dll
 C:\Projects\Playground20110614MVC\Playground.Unit.Tests\obj\Debug\Playground.Unit.Tests.pdb
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Mvc.dll
+C:\Projects\Playground20110614MVC\Playground.Unit.Tests\bin\Debug\Playground.Mvc.pdb
