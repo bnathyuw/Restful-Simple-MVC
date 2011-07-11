@@ -1,30 +1,25 @@
 ﻿using System.Web.Mvc;
+using Playground.Mvc.ResponseWriters;
+using Playground.Mvc.Results;
 
 namespace Playground.Mvc
 {
 	public class TypedResultFactory : ITypedResultFactory
 	{
 		private readonly IContextResponseTypeResolver _contextResponseTypeResolver;
+		private readonly IRestfulResultFactory _restfulResultFactory;
+		private readonly IResponseWriterFactory _responseWriterFactory;
 
-		public TypedResultFactory(IContextResponseTypeResolver contextResponseTypeResolver)
-		{
+		public TypedResultFactory(IContextResponseTypeResolver contextResponseTypeResolver, IRestfulResultFactory restfulResultFactory, IResponseWriterFactory responseWriterFactory) {
 			_contextResponseTypeResolver = contextResponseTypeResolver;
+			_responseWriterFactory = responseWriterFactory;
+			_restfulResultFactory = restfulResultFactory;
 		}
 
-		public ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName)
-		{
-			switch (_contextResponseTypeResolver.Resolve(controllerContext))
-			{
-				case ResponseType.Html:
-					var viewData = new ViewDataDictionary { Model = actionReturnValue };
-					return new ViewResult { ViewData = viewData, ViewName = viewName };
-				case ResponseType.Xml:
-					return new ContentResult { Content = "<result/>", ContentType = "text/xml" };
-				case ResponseType.Json:
-					return new JsonResult { Data = actionReturnValue, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-				default:
-					return new HttpNotFoundResult();
-			}
+		public ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName) {
+			var responseType = _contextResponseTypeResolver.Resolve(controllerContext);
+			var responseWriter = _responseWriterFactory.Build(responseType);
+			return _restfulResultFactory.Build(responseWriter, actionReturnValue);
 		}
 	}
 }

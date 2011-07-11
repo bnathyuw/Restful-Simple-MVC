@@ -4,6 +4,7 @@
   <Module PersistentId="ECA0016E-43A8-4132-9CA9-5607DC013E7F" ModuleId="Playground.Integration.Tests" />
   <Module PersistentId="d:Miscellaneous Files" ModuleId="EntityFramework" />
   <Module PersistentId="306FCEAD-8F03-4D61-8426-A7DDCD23C7D8" ModuleId="Playground.Unit.Tests" />
+  <Module PersistentId="D1E60E25-CFBF-44EA-B750-8BDEF331CC8A" ModuleId="Playground.Mvc" />
   <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
   <Module PersistentId="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="EntityFramework_1" />
   <Module PersistentId="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223" ModuleId="StructureMap" />
@@ -62,5 +63,5 @@
   <Module PersistentId="System.WorkflowServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.WorkflowServices" />
   <Module PersistentId="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.WebPages.Deployment" />
   <Module PersistentId="JetBrains.Annotations, Version=5.1.3000.12, Culture=neutral, PublicKeyToken=1010a0d8d6380325" ModuleId="JetBrains.Annotations" />
-  <Module PersistentId="D1E60E25-CFBF-44EA-B750-8BDEF331CC8A" ModuleId="Playground.Mvc" />
+  <Module PersistentId="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Runtime.Serialization_1" />
 </Modules>

@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
@@ -57,18 +58,27 @@
     <Compile Include="Exceptions\InternalServerErrorException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Exceptions\RestfulException.cs" />
+    <Compile Include="ResponseWriters\HtmlResponseWriter.cs" />
     <Compile Include="IAcceptHeaderParser.cs" />
     <Compile Include="IContextResponseTypeResolver.cs" />
     <Compile Include="IEnumNameParser.cs" />
     <Compile Include="IResponseTypeResolver.cs" />
+    <Compile Include="ResponseWriters\IResponseWriter.cs" />
     <Compile Include="ITypedResultFactory.cs" />
+    <Compile Include="ResponseWriters\IResponseWriterFactory.cs" />
+    <Compile Include="ResponseWriters\JsonResponseWriter.cs" />
     <Compile Include="NamesAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseType.cs" />
     <Compile Include="ResponseTypeComparer.cs" />
+    <Compile Include="ResponseWriters\ResponseWriterFactory.cs" />
     <Compile Include="RestfulActionInvoker.cs" />
+    <Compile Include="Results\IRestfulResultFactory.cs" />
+    <Compile Include="Results\RestfulResult.cs" />
+    <Compile Include="Results\RestfulResultFactory.cs" />
     <Compile Include="RouteDataResponseTypeResolver.cs" />
     <Compile Include="TypedResultFactory.cs" />
+    <Compile Include="ResponseWriters\XmlResponseWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
