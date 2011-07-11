@@ -32,7 +32,7 @@ namespace Playground.Unit.Tests.Mvc
 		[Test]
 		public void ExecuteResultSetsContentFromContentWriter() {
 			_restfulResult.ExecuteResult(_controllerContext);
-			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_httpResponse, _content));
+			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content));
 		}
 	}
 }

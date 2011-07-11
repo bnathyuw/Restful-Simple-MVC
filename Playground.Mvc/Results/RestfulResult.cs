@@ -14,7 +14,7 @@ namespace Playground.Mvc
 		}
 
 		public override void ExecuteResult(ControllerContext context) {
-			_responseWriter.WriteResponse(context.HttpContext.Response, _content);
+			_responseWriter.WriteResponse(context, _content);
 		}
 	}
 }
