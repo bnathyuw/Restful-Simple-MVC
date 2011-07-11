@@ -10,7 +10,6 @@ namespace Playground.Unit.Tests.Mvc
 	[TestFixture]
 	public class RestfulResultTests
 	{
-		private const string RESPONSE = "response";
 		private ControllerContext _controllerContext;
 		private HttpContextBase _httpContext;
 		private HttpResponseBase _httpResponse;
