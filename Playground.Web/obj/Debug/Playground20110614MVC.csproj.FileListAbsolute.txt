@@ -1,9 +1,0 @@
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\Playground.dll
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\Playground.pdb
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\EntityFramework.dll
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\StructureMap.dll
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\EntityFramework.xml
-C:\Projects\Playground20110614MVC\Playground20110614MVC\bin\StructureMap.xml
-C:\Projects\Playground20110614MVC\Playground20110614MVC\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Playground20110614MVC\Playground20110614MVC\obj\Debug\Playground.dll
-C:\Projects\Playground20110614MVC\Playground20110614MVC\obj\Debug\Playground.pdb

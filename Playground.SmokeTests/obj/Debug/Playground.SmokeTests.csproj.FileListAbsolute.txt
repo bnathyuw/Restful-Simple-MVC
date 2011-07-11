@@ -1,6 +1,0 @@
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\bin\Debug\Playground.SmokeTests.dll
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\bin\Debug\Playground.SmokeTests.pdb
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\bin\Debug\nunit.framework.dll
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\obj\Debug\Playground.SmokeTests.dll
-C:\Projects\Playground20110614MVC\Playground.SmokeTests\obj\Debug\Playground.SmokeTests.pdb
