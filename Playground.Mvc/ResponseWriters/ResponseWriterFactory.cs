@@ -1,19 +1,17 @@
+using StructureMap;
+
 namespace Playground.Mvc.ResponseWriters
 {
 	public class ResponseWriterFactory : IResponseWriterFactory
 	{
+		private readonly IContainer _container;
+
+		public ResponseWriterFactory(IContainer container) {
+			_container = container;
+		}
+
 		public IResponseWriter Build(ResponseType responseType) {
-			switch (responseType)
-			{
-				case ResponseType.Html:
-					return new HtmlResponseWriter();
-				case ResponseType.Xml:
-					return new XmlResponseWriter();
-				case ResponseType.Json:
-					return new JsonResponseWriter();
-				default:
-					return null;
-			}
+			return _container.GetInstance<IResponseWriter>(responseType.ToString());
 		}
 	}
 }

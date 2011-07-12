@@ -9,32 +9,25 @@ namespace Playground.Web.Configuration
 {
 	public class StructureMapDependencyResolver : IDependencyResolver
 	{
-		private readonly IContainer _container;
-
-		public StructureMapDependencyResolver(IContainer container) {
-			_container = container;
-			_container.Configure(x => x.AddRegistry(new MvcRegistry()));
-		}
-
 		public object GetService(Type serviceType) {
 			return serviceType.IsClass ? GetConcreteService(serviceType) : GetInterfaceService(serviceType);
 		}
 
-		private object GetConcreteService(Type serviceType) {
+		private static object GetConcreteService(Type serviceType) {
 			try {
-				return _container.GetInstance(serviceType);
+				return StructureMapBootstrapper.Container.GetInstance(serviceType);
 			} catch (StructureMapException) {
 				return null;
 			}
 		}
 
-		private object GetInterfaceService(Type serviceType) {
-			return _container.TryGetInstance(serviceType);
+		private static object GetInterfaceService(Type serviceType) {
+			return StructureMapBootstrapper.Container.TryGetInstance(serviceType);
 		}
 
 		public IEnumerable<object> GetServices(Type serviceType)
 		{
-			return ObjectFactory.GetAllInstances(serviceType).Cast<object>();
+			return StructureMapBootstrapper.Container.GetAllInstances(serviceType).Cast<object>();
 		}
 	}
 }

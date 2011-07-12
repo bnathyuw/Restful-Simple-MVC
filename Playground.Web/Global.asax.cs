@@ -50,7 +50,7 @@ namespace Playground.Web
 		{
 			AreaRegistration.RegisterAllAreas();
 			
-			DependencyResolver.SetResolver(new StructureMapDependencyResolver(new StructureMap.Container()));
+			DependencyResolver.SetResolver(new StructureMapDependencyResolver());
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 		}
