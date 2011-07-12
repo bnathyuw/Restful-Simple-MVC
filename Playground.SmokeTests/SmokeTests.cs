@@ -8,29 +8,27 @@ namespace Playground.SmokeTests
 	{
 		[Test]
 		public void CanServeContent() {
-			var request = WebRequest.Create("http://localhost/restful-simple-mvc/");
-			var response = request.GetResponse();
-			Assert.That(response, Is.Not.Null);
+			WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/");
 		}
 
 		[Test]
-		public void CanServeWithFormatSuffix()
-		{
-			var request = WebRequest.Create("http://localhost/restful-simple-mvc/.json");
-			var response = request.GetResponse();
-			Assert.That(response != null);
+		public void CanServeWithFormatSuffix() {
+			var response = WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/.json");
 			Assert.That(response.ContentType, Is.StringStarting("application/json"));
 		}
 
 		[Test]
-		public void CanServeWithAcceptHeader()
-		{
-			var request = WebRequest.Create("http://localhost/restful-simple-mvc/") as HttpWebRequest;
-			Assert.That(request != null);
-			request.Accept = "application/json";
-			var response = request.GetResponse();
-			Assert.That(response != null);
+		public void CanServeWithAcceptHeader() {
+			var response = WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/", "application/json");
 			Assert.That(response.ContentType, Is.StringStarting("application/json"));
+		}
+
+		[Test]
+		public void CanServeException() {
+			var webException = Assert.Throws<WebException>(() => WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/Exceptions/404"));
+			var httpWebResponse = webException.Response as HttpWebResponse;
+			Assert.That(httpWebResponse != null);
+			Assert.That(httpWebResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
 		}
 	}
 }
