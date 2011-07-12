@@ -25,7 +25,7 @@ namespace Playground.SmokeTests
 
 		[Test]
 		public void CanServeException() {
-			var webException = Assert.Throws<WebException>(() => WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/Exceptions/404"));
+			var webException = Assert.Throws<WebException>(() => WebRequester.MakeGetRequest("http://localhost/restful-simple-mvc/Exceptions/404", "text/html"));
 			var httpWebResponse = webException.Response as HttpWebResponse;
 			Assert.That(httpWebResponse != null);
 			Assert.That(httpWebResponse.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));

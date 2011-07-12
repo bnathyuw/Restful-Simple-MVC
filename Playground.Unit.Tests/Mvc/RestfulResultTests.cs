@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using NUnit.Framework;
 using Playground.Mvc;
 using Playground.Mvc.ResponseWriters;
+using Playground.Mvc.Results;
 using Rhino.Mocks;
 
 namespace Playground.Unit.Tests.Mvc
@@ -26,13 +27,13 @@ namespace Playground.Unit.Tests.Mvc
 			_httpContext.Stub(c => c.Response).Return(_httpResponse); 
 			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
 			_content = new {};
-			_restfulResult = new RestfulResult(_responseWriter, _content);
+			_restfulResult = new RestfulResult(_responseWriter, _content, null);
 		}
 
 		[Test]
 		public void ExecuteResultSetsContentFromContentWriter() {
 			_restfulResult.ExecuteResult(_controllerContext);
-			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content));
+			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content, null));
 		}
 	}
 }

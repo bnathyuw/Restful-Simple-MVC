@@ -5,7 +5,7 @@ using System.Web.Mvc;
 namespace Playground.Mvc.ResponseWriters
 {
 	public class XmlResponseWriter : IResponseWriter {
-		public void WriteResponse(ControllerContext controllerContext, object content) {
+		public void WriteResponse(ControllerContext controllerContext, object content, string viewName) {
 			var xmlSerializer = new DataContractSerializer(content.GetType());
             var response = controllerContext.HttpContext.Response;
 			var stream = response.OutputStream;

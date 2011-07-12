@@ -19,7 +19,7 @@ namespace Playground.Mvc
 		public ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName) {
 			var responseType = _contextResponseTypeResolver.Resolve(controllerContext);
 			var responseWriter = _responseWriterFactory.Build(responseType);
-			return _restfulResultFactory.Build(responseWriter, actionReturnValue);
+			return _restfulResultFactory.Build(responseWriter, actionReturnValue, viewName);
 		}
 	}
 }

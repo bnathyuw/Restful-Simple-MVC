@@ -3,9 +3,9 @@
 namespace Playground.Mvc.ResponseWriters
 {
     public class HtmlResponseWriter : IResponseWriter {
-        public void WriteResponse(ControllerContext controllerContext, object content)
+        public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
         {
-            var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, controllerContext.RouteData.GetRequiredString("action"), null);
+            var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, viewName, null);
             var textWriter = controllerContext.HttpContext.Response.Output;
             var view = viewEngineResult.View;
             var viewData = new ViewDataDictionary {Model = content};

@@ -31,13 +31,13 @@ namespace Playground.Unit.Tests.Mvc
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(null, actionReturnValue, null);
 
-			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue));
+			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null));
 		}
 
 		[Test]
 		public void CreateReturnsValueFromRestfulResultFactory() {
-			var restfulResult = new RestfulResult(null, null);
-			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything)).Return(restfulResult);
+			var restfulResult = new RestfulResult(null, null, null);
+			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything)).Return(restfulResult);
 
 			var actionResult = _typedResultFactory.Build(null, null, null);
 

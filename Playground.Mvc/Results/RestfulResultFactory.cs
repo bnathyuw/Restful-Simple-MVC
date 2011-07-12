@@ -5,8 +5,8 @@ namespace Playground.Mvc
 {
 	public class RestfulResultFactory : IRestfulResultFactory
 	{
-		public RestfulResult Build(IResponseWriter responseWriter, object content) {
-			return new RestfulResult(responseWriter, content);
+		public RestfulResult Build(IResponseWriter responseWriter, object content, string viewName) {
+			return new RestfulResult(responseWriter, content, viewName);
 		}
 	}
 }

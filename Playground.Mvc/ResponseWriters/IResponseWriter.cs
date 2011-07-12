@@ -4,6 +4,6 @@ namespace Playground.Mvc.ResponseWriters
 {
 	public interface IResponseWriter
 	{
-		void WriteResponse(ControllerContext controllerContext, object content);
+		void WriteResponse(ControllerContext controllerContext, object content, string viewName);
 	}
 }
