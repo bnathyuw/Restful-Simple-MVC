@@ -51,8 +51,6 @@
     <Compile Include="AcceptHeaderParser.cs" />
     <Compile Include="AcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="Configuration\MvcRegistry.cs" />
-    <Compile Include="Configuration\ResponseWriterRegistry.cs" />
-    <Compile Include="Configuration\SerializationRegistry.cs" />
     <Compile Include="ContextResponseTypeResolver.cs" />
     <Compile Include="EnumNameParser.cs" />
     <Compile Include="Exceptions\AmbiguousException.cs" />
