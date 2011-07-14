@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Playground.Mvc;
 using Playground.Mvc.Exceptions;
 using Playground.Mvc.ResponseWriters;
-using Playground.Mvc.Serializers;
+using Playground.Mvc.SerializationDataProviders;
 using Playground.Web.Configuration;
 using StructureMap;
 
@@ -57,10 +57,10 @@ namespace Playground.Integration.Tests.Mvc.Configuration
 
 		[Test]
 		public void CanResolveIJsonSerializerForNotFoundException() {
-			var serializer = _container.ForGenericType(typeof (ISerializer<>))
+			var serializer = _container.ForGenericType(typeof (ISerializationDataProvider<>))
 				.WithParameters(typeof (NotFoundException))
-				.GetInstanceAs<ISerializer>();
-			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializer)));
+				.GetInstanceAs<ISerializationDataProvider>();
+			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
 		}
 	}
 }

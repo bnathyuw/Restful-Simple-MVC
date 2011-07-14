@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using Playground.Mvc.Serializers;
+using Playground.Mvc.SerializationDataProviders;
 using Playground.Web.Models;
-using Playground.Web.Serializers;
+using Playground.Web.SerializationDataProviders;
 using StructureMap.Configuration.DSL;
 
 namespace Playground.Web.Configuration
@@ -10,8 +10,8 @@ namespace Playground.Web.Configuration
 	public class SerializerRegistry:Registry
 	{
 		public SerializerRegistry() {
-			For(typeof (ISerializer<>)).Use(typeof(DefaultSerializer<object>));
-			For<ISerializer<Home>>().Use<HomeSerializer>();
+			For(typeof (ISerializationDataProvider<>)).Use(typeof(DefaultSerializationDataProvider<object>));
+			For<ISerializationDataProvider<Home>>().Use<HomeSerializationDataProvider>();
 		}
 	}
 }

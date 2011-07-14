@@ -1,10 +1,11 @@
 ﻿using System.Xml.Linq;
-using Playground.Mvc.Serializers;
+using Playground.Mvc.SerializationDataProviders;
 using Playground.Web.Models;
 
-namespace Playground.Web.Serializers
+namespace Playground.Web.SerializationDataProviders
 {
-	public class HomeSerializer:DefaultSerializer<Home> {
+	public class HomeSerializationDataProvider:DefaultSerializationDataProvider<Home> {
+
 		protected override dynamic GetJsonData(Home content) {
 			return new {content.Locality, content.StreetAddress};
 		}

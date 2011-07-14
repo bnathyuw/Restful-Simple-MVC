@@ -51,6 +51,8 @@
     <Compile Include="AcceptHeaderParser.cs" />
     <Compile Include="AcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="Configuration\MvcRegistry.cs" />
+    <Compile Include="Configuration\ResponseWriterRegistry.cs" />
+    <Compile Include="Configuration\SerializationRegistry.cs" />
     <Compile Include="ContextResponseTypeResolver.cs" />
     <Compile Include="EnumNameParser.cs" />
     <Compile Include="Exceptions\AmbiguousException.cs" />
@@ -78,10 +80,10 @@
     <Compile Include="Results\RestfulResult.cs" />
     <Compile Include="Results\RestfulResultFactory.cs" />
     <Compile Include="RouteDataResponseTypeResolver.cs" />
-    <Compile Include="Serializers\IXmlSerializer.cs" />
-    <Compile Include="Serializers\DefaultSerializer.cs" />
-    <Compile Include="Serializers\RestfulExceptionSerializer.cs" />
-    <Compile Include="Serializers\ISerializer.cs" />
+    <Compile Include="SerializationDataProviders\IXmlSerializationDataProvider.cs" />
+    <Compile Include="SerializationDataProviders\DefaultSerializationDataProvider.cs" />
+    <Compile Include="SerializationDataProviders\RestfulExceptionSerializationDataProvider.cs" />
+    <Compile Include="SerializationDataProviders\ISerializationDataProvider.cs" />
     <Compile Include="TypedResultFactory.cs" />
     <Compile Include="ResponseWriters\XmlResponseWriter.cs" />
   </ItemGroup>

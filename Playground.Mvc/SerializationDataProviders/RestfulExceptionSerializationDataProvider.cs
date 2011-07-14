@@ -2,9 +2,9 @@ using System;
 using System.Xml.Linq;
 using Playground.Mvc.Exceptions;
 
-namespace Playground.Mvc.Serializers
+namespace Playground.Mvc.SerializationDataProviders
 {
-	public class RestfulExceptionSerializer: DefaultSerializer<RestfulException>
+	public class RestfulExceptionSerializationDataProvider: DefaultSerializationDataProvider<RestfulException>
 	{
 		protected override dynamic GetJsonData(RestfulException content) {
 			return new { content.HttpStatusCode, content.Message };

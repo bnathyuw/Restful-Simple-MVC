@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
-using Playground.Mvc.Serializers;
+﻿using System.Text;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Playground.Mvc.SerializationDataProviders;
 using StructureMap;
 
 namespace Playground.Mvc.ResponseWriters
@@ -15,9 +17,13 @@ namespace Playground.Mvc.ResponseWriters
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
 		{
-			var serializer = _container.ForGenericType(typeof(ISerializer<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializer>();
+			var serializer = _container.ForGenericType(typeof(ISerializationDataProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializationDataProvider>();
+			var jsonData = serializer.GetJsonData(content);
+			var javaScriptSerializer = new JavaScriptSerializer();
+			var serialize = javaScriptSerializer.Serialize(jsonData);
+			var bytes = Encoding.UTF8.GetBytes(serialize);
+			controllerContext.HttpContext.Response.OutputStream.Write(bytes, 0, bytes.Length);
 			var response = controllerContext.HttpContext.Response;
-			serializer.WriteJsonToStream(content, response.OutputStream);
 			response.ContentType = "application/json";
 		}
 	}
