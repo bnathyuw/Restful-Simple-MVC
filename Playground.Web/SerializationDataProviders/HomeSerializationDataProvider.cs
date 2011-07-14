@@ -8,7 +8,13 @@ namespace Playground.Web.SerializationDataProviders
 	public class HomeSerializationDataProvider:DefaultSerializationDataProvider<Home> {
 
 		protected override dynamic GetJsonData(Home content) {
-			return new {content.Locality, content.StreetAddress};
+			return new
+			{
+				content.Locality,
+				content.StreetAddress,
+				Inhabitants = from i in content.Inhabitants
+							  select new { i.Name }
+			};
 		}
 
 		protected override XDocument GetXmlData(Home content)
@@ -18,8 +24,9 @@ namespace Playground.Web.SerializationDataProviders
 					new XAttribute("href", "http://localhost/restful-simple-mvc"),
 					new XElement("street-address", content.StreetAddress),
 					new XElement("locality", content.Locality),
-					from i in content.Inhabitants
-						select new XElement("inhabitant", i.Name)));
+					new XElement("inhabitants", 
+						from i in content.Inhabitants
+						select new XElement("inhabitant", i.Name))));
 		}	
 	}
 }

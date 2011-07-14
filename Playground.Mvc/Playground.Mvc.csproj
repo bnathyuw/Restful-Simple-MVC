@@ -80,7 +80,6 @@
     <Compile Include="Results\RestfulResult.cs" />
     <Compile Include="Results\RestfulResultFactory.cs" />
     <Compile Include="RouteDataResponseTypeResolver.cs" />
-    <Compile Include="SerializationDataProviders\IXmlSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\DefaultSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\RestfulExceptionSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\ISerializationDataProvider.cs" />
