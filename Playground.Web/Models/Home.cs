@@ -1,33 +1,36 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 
 namespace Playground.Web.Models
 {
-	[DataContract]
-	public class Home {
-		
-		private string _streetAddress;
-		private string _locality;
+	public class Home
+	{
 
-		public Home(string streetAddress, string locality) {
+		private readonly string _streetAddress;
+		private readonly string _locality;
+		private readonly List<Inhabitant> _inhabitants;
+
+		public Home(string streetAddress, string locality, params Inhabitant[] inhabitants)
+		{
 			_streetAddress = streetAddress;
 			_locality = locality;
+			_inhabitants = new List<Inhabitant>(inhabitants);
 		}
 
-		[DataMember]
 		public string StreetAddress
 		{
 			get { return _streetAddress; }
-			internal set { _streetAddress = value; }
 		}
-		[DataMember]
+
 		public string Locality
 		{
 			get { return _locality; }
-			internal set { _locality = value; }
 		}
 
-		public override string ToString() {
+		public override string ToString()
+		{
 			return string.Format("{0}, {1}", _streetAddress, _locality);
 		}
+
+		public IEnumerable<Inhabitant> Inhabitants { get { return _inhabitants; } }
 	}
 }

@@ -19,12 +19,11 @@ namespace Playground.Mvc
 			var acceptedTypes = _acceptHeaderParser.GetAcceptedTypes(sourceString);
 			var types = _enumNameParser.ParseNames();
 
-			foreach (var group in acceptedTypes)
-			{
-				foreach (var type in types)
-					if (group.Contains(type.Key))
-						return type.Value;
-
+			foreach (var typeGroup in acceptedTypes) {
+				var @group = typeGroup;
+				foreach (var type in types.Where(type => @group.Contains(type.Key))) {
+					return type.Value;
+				}
 			}
 			return ResponseType.Xml;
 		}

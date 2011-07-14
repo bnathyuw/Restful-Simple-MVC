@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Inhabitant.cs" />
     <Compile Include="SerializationDataProviders\HomeSerializationDataProvider.cs" />
     <Compile Include="Configuration\SerializerRegistry.cs" />
     <Compile Include="Configuration\StructureMapContainer.cs" />

@@ -1,5 +1,4 @@
-﻿using System.Net;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Playground.SmokeTests
 {

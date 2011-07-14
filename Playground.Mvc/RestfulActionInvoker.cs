@@ -8,7 +8,7 @@ namespace Playground.Mvc
 	{
 		private readonly ITypedResultFactory _typedResultFactory;
 
-		public RestfulActionInvoker(ITypedResultFactory typedResultFactory) {
+		protected RestfulActionInvoker(ITypedResultFactory typedResultFactory) {
 			_typedResultFactory = typedResultFactory;
 		}
 

@@ -1,7 +1,6 @@
 using Playground.Mvc.ResponseWriters;
-using Playground.Mvc.Results;
 
-namespace Playground.Mvc
+namespace Playground.Mvc.Results
 {
 	public class RestfulResultFactory : IRestfulResultFactory
 	{

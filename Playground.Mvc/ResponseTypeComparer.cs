@@ -8,8 +8,7 @@ namespace Playground.Mvc
 			if (x == "text/html") return -1;
 			if (y == "text/html") return 1;
 			if (x == "application/json") return -1;
-			if (y == "application/json") return 1;
-			return 0;
+			return y == "application/json" ? 1 : 0;
 		}
 	}
 }

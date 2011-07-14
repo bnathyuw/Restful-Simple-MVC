@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Linq;
+using System.Xml.Linq;
 using Playground.Mvc.SerializationDataProviders;
 using Playground.Web.Models;
 
@@ -16,7 +17,9 @@ namespace Playground.Web.SerializationDataProviders
 				new XElement("home",
 					new XAttribute("href", "http://localhost/restful-simple-mvc"),
 					new XElement("street-address", content.StreetAddress),
-					new XElement("locality", content.Locality)));
+					new XElement("locality", content.Locality),
+					from i in content.Inhabitants
+						select new XElement("inhabitant", i.Name)));
 		}	
 	}
 }
