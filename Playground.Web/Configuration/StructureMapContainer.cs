@@ -1,4 +1,4 @@
-using Playground.Mvc.Configuration;
+using Playground.Mvc;
 using StructureMap;
 
 namespace Playground.Web.Configuration
@@ -9,10 +9,11 @@ namespace Playground.Web.Configuration
 
 		static StructureMapBootstrapper() {
 			_container = new Container();
-			_container.Configure(x =>{
-			                     	x.AddRegistry(new MvcRegistry());
-			                     	x.AddRegistry(new SerializerRegistry());
-			                     });
+			_container.Configure(x => x.Scan(y =>{
+			                                 	y.TheCallingAssembly();
+			                                 	y.Assembly(typeof (RestfulActionInvoker).Assembly);
+			                                 	y.LookForRegistries();
+			                                 }));
 		}
 
 		public static IContainer Container {get { return _container; }}
