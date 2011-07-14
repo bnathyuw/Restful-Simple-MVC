@@ -6,7 +6,7 @@ namespace Playground.Web.Controllers
 	public class HomeController : Controller
     {
 		public object Get() {
-        	return new Home("25 Boscombe Road", "London");
+        	return new Home("10 Downing Street", "London");
         }
 
     }

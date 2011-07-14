@@ -9,7 +9,10 @@ namespace Playground.Web.Configuration
 
 		static StructureMapBootstrapper() {
 			_container = new Container();
-			_container.Configure(x => x.AddRegistry(new MvcRegistry()));
+			_container.Configure(x =>{
+			                     	x.AddRegistry(new MvcRegistry());
+			                     	x.AddRegistry(new SerializerRegistry());
+			                     });
 		}
 
 		public static IContainer Container {get { return _container; }}

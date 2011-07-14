@@ -1,7 +1,9 @@
 using System.Web.Mvc;
 using NUnit.Framework;
 using Playground.Mvc;
+using Playground.Mvc.Exceptions;
 using Playground.Mvc.ResponseWriters;
+using Playground.Mvc.Serializers;
 using Playground.Web.Configuration;
 using StructureMap;
 
@@ -51,6 +53,14 @@ namespace Playground.Integration.Tests.Mvc.Configuration
 		{
 			var responseWriter = _container.GetInstance<IResponseWriter>(ResponseType.Xml.ToString());
 			Assert.That(responseWriter, Is.TypeOf((typeof(XmlResponseWriter))));
+		}
+
+		[Test]
+		public void CanResolveIJsonSerializerForNotFoundException() {
+			var serializer = _container.ForGenericType(typeof (ISerializer<>))
+				.WithParameters(typeof (NotFoundException))
+				.GetInstanceAs<ISerializer>();
+			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializer)));
 		}
 	}
 }

@@ -65,6 +65,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Serializers\HomeSerializer.cs" />
+    <Compile Include="Configuration\SerializerRegistry.cs" />
     <Compile Include="Configuration\StructureMapContainer.cs" />
     <Compile Include="Controllers\BrokenController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
