@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using NUnit.Framework;
 using Playground.Mvc;
+using Playground.Mvc.Configuration;
 using Playground.Mvc.Exceptions;
 using Playground.Mvc.ResponseWriters;
 using Playground.Mvc.SerializationDataProviders;
@@ -15,7 +16,8 @@ namespace Playground.Integration.Tests.Mvc.Configuration
 		private readonly IContainer _container;
 
 		public MvcRegistryTests() {
-			_container = StructureMapBootstrapper.Container;
+			_container = new Container();
+			_container.Configure(x => x.AddRegistry(new MvcRegistry()));
 		}
 
 		[Test]
@@ -56,7 +58,7 @@ namespace Playground.Integration.Tests.Mvc.Configuration
 		}
 
 		[Test]
-		public void CanResolveIJsonSerializerForNotFoundException() {
+		public void CanResolveISerializationDataProviderForNotFoundException() {
 			var serializer = _container.ForGenericType(typeof (ISerializationDataProvider<>))
 				.WithParameters(typeof (NotFoundException))
 				.GetInstanceAs<ISerializationDataProvider>();
