@@ -8,12 +8,12 @@ namespace Playground.Mvc.Configuration
 	public class MvcRegistry:Registry
 	{
 		public MvcRegistry() {
-			Scan(x =>
-			{
-				x.TheCallingAssembly();
-				x.WithDefaultConventions();
-				x.Convention<ResponseWriterConvention>();
-			});
+			Scan(x =>{
+			     	x.TheCallingAssembly();
+			     	x.WithDefaultConventions();
+			     	x.Convention<ResponseWriterConvention>();
+			     	x.ConnectImplementationsToTypesClosing(typeof (ISerializationDataProvider<>));
+			     });
 
 			For<IContextResponseTypeResolver>().Use(new ContextResponseTypeResolver(new RouteDataResponseTypeResolver(), new AcceptHeaderResponseTypeResolver(new AcceptHeaderParser(),new EnumNameParser<ResponseType>() )));
 			
@@ -23,8 +23,6 @@ namespace Playground.Mvc.Configuration
 			For<ISerializationDataProvider<AmbiguousException>>().Use<RestfulExceptionSerializationDataProvider>();
 			For<ISerializationDataProvider<BadGatewayException>>().Use<RestfulExceptionSerializationDataProvider>();
 			For<ISerializationDataProvider<InternalServerErrorException>>().Use<RestfulExceptionSerializationDataProvider>();
-			For<ISerializationDataProvider<NotFoundException>>().Use<RestfulExceptionSerializationDataProvider>();
-			For<ISerializationDataProvider<RestfulException>>().Use<RestfulExceptionSerializationDataProvider>();
 		}
 	}
 }

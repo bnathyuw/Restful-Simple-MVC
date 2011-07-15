@@ -5,7 +5,6 @@ using Playground.Mvc.Configuration;
 using Playground.Mvc.Exceptions;
 using Playground.Mvc.ResponseWriters;
 using Playground.Mvc.SerializationDataProviders;
-using Playground.Web.Configuration;
 using StructureMap;
 
 namespace Playground.Integration.Tests.Mvc.Configuration
@@ -58,10 +57,36 @@ namespace Playground.Integration.Tests.Mvc.Configuration
 		}
 
 		[Test]
-		public void CanResolveISerializationDataProviderForNotFoundException() {
-			var serializer = _container.ForGenericType(typeof (ISerializationDataProvider<>))
-				.WithParameters(typeof (NotFoundException))
-				.GetInstanceAs<ISerializationDataProvider>();
+		public void CanResolveISerializationDataProviderForAmbiguousException()
+		{
+			var serializer = _container.GetInstance<ISerializationDataProvider<AmbiguousException>>();
+			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
+		}
+
+		[Test]
+		public void CanResolveISerializationDataProviderForBadGatewayException()
+		{
+			var serializer = _container.GetInstance<ISerializationDataProvider<BadGatewayException>>();
+			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
+		}
+
+		[Test]
+		public void CanResolveISerializationDataProviderForInternalServerErrorException()
+		{
+			var serializer = _container.GetInstance<ISerializationDataProvider<InternalServerErrorException>>();
+			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
+		}
+
+		[Test]
+		public void CanResolveISerializationDataProviderForNotFoundException()
+		{
+			var serializer = _container.GetInstance<ISerializationDataProvider<NotFoundException>>();
+			Assert.That(serializer, Is.TypeOf(typeof(NotFoundExceptionSerializationDataProvider)));
+		}
+
+		[Test]
+		public void CanResolveISerializationDataProviderForRestfulException() {
+			var serializer = _container.GetInstance<ISerializationDataProvider<RestfulException>>();
 			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
 		}
 	}
