@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AcceptHeaderResponseTypeResolverTests.cs" />
     <Compile Include="ContextResponseTypeResolverTests.cs" />
+    <Compile Include="Exceptions\RestfulExceptionTests.cs" />
     <Compile Include="RestfulActionInvokerTests.cs" />
     <Compile Include="RestfulResultTests.cs" />
     <Compile Include="RouteDataResponseTypeResolver.cs" />
