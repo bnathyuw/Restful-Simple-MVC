@@ -57,11 +57,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Playground.Mvc\RestfulSimpleMvc.Core.csproj">
+    <ProjectReference Include="..\RestfulSimpleMvc.Core\RestfulSimpleMvc.Core.csproj">
       <Project>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</Project>
       <Name>RestfulSimpleMvc.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Playground.Web\RestfulSimpleMvc.Web.csproj">
+    <ProjectReference Include="..\RestfulSimpleMvc.Web\RestfulSimpleMvc.Web.csproj">
       <Project>{B9F80384-6B88-4796-994A-E9C26DC885B8}</Project>
       <Name>RestfulSimpleMvc.Web</Name>
     </ProjectReference>

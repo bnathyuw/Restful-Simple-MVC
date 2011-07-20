@@ -113,7 +113,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Exception.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Playground.Mvc\RestfulSimpleMvc.Core.csproj">
+    <ProjectReference Include="..\RestfulSimpleMvc.Core\RestfulSimpleMvc.Core.csproj">
       <Project>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</Project>
       <Name>RestfulSimpleMvc.Core</Name>
     </ProjectReference>
