@@ -13,7 +13,7 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
     	}
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName) {
-			var serializer = _container.ForGenericType(typeof(ISerializationDataProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializationDataProvider>();
+			var serializer = _container.ForGenericType(typeof(SerializationDataProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializationDataProvider>();
 			var xDocument = serializer.GetXmlData(content);
 			var xmlWriter = XmlWriter.Create(controllerContext.HttpContext.Response.OutputStream);
 			xDocument.WriteTo(xmlWriter);

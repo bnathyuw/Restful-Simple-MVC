@@ -48,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mvc\AcceptHeaderResponseTypeResolverTests.cs" />
-    <Compile Include="Mvc\ContextResponseTypeResolverTests.cs" />
-    <Compile Include="Mvc\RestfulActionInvokerTests.cs" />
-    <Compile Include="Mvc\RestfulResultTests.cs" />
-    <Compile Include="Mvc\RouteDataResponseTypeResolver.cs" />
-    <Compile Include="Mvc\TypedResultFactoryTests.cs" />
+    <Compile Include="AcceptHeaderResponseTypeResolverTests.cs" />
+    <Compile Include="ContextResponseTypeResolverTests.cs" />
+    <Compile Include="RestfulActionInvokerTests.cs" />
+    <Compile Include="RestfulResultTests.cs" />
+    <Compile Include="RouteDataResponseTypeResolver.cs" />
+    <Compile Include="TypedResultFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +67,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mvc\ResponseWriters\" />
+    <Folder Include="ResponseWriters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

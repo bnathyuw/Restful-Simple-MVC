@@ -6,7 +6,7 @@ using NUnit.Framework;
 using RestfulSimpleMvc.Core;
 using Rhino.Mocks;
 
-namespace RestfulSimpleMvc.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests
 {
 	[TestFixture]
 	public class ContextResponseTypeResolverTests

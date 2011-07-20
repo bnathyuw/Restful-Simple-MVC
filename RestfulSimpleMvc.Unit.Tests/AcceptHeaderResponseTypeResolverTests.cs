@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using RestfulSimpleMvc.Core;
 
-namespace RestfulSimpleMvc.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests
 {
 	[TestFixture]
 	public class AcceptHeaderResponseTypeResolverTests

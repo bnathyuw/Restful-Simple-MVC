@@ -57,36 +57,8 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 		}
 
 		[Test]
-		public void CanResolveISerializationDataProviderForAmbiguousException()
-		{
-			var serializer = _container.GetInstance<ISerializationDataProvider<AmbiguousException>>();
-			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
-		}
-
-		[Test]
-		public void CanResolveISerializationDataProviderForBadGatewayException()
-		{
-			var serializer = _container.GetInstance<ISerializationDataProvider<BadGatewayException>>();
-			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
-		}
-
-		[Test]
-		public void CanResolveISerializationDataProviderForInternalServerErrorException()
-		{
-			var serializer = _container.GetInstance<ISerializationDataProvider<InternalServerErrorException>>();
-			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
-		}
-
-		[Test]
-		public void CanResolveISerializationDataProviderForNotFoundException()
-		{
-			var serializer = _container.GetInstance<ISerializationDataProvider<NotFoundException>>();
-			Assert.That(serializer, Is.TypeOf(typeof(NotFoundExceptionSerializationDataProvider)));
-		}
-
-		[Test]
 		public void CanResolveISerializationDataProviderForRestfulException() {
-			var serializer = _container.GetInstance<ISerializationDataProvider<RestfulException>>();
+			var serializer = _container.GetInstance<SerializationDataProvider<RestfulException>>();
 			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
 		}
 	}

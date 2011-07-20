@@ -4,7 +4,7 @@ using RestfulSimpleMvc.Core.Exceptions;
 
 namespace RestfulSimpleMvc.Core.SerializationDataProviders
 {
-	public class RestfulExceptionSerializationDataProvider: DefaultSerializationDataProvider<RestfulException>
+	public class RestfulExceptionSerializationDataProvider: SerializationDataProvider<RestfulException>
 	{
 		protected override dynamic GetJsonData(RestfulException content) {
 			return new { content.HttpStatusCode, content.Message };

@@ -5,7 +5,7 @@ using RestfulSimpleMvc.Web.Models;
 
 namespace RestfulSimpleMvc.Web.SerializationDataProviders
 {
-	public class HomeSerializationDataProvider:DefaultSerializationDataProvider<Home> {
+	public class HomeSerializationDataProvider:SerializationDataProvider<Home> {
 
 		protected override dynamic GetJsonData(Home content) {
 			return new

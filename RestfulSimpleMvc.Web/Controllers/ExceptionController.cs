@@ -7,7 +7,7 @@ namespace RestfulSimpleMvc.Web.Controllers
     public class ExceptionController : Controller
     {
         public object Get(HttpStatusCode httpStatusCode) {
-        	throw ExceptionFactory.Build(httpStatusCode);
+        	throw new RestfulException(httpStatusCode);
         }
     }
 }

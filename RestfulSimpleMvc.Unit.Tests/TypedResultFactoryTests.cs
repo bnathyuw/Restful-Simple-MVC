@@ -4,7 +4,7 @@ using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
 
-namespace RestfulSimpleMvc.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests
 {
 	[TestFixture]
 	public class TypedResultFactoryTests

@@ -17,7 +17,7 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
 		{
-			var serializer = _container.ForGenericType(typeof(ISerializationDataProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializationDataProvider>();
+			var serializer = _container.ForGenericType(typeof(SerializationDataProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ISerializationDataProvider>();
 			var jsonData = serializer.GetJsonData(content);
 			var javaScriptSerializer = new JavaScriptSerializer();
 			var serialize = javaScriptSerializer.Serialize(jsonData);

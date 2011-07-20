@@ -35,7 +35,7 @@ namespace RestfulSimpleMvc.Core
 
 		private void SetExceptionResult(ControllerContext controllerContext, ExceptionContext context) {
 			var restfulException = context.Exception as RestfulException 
-				?? new InternalServerErrorException("An internal server error has occurred", context.Exception);
+				?? RestfulException.InternalServerError("An internal server error has occurred", context.Exception);
 			context.Result = _typedResultFactory.Build(controllerContext, restfulException, "Exception");
 			context.ExceptionHandled = true;
 		}

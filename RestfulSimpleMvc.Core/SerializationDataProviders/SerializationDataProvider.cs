@@ -2,7 +2,7 @@ using System.Xml.Linq;
 
 namespace RestfulSimpleMvc.Core.SerializationDataProviders
 {
-	public class DefaultSerializationDataProvider<T>: ISerializationDataProvider<T> {
+	public abstract class SerializationDataProvider<T>: ISerializationDataProvider {
 		public dynamic GetJsonData(object content) {
 			return GetJsonData((T) content);
 		}
