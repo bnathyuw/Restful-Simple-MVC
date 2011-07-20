@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using StructureMap;
 
-namespace Playground.Web.Configuration
+namespace RestfulSimpleMvc.Web.Configuration
 {
 	public class StructureMapDependencyResolver : IDependencyResolver
 	{

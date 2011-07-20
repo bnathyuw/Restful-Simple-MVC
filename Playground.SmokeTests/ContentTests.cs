@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Playground.SmokeTests
+namespace RestfulSimpleMvc.Smoke.Tests
 {
 	[TestFixture]
 	public class ContentTests

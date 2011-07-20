@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Playground.Mvc.ResponseWriters
+namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public interface IResponseWriter
 	{

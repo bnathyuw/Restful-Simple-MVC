@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class EnumNameParser<T> : IEnumNameParser<T>
 	{

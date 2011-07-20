@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Playground.Web.Configuration;
+using RestfulSimpleMvc.Web.Configuration;
 
-namespace Playground.Web
+namespace RestfulSimpleMvc.Web
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{

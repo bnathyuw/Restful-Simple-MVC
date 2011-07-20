@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Web", "Playground.Web\Playground.Web.csproj", "{B9F80384-6B88-4796-994A-E9C26DC885B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulSimpleMvc.Web", "Playground.Web\RestfulSimpleMvc.Web.csproj", "{B9F80384-6B88-4796-994A-E9C26DC885B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Unit.Tests", "Playground.Unit.Tests\Playground.Unit.Tests.csproj", "{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulSimpleMvc.Unit.Tests", "Playground.Unit.Tests\RestfulSimpleMvc.Unit.Tests.csproj", "{306FCEAD-8F03-4D61-8426-A7DDCD23C7D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Integration.Tests", "Playground.Integration.Tests\Playground.Integration.Tests.csproj", "{ECA0016E-43A8-4132-9CA9-5607DC013E7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulSimpleMvc.Implementation.Tests", "Playground.Integration.Tests\RestfulSimpleMvc.Implementation.Tests.csproj", "{ECA0016E-43A8-4132-9CA9-5607DC013E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.SmokeTests", "Playground.SmokeTests\Playground.SmokeTests.csproj", "{A4377747-7D0F-4A4B-A036-18958FCFB1C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulSimpleMvc.Smoke.Tests", "Playground.SmokeTests\RestfulSimpleMvc.Smoke.Tests.csproj", "{A4377747-7D0F-4A4B-A036-18958FCFB1C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground.Mvc", "Playground.Mvc\Playground.Mvc.csproj", "{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulSimpleMvc.Core", "Playground.Mvc\RestfulSimpleMvc.Core.csproj", "{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

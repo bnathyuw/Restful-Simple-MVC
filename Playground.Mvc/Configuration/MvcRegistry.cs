@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using Playground.Mvc.Exceptions;
-using Playground.Mvc.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Exceptions;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap.Configuration.DSL;
 
-namespace Playground.Mvc.Configuration
+namespace RestfulSimpleMvc.Core.Configuration
 {
 	public class MvcRegistry:Registry
 	{

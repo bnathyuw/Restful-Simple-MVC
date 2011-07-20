@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using Playground.Mvc.ResponseWriters;
-using Playground.Mvc.Results;
+using RestfulSimpleMvc.Core.ResponseWriters;
+using RestfulSimpleMvc.Core.Results;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class TypedResultFactory : ITypedResultFactory
 	{

@@ -1,9 +1,9 @@
 using System;
 using System.Web.Mvc;
-using Playground.Mvc.Exceptions;
-using Playground.Mvc.ResponseWriters;
+using RestfulSimpleMvc.Core.Exceptions;
+using RestfulSimpleMvc.Core.ResponseWriters;
 
-namespace Playground.Mvc.Results
+namespace RestfulSimpleMvc.Core.Results
 {
 	public class RestfulResult:ActionResult
 	{

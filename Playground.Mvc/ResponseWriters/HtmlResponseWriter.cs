@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Playground.Mvc.ResponseWriters
+namespace RestfulSimpleMvc.Core.ResponseWriters
 {
     public class HtmlResponseWriter : IResponseWriter {
         public void WriteResponse(ControllerContext controllerContext, object content, string viewName)

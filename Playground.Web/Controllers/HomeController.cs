@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using Playground.Web.Models;
+using RestfulSimpleMvc.Web.Models;
 
-namespace Playground.Web.Controllers
+namespace RestfulSimpleMvc.Web.Controllers
 {
 	public class HomeController : Controller
     {

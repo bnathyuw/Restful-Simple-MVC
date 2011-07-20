@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public interface IEnumNameParser<T> {
 		Dictionary<string, T> ParseNames();

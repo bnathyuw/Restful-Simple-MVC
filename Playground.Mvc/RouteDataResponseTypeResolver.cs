@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class RouteDataResponseTypeResolver : IResponseTypeResolver
 	{

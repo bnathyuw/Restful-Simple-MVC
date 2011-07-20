@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class AcceptHeaderResponseTypeResolver : IResponseTypeResolver
 	{

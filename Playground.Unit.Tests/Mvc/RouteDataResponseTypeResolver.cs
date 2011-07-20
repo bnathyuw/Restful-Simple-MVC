@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using Playground.Mvc;
+using RestfulSimpleMvc.Core;
 
-namespace Playground.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests.Mvc
 {
 	[TestFixture]
 	public class RouteDataResponseTypeResolverTests

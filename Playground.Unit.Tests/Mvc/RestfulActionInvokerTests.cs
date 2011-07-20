@@ -1,9 +1,9 @@
 using System.Web.Mvc;
 using NUnit.Framework;
-using Playground.Mvc;
+using RestfulSimpleMvc.Core;
 using Rhino.Mocks;
 
-namespace Playground.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests.Mvc
 {
 	[TestFixture]
 	public class RestfulActionInvokerTests

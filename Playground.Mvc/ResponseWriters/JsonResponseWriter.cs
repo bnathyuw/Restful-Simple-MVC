@@ -1,10 +1,10 @@
 ﻿using System.Text;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using Playground.Mvc.SerializationDataProviders;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap;
 
-namespace Playground.Mvc.ResponseWriters
+namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public class JsonResponseWriter : IResponseWriter
 	{

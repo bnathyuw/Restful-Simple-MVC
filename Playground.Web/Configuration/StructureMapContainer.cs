@@ -1,7 +1,7 @@
-using Playground.Mvc;
+using RestfulSimpleMvc.Core;
 using StructureMap;
 
-namespace Playground.Web.Configuration
+namespace RestfulSimpleMvc.Web.Configuration
 {
 	public static class StructureMapBootstrapper
 	{

@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using NUnit.Framework;
 
-namespace Playground.SmokeTests
+namespace RestfulSimpleMvc.Smoke.Tests
 {
 	public static class WebRequester{
 		public static WebResponse MakeGetRequest(string url, string acceptHeader = null) {

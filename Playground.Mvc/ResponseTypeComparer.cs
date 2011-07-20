@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	internal class ResponseTypeComparer : IComparer<string> {
 		public int Compare(string x, string y) {

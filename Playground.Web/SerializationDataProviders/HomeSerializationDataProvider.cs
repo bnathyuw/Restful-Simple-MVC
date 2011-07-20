@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
-using Playground.Mvc.SerializationDataProviders;
-using Playground.Web.Models;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Web.Models;
 
-namespace Playground.Web.SerializationDataProviders
+namespace RestfulSimpleMvc.Web.SerializationDataProviders
 {
 	public class HomeSerializationDataProvider:DefaultSerializationDataProvider<Home> {
 

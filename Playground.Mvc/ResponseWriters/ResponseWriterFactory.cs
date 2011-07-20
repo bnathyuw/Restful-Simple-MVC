@@ -1,6 +1,6 @@
 using StructureMap;
 
-namespace Playground.Mvc.ResponseWriters
+namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public class ResponseWriterFactory : IResponseWriterFactory
 	{

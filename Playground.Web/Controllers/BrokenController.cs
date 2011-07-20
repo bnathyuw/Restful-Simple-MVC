@@ -1,7 +1,7 @@
 using System;
 using System.Web.Mvc;
 
-namespace Playground.Web.Controllers
+namespace RestfulSimpleMvc.Web.Controllers
 {
 	public class BrokenController : Controller
 	{

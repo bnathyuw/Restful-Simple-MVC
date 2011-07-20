@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Playground.Mvc.Exceptions
+namespace RestfulSimpleMvc.Core.Exceptions
 {
 	public class InternalServerErrorException : RestfulException
 	{

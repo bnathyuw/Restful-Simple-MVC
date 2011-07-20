@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public interface ITypedResultFactory {
 		ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName);

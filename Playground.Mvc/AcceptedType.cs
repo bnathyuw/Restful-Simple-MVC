@@ -1,4 +1,4 @@
-﻿namespace Playground.Mvc
+﻿namespace RestfulSimpleMvc.Core
 {
 	public class AcceptedType {
 		public string Type { get; set; }

@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using Playground.Mvc.Exceptions;
+using RestfulSimpleMvc.Core.Exceptions;
 
-namespace Playground.Web.Controllers
+namespace RestfulSimpleMvc.Web.Controllers
 {
     public class ExceptionController : Controller
     {

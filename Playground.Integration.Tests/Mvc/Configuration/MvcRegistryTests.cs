@@ -1,13 +1,13 @@
 using System.Web.Mvc;
 using NUnit.Framework;
-using Playground.Mvc;
-using Playground.Mvc.Configuration;
-using Playground.Mvc.Exceptions;
-using Playground.Mvc.ResponseWriters;
-using Playground.Mvc.SerializationDataProviders;
+using RestfulSimpleMvc.Core;
+using RestfulSimpleMvc.Core.Configuration;
+using RestfulSimpleMvc.Core.Exceptions;
+using RestfulSimpleMvc.Core.ResponseWriters;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap;
 
-namespace Playground.Integration.Tests.Mvc.Configuration
+namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 {
 	[TestFixture]
 	public class MvcRegistryTests

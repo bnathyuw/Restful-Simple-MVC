@@ -1,9 +1,9 @@
-using Playground.Mvc.SerializationDataProviders;
-using Playground.Web.Models;
-using Playground.Web.SerializationDataProviders;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Web.Models;
+using RestfulSimpleMvc.Web.SerializationDataProviders;
 using StructureMap.Configuration.DSL;
 
-namespace Playground.Web.Configuration
+namespace RestfulSimpleMvc.Web.Configuration
 {
 	public class SerializerRegistry:Registry
 	{

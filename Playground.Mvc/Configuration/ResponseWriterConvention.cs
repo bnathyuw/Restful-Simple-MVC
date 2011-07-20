@@ -1,10 +1,10 @@
 using System;
-using Playground.Mvc.ResponseWriters;
+using RestfulSimpleMvc.Core.ResponseWriters;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 using StructureMap.TypeRules;
 
-namespace Playground.Mvc.Configuration
+namespace RestfulSimpleMvc.Core.Configuration
 {
 	public class ResponseWriterConvention:IRegistrationConvention
 	{

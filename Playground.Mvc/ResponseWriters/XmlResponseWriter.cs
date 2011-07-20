@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Xml;
-using Playground.Mvc.SerializationDataProviders;
+using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap;
 
-namespace Playground.Mvc.ResponseWriters
+namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public class XmlResponseWriter : IResponseWriter {
 		private readonly IContainer _container;

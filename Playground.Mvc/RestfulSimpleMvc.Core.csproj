@@ -8,8 +8,8 @@
     <ProjectGuid>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Playground.Mvc</RootNamespace>
-    <AssemblyName>Playground.Mvc</AssemblyName>
+    <RootNamespace>RestfulSimpleMvc.Core</RootNamespace>
+    <AssemblyName>RestfulSimpleMvc.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

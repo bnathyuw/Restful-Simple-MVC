@@ -1,6 +1,6 @@
-using Playground.Mvc.ResponseWriters;
+using RestfulSimpleMvc.Core.ResponseWriters;
 
-namespace Playground.Mvc.Results
+namespace RestfulSimpleMvc.Core.Results
 {
 	public interface IRestfulResultFactory {
 		RestfulResult Build(IResponseWriter responseWriter, object content, string viewName);

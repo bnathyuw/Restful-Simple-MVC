@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class NamesAttribute : Attribute
 	{

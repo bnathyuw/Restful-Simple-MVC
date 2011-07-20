@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class ContextResponseTypeResolver : IContextResponseTypeResolver
 	{

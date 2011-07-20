@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace Playground.Mvc.SerializationDataProviders
+namespace RestfulSimpleMvc.Core.SerializationDataProviders
 {
 	public interface ISerializationDataProvider
 	{

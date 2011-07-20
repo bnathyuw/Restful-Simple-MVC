@@ -1,4 +1,4 @@
-﻿namespace Playground.Web.Models
+﻿namespace RestfulSimpleMvc.Web.Models
 {
 	public class Inhabitant
 	{

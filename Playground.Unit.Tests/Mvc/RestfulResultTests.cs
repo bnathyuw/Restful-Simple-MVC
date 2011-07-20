@@ -1,11 +1,11 @@
 using System.Web;
 using System.Web.Mvc;
 using NUnit.Framework;
-using Playground.Mvc.ResponseWriters;
-using Playground.Mvc.Results;
+using RestfulSimpleMvc.Core.ResponseWriters;
+using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
 
-namespace Playground.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests.Mvc
 {
 	[TestFixture]
 	public class RestfulResultTests

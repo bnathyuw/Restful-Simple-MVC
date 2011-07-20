@@ -1,8 +1,8 @@
 using System;
 using System.Xml.Linq;
-using Playground.Mvc.Exceptions;
+using RestfulSimpleMvc.Core.Exceptions;
 
-namespace Playground.Mvc.SerializationDataProviders
+namespace RestfulSimpleMvc.Core.SerializationDataProviders
 {
 	public class RestfulExceptionSerializationDataProvider: DefaultSerializationDataProvider<RestfulException>
 	{

@@ -3,10 +3,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NUnit.Framework;
-using Playground.Mvc;
+using RestfulSimpleMvc.Core;
 using Rhino.Mocks;
 
-namespace Playground.Unit.Tests.Mvc
+namespace RestfulSimpleMvc.Unit.Tests.Mvc
 {
 	[TestFixture]
 	public class ContextResponseTypeResolverTests

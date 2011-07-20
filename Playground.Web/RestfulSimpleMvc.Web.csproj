@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Playground.Web</RootNamespace>
-    <AssemblyName>Playground.Web</AssemblyName>
+    <RootNamespace>RestfulSimpleMvc.Web</RootNamespace>
+    <AssemblyName>RestfulSimpleMvc.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
   </PropertyGroup>
@@ -113,9 +113,9 @@
     <Content Include="Views\Shared\DisplayTemplates\Exception.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Playground.Mvc\Playground.Mvc.csproj">
+    <ProjectReference Include="..\Playground.Mvc\RestfulSimpleMvc.Core.csproj">
       <Project>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</Project>
-      <Name>Playground.Mvc</Name>
+      <Name>RestfulSimpleMvc.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

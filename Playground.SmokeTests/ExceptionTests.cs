@@ -1,7 +1,7 @@
 using System.Net;
 using NUnit.Framework;
 
-namespace Playground.SmokeTests
+namespace RestfulSimpleMvc.Smoke.Tests
 {
 	public class ExceptionTests
 	{

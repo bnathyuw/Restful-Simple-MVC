@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Web.Mvc;
-using Playground.Mvc.Exceptions;
+using RestfulSimpleMvc.Core.Exceptions;
 
-namespace Playground.Mvc
+namespace RestfulSimpleMvc.Core
 {
 	public class RestfulActionInvoker:ControllerActionInvoker
 	{
