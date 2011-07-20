@@ -62,12 +62,10 @@
     <Compile Include="IResponseTypeResolver.cs" />
     <Compile Include="ResponseWriters\IResponseWriter.cs" />
     <Compile Include="ITypedResultFactory.cs" />
-    <Compile Include="ResponseWriters\IResponseWriterFactory.cs" />
     <Compile Include="ResponseWriters\JsonResponseWriter.cs" />
     <Compile Include="NamesAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseType.cs" />
-    <Compile Include="ResponseWriters\ResponseWriterFactory.cs" />
     <Compile Include="RestfulActionInvoker.cs" />
     <Compile Include="Results\IRestfulResultFactory.cs" />
     <Compile Include="Results\RestfulResult.cs" />

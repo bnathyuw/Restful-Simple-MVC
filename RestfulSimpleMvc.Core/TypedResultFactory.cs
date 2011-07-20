@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
+using StructureMap;
 
 namespace RestfulSimpleMvc.Core
 {
@@ -8,17 +9,17 @@ namespace RestfulSimpleMvc.Core
 	{
 		private readonly IContextResponseTypeResolver _contextResponseTypeResolver;
 		private readonly IRestfulResultFactory _restfulResultFactory;
-		private readonly IResponseWriterFactory _responseWriterFactory;
+		private readonly IContainer _container;
 
-		public TypedResultFactory(IContextResponseTypeResolver contextResponseTypeResolver, IRestfulResultFactory restfulResultFactory, IResponseWriterFactory responseWriterFactory) {
+		public TypedResultFactory(IContextResponseTypeResolver contextResponseTypeResolver, IRestfulResultFactory restfulResultFactory, IContainer container) {
 			_contextResponseTypeResolver = contextResponseTypeResolver;
-			_responseWriterFactory = responseWriterFactory;
+			_container = container;
 			_restfulResultFactory = restfulResultFactory;
 		}
 
 		public ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName) {
 			var responseType = _contextResponseTypeResolver.Resolve(controllerContext);
-			var responseWriter = _responseWriterFactory.Build(responseType);
+			var responseWriter = _container.GetInstance<IResponseWriter>(responseType.ToString());
 			return _restfulResultFactory.Build(responseWriter, actionReturnValue, viewName);
 		}
 	}

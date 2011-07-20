@@ -3,6 +3,7 @@ using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
+using StructureMap;
 
 namespace RestfulSimpleMvc.Unit.Tests
 {
@@ -12,23 +13,23 @@ namespace RestfulSimpleMvc.Unit.Tests
 		private TypedResultFactory _typedResultFactory;
 		private IContextResponseTypeResolver _contextResponseTypeResolver;
 		private IRestfulResultFactory _restfulResultFactory;
-		private IResponseWriterFactory _responseWriterFactory;
+		private IContainer _container;
 
 		[SetUp]
 		public void SetUp() {
 			_contextResponseTypeResolver = MockRepository.GenerateStub<IContextResponseTypeResolver>();
 			_restfulResultFactory = MockRepository.GenerateStub<IRestfulResultFactory>();
-			_responseWriterFactory = MockRepository.GenerateStub<IResponseWriterFactory>();
-			_typedResultFactory = new TypedResultFactory(_contextResponseTypeResolver, _restfulResultFactory, _responseWriterFactory);
+			_container = MockRepository.GenerateStub<IContainer>();
+			_typedResultFactory = new TypedResultFactory(_contextResponseTypeResolver, _restfulResultFactory, _container);
 		}
 
 		[Test]
 		public void CreateCallsRestfulResultFactoryWithWriterBuiltByResponseWriterFactory() {
 			IResponseWriter responseWriter = new HtmlResponseWriter();
-			_responseWriterFactory.Stub(f => f.Build(Arg<ResponseType>.Is.Anything)).Return(responseWriter);
-
+			_container.Stub(c => c.GetInstance<IResponseWriter>(Arg<string>.Is.Anything)).Return(responseWriter);
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(null, actionReturnValue, null);
+
 
 			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null));
 		}
