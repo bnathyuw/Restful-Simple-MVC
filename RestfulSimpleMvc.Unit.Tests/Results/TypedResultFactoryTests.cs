@@ -1,11 +1,11 @@
 using NUnit.Framework;
-using RestfulSimpleMvc.Core;
+using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
 using StructureMap;
 
-namespace RestfulSimpleMvc.Unit.Tests
+namespace RestfulSimpleMvc.Unit.Tests.Results
 {
 	[TestFixture]
 	public class TypedResultFactoryTests
@@ -29,7 +29,6 @@ namespace RestfulSimpleMvc.Unit.Tests
 			_container.Stub(c => c.GetInstance<IResponseWriter>(Arg<string>.Is.Anything)).Return(responseWriter);
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(null, actionReturnValue, null);
-
 
 			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null));
 		}

@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using RestfulSimpleMvc.Core;
+using RestfulSimpleMvc.Core.ResponseType;
 
-namespace RestfulSimpleMvc.Unit.Tests
+namespace RestfulSimpleMvc.Unit.Tests.ResponseType
 {
 	[TestFixture]
 	public class RouteDataResponseTypeResolverTests
@@ -16,20 +16,20 @@ namespace RestfulSimpleMvc.Unit.Tests
 		[Test]
 		public void HtmlReturnsHtml() {
 			var responseType = _resolver.Resolve("html");
-			Assert.That(responseType, Is.EqualTo(ResponseType.Html));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Html));
 		}
 
 		[Test]
 		public void XmlReturnsXml() {
 			var responseType = _resolver.Resolve("xml");
-			Assert.That(responseType, Is.EqualTo(ResponseType.Xml));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Xml));
 		}
 
 		[Test]
 		public void JsonReturnsJson()
 		{
 			var responseType = _resolver.Resolve("json");
-			Assert.That(responseType, Is.EqualTo(ResponseType.Json));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Json));
 		}
 
 		[Test]

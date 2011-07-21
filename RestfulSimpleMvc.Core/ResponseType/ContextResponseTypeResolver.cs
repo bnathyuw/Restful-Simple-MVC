@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace RestfulSimpleMvc.Core
+namespace RestfulSimpleMvc.Core.ResponseType
 {
 	public class ContextResponseTypeResolver : IContextResponseTypeResolver
 	{

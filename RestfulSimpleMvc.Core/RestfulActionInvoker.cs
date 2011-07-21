@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Exceptions;
+using RestfulSimpleMvc.Core.Results;
 
 namespace RestfulSimpleMvc.Core
 {

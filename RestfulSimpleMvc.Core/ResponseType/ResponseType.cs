@@ -1,4 +1,4 @@
-﻿namespace RestfulSimpleMvc.Core
+﻿namespace RestfulSimpleMvc.Core.ResponseType
 {
 	public enum ResponseType
 	{

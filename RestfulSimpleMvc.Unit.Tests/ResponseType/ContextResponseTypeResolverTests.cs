@@ -3,10 +3,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NUnit.Framework;
-using RestfulSimpleMvc.Core;
+using RestfulSimpleMvc.Core.ResponseType;
 using Rhino.Mocks;
 
-namespace RestfulSimpleMvc.Unit.Tests
+namespace RestfulSimpleMvc.Unit.Tests.ResponseType
 {
 	[TestFixture]
 	public class ContextResponseTypeResolverTests
@@ -42,7 +42,7 @@ namespace RestfulSimpleMvc.Unit.Tests
 		{
 			var responseType = _responseTypeResolver.Resolve(_controllerContext);
 
-			Assert.That(responseType, Is.EqualTo(ResponseType.Xml));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Xml));
 		}
 
 		[Test]
@@ -57,11 +57,11 @@ namespace RestfulSimpleMvc.Unit.Tests
 
 		[Test]
 		public void ReturnsTypeFromRouteDataResolver() {
-			_routeDataResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(ResponseType.Html);
+			_routeDataResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(Core.ResponseType.ResponseType.Html);
 
 			var responseType = _responseTypeResolver.Resolve(_controllerContext);
 
-			Assert.That(responseType, Is.EqualTo(ResponseType.Html));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Html));
 		}
 
 		[Test]
@@ -79,12 +79,12 @@ namespace RestfulSimpleMvc.Unit.Tests
 		public void ReturnsTypeFromAcceptHeaderResolverIfRouteDataResolverReturnsNull() {
 			const string acceptHeader = "acceptHeader";
 			_routeDataResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(null);
-			_acceptHeaderResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(ResponseType.Html);
+			_acceptHeaderResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(Core.ResponseType.ResponseType.Html);
 			_headers.Add("Accept", acceptHeader);
 
 			var responseType = _responseTypeResolver.Resolve(_controllerContext);
 
-			Assert.That(responseType, Is.EqualTo(ResponseType.Html));
+			Assert.That(responseType, Is.EqualTo(Core.ResponseType.ResponseType.Html));
 		}
 		
 		//[Test]

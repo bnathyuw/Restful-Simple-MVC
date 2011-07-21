@@ -1,6 +1,7 @@
 using System.Web.Mvc;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core;
+using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
 
 namespace RestfulSimpleMvc.Unit.Tests

@@ -51,13 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcceptHeaderResponseTypeResolverTests.cs" />
-    <Compile Include="ContextResponseTypeResolverTests.cs" />
+    <Compile Include="ResponseType\AcceptHeaderResponseTypeResolverTests.cs" />
+    <Compile Include="ResponseType\ContextResponseTypeResolverTests.cs" />
     <Compile Include="Exceptions\RestfulExceptionTests.cs" />
     <Compile Include="RestfulActionInvokerTests.cs" />
-    <Compile Include="RestfulResultTests.cs" />
-    <Compile Include="RouteDataResponseTypeResolver.cs" />
-    <Compile Include="TypedResultFactoryTests.cs" />
+    <Compile Include="Results\RestfulResultFactoryTests.cs" />
+    <Compile Include="Results\RestfulResultTests.cs" />
+    <Compile Include="ResponseType\RouteDataResponseTypeResolver.cs" />
+    <Compile Include="Results\TypedResultFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

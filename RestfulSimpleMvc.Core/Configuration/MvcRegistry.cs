@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap.Configuration.DSL;
 
@@ -14,7 +15,7 @@ namespace RestfulSimpleMvc.Core.Configuration
 			     	x.ConnectImplementationsToTypesClosing(typeof (SerializationDataProvider<>));
 			     });
 
-			For<IContextResponseTypeResolver>().Use(new ContextResponseTypeResolver(new RouteDataResponseTypeResolver(), new AcceptHeaderResponseTypeResolver(new AcceptHeaderParser(),new EnumNameParser<ResponseType>() )));
+			For<IContextResponseTypeResolver>().Use(new ContextResponseTypeResolver(new RouteDataResponseTypeResolver(), new AcceptHeaderResponseTypeResolver(new AcceptHeaderParser(),new EnumNameParser<ResponseType.ResponseType>() )));
 			
 			For<IActionInvoker>().Use<RestfulActionInvoker>();
 			SetAllProperties(c => c.OfType<IActionInvoker>());

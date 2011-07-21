@@ -3,6 +3,7 @@ using NUnit.Framework;
 
 namespace RestfulSimpleMvc.Smoke.Tests
 {
+	[TestFixture]
 	public class ExceptionTests
 	{
 		[Test]

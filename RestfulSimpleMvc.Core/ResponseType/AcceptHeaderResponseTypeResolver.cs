@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace RestfulSimpleMvc.Core
+namespace RestfulSimpleMvc.Core.ResponseType
 {
 	public class AcceptHeaderResponseTypeResolver : IResponseTypeResolver
 	{

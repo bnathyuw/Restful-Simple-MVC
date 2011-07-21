@@ -5,7 +5,7 @@ using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using Rhino.Mocks;
 
-namespace RestfulSimpleMvc.Unit.Tests
+namespace RestfulSimpleMvc.Unit.Tests.Results
 {
 	[TestFixture]
 	public class RestfulResultTests
@@ -30,7 +30,7 @@ namespace RestfulSimpleMvc.Unit.Tests
 		}
 
 		[Test]
-		public void ExecuteResultSetsContentFromContentWriter() {
+		public void ExecuteResultCallsWriteResponseCorrectly() {
 			_restfulResult.ExecuteResult(_controllerContext);
 			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content, null));
 		}

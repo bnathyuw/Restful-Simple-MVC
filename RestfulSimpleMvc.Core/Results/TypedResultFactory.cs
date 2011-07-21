@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
+using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.ResponseWriters;
-using RestfulSimpleMvc.Core.Results;
 using StructureMap;
 
-namespace RestfulSimpleMvc.Core
+namespace RestfulSimpleMvc.Core.Results
 {
 	public class TypedResultFactory : ITypedResultFactory
 	{

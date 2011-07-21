@@ -3,7 +3,9 @@ using NUnit.Framework;
 using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Configuration;
 using RestfulSimpleMvc.Core.Exceptions;
+using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.ResponseWriters;
+using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.SerializationDataProviders;
 using StructureMap;
 
