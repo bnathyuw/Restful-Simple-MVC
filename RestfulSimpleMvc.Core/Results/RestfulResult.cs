@@ -1,4 +1,3 @@
-using System;
 using System.Web.Mvc;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.StatusCodes;

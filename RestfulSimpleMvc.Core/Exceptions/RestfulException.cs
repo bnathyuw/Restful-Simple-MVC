@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.StatusCodes;
 
 namespace RestfulSimpleMvc.Core.Exceptions
