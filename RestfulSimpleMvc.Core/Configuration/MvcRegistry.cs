@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap.Configuration.DSL;
 
 namespace RestfulSimpleMvc.Core.Configuration
@@ -12,11 +13,12 @@ namespace RestfulSimpleMvc.Core.Configuration
 			     	x.TheCallingAssembly();
 			     	x.WithDefaultConventions();
 			     	x.Convention<ResponseWriterConvention>();
+			     	x.Convention<StatusCodeWriterConvention>();
 			     	x.ConnectImplementationsToTypesClosing(typeof (SerializationDataProvider<>));
 			     });
 
 			For<IContextResponseTypeResolver>().Use(new ContextResponseTypeResolver(new RouteDataResponseTypeResolver(), new AcceptHeaderResponseTypeResolver(new AcceptHeaderParser(),new EnumNameParser<ResponseType.ResponseType>() )));
-			
+			For<IStatusCodeWriter>().MissingNamedInstanceIs.TheInstanceNamed("Default");
 			For<IActionInvoker>().Use<RestfulActionInvoker>();
 			SetAllProperties(c => c.OfType<IActionInvoker>());
 		}

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Net;
+using RestfulSimpleMvc.Core.Results;
+using RestfulSimpleMvc.Core.StatusCodes;
 
 namespace RestfulSimpleMvc.Core.Exceptions
 {
-	public class RestfulException : Exception
+	public class RestfulException : Exception, IStatusCoded
 	{
 		private readonly HttpStatusCode _httpStatusCode;
 

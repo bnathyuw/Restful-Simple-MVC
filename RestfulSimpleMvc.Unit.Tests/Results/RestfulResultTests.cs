@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
+using RestfulSimpleMvc.Core.StatusCodes;
 using Rhino.Mocks;
 
 namespace RestfulSimpleMvc.Unit.Tests.Results
@@ -16,6 +17,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		private RestfulResult _restfulResult;
 		private IResponseWriter _responseWriter;
 		private object _content;
+		private IStatusCodeWriter _statusCodeWriter;
 
 		[SetUp]
 		public void SetUp() {
@@ -26,7 +28,8 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_httpContext.Stub(c => c.Response).Return(_httpResponse); 
 			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
 			_content = new {};
-			_restfulResult = new RestfulResult(_responseWriter, _content, null);
+			_statusCodeWriter = MockRepository.GenerateStub<IStatusCodeWriter>();
+			_restfulResult = new RestfulResult(_responseWriter, _content, null, _statusCodeWriter);
 		}
 
 		[Test]

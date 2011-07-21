@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.ResponseWriters;
+using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Core.Results
@@ -20,7 +21,8 @@ namespace RestfulSimpleMvc.Core.Results
 		public ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName) {
 			var responseType = _contextResponseTypeResolver.Resolve(controllerContext);
 			var responseWriter = _container.GetInstance<IResponseWriter>(responseType.ToString());
-			return _restfulResultFactory.Build(responseWriter, actionReturnValue, viewName);
+			var statusCodeWriter = _container.GetInstance<IStatusCodeWriter>();
+			return _restfulResultFactory.Build(responseWriter, actionReturnValue, viewName, statusCodeWriter);
 		}
 	}
 }
