@@ -1,0 +1,14 @@
+﻿@model RestfulSimpleMvc.Web.Models.Address
+
+@{
+    ViewBag.Title = "Address";
+}
+
+<h1>Address</h1>
+
+<section class="adr" id="@Model.Id">
+	<div class="extended-address">@Model.ExtendedAddress</div>
+	<div class="street-address">@Model.StreetAddress</div>
+	<div class="locality">@Model.Locality</div>
+	<div class="postal-code">@Model.PostalCode</div>
+</section>

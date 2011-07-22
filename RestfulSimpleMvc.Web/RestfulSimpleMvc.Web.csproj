@@ -65,7 +65,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\RepositoryRegistry.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\IAddressRepository.cs" />
     <Compile Include="Models\Inhabitant.cs" />
+    <Compile Include="Models\InMemoryAddressRepository.cs" />
+    <Compile Include="SerializationDataProviders\AddressesSerializationDataProvider.cs" />
+    <Compile Include="SerializationDataProviders\AddressSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\HomeSerializationDataProvider.cs" />
     <Compile Include="Configuration\SerializerRegistry.cs" />
     <Compile Include="Configuration\StructureMapContainer.cs" />
@@ -117,6 +125,12 @@
       <Project>{D1E60E25-CFBF-44EA-B750-8BDEF331CC8A}</Project>
       <Name>RestfulSimpleMvc.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Address\Get.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Addresses\Get.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

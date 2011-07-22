@@ -44,6 +44,27 @@ namespace RestfulSimpleMvc.Web
 				"Broken",
 				"Broken",
 				new {controller = "Broken", action = "Get" });
+
+			routes.MapRoute(
+				"GetAddressWithType",
+				"Addresses/{id}.{responseType}",
+				new { controller = "Address", action = "Get" });
+
+			routes.MapRoute(
+				"GetAddress",
+				"Addresses/{id}",
+				new { controller = "Address", action = "Get" });
+
+			routes.MapRoute(
+				"GetAddressesWithType",
+				"Addresses.{responseType}",
+				new { controller = "Addresses", action = "Get" });
+
+			routes.MapRoute(
+				"GetAddresses",
+				"Addresses",
+				new { controller = "Addresses", action = "Get" });
+
 		}
 
 		protected void Application_Start()

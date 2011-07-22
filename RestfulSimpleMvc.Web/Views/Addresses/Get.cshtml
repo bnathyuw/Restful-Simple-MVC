@@ -1,0 +1,14 @@
+﻿@model IEnumerable<RestfulSimpleMvc.Web.Models.Address>
+
+@{
+    ViewBag.Title = "Addresses";
+}
+
+<h1>Address</h1>
+
+<ul>
+@foreach (var address in Model)
+{
+	<li>@Html.ActionLink(address.StreetAddress, "Get", "Address", new { address.Id }, null)</li>
+}
+</ul>

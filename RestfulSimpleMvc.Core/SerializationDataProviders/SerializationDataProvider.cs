@@ -11,12 +11,8 @@ namespace RestfulSimpleMvc.Core.SerializationDataProviders
 			return GetXmlData((T) content);
 		}
 
-		protected virtual dynamic GetJsonData(T content) {
-			return content;
-		}
+		protected abstract dynamic GetJsonData(T content);
 
-		protected virtual XDocument GetXmlData(T content) {
-			return new XDocument("root");
-		}
+		protected abstract XDocument GetXmlData(T content);
 	}
 }

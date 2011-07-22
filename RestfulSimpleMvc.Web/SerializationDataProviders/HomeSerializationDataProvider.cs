@@ -5,9 +5,11 @@ using RestfulSimpleMvc.Web.Models;
 
 namespace RestfulSimpleMvc.Web.SerializationDataProviders
 {
-	public class HomeSerializationDataProvider:SerializationDataProvider<Home> {
+	public class HomeSerializationDataProvider : SerializationDataProvider<Home>
+	{
 
-		protected override dynamic GetJsonData(Home content) {
+		protected override dynamic GetJsonData(Home content)
+		{
 			return new
 			{
 				content.Locality,
@@ -24,9 +26,9 @@ namespace RestfulSimpleMvc.Web.SerializationDataProviders
 					new XAttribute("href", "http://localhost/restful-simple-mvc"),
 					new XElement("street-address", content.StreetAddress),
 					new XElement("locality", content.Locality),
-					new XElement("inhabitants", 
+					new XElement("inhabitants",
 						from i in content.Inhabitants
 						select new XElement("inhabitant", i.Name))));
-		}	
+		}
 	}
 }
