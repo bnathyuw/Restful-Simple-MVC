@@ -13,7 +13,7 @@ namespace RestfulSimpleMvc.Web.Models
 				new Address { Id = 1, StreetAddress = "10 Downing Street", Locality = "London", PostalCode = "SW1A 2AA" },
 				new Address { Id = 2, StreetAddress = "11 Downing Street", Locality = "London", PostalCode = "SW1A 2AB" },
 				new Address { Id = 3, ExtendedAddress = "BBC Broadcasting House", StreetAddress = "Portland Place", Locality = "London", PostalCode = "W1A 1AA" },
-				new Address { Id = 4, ExtendedAddress = "BBC Television Centre", StreetAddress = "Wood Land", Locality = "London", PostalCode = "W12 7RJ" }
+				new Address { Id = 4, ExtendedAddress = "BBC Television Centre", StreetAddress = "Wood Lane", Locality = "London", PostalCode = "W12 7RJ" }
 			};
 		}
 
