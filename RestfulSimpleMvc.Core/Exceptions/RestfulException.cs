@@ -30,6 +30,11 @@ namespace RestfulSimpleMvc.Core.Exceptions
 			return new RestfulException(HttpStatusCode.BadGateway, message, innerException);
 		}
 
+        public static RestfulException BadRequest(string message = null, Exception innerException = null)
+        {
+            return new RestfulException(HttpStatusCode.BadRequest, message, innerException);
+        }
+
 		public static RestfulException InternalServerError(string message = null, Exception innerException = null)
 		{
 			return new RestfulException(HttpStatusCode.InternalServerError, message, innerException);
