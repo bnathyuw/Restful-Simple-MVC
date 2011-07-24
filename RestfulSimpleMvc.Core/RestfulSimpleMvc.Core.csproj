@@ -50,6 +50,7 @@
     <Compile Include="AcceptedType.cs" />
     <Compile Include="AcceptHeaderParser.cs" />
     <Compile Include="Configuration\StatusCodeWriterConvention.cs" />
+    <Compile Include="Constraints\ResponseTypeConstraint.cs" />
     <Compile Include="ResponseType\AcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="Configuration\MvcRegistry.cs" />
     <Compile Include="Configuration\ResponseWriterConvention.cs" />

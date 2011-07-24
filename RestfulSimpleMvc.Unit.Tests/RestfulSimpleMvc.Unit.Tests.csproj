@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constraints\ResponseTypeConstraintTests.cs" />
     <Compile Include="ResponseType\AcceptHeaderResponseTypeResolverTests.cs" />
     <Compile Include="ResponseType\ContextResponseTypeResolverTests.cs" />
     <Compile Include="Exceptions\RestfulExceptionTests.cs" />
