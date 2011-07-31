@@ -20,8 +20,7 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 		private readonly IContainer _container;
 
 		public MvcRegistryTests() {
-			_container = new Container();
-			_container.Configure(x => x.AddRegistry(new MvcRegistry()));
+			_container = StructureMapBootstrapper.Container;
 		}
 
 		[Test]

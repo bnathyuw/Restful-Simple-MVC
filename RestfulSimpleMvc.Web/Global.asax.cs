@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using RestfulSimpleMvc.Core.Configuration;
 using RestfulSimpleMvc.Web.Configuration;
 
 namespace RestfulSimpleMvc.Web
@@ -71,7 +72,7 @@ namespace RestfulSimpleMvc.Web
 		{
 			AreaRegistration.RegisterAllAreas();
 			
-			DependencyResolver.SetResolver(new StructureMapDependencyResolver());
+			DependencyResolver.SetResolver(new StructureMapDependencyResolver(StructureMapBootstrapper.Container));
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 		}

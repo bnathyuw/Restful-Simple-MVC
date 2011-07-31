@@ -14,6 +14,7 @@
     <AssemblyName>RestfulSimpleMvc.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,8 +76,6 @@
     <Compile Include="SerializationDataProviders\AddressesSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\AddressSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\HomeSerializationDataProvider.cs" />
-    <Compile Include="Configuration\SerializerRegistry.cs" />
-    <Compile Include="Configuration\StructureMapContainer.cs" />
     <Compile Include="Controllers\BrokenController.cs" />
     <Compile Include="Controllers\ExceptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -85,7 +84,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Configuration\StructureMapDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
