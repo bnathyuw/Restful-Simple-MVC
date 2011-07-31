@@ -11,6 +11,7 @@ namespace RestfulSimpleMvc.Core.Configuration
 		public MvcRegistry() {
 			Scan(x =>{
 			     	x.TheCallingAssembly();
+			        x.AssembliesFromApplicationBaseDirectory();
 			     	x.WithDefaultConventions();
 			     	x.Convention<ResponseWriterConvention>();
 			     	x.Convention<StatusCodeWriterConvention>();
