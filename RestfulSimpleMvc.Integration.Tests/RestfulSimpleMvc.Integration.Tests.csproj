@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mvc\Configuration\EntityStub.cs" />
+    <Compile Include="Mvc\Configuration\EntityStubSerializationDataProvider.cs" />
     <Compile Include="Mvc\Configuration\MvcRegistryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
