@@ -1,6 +1,4 @@
-using System;
 using System.Web.Mvc;
-using System.Xml.Linq;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Configuration;
@@ -92,17 +90,4 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
             Assert.That(serializationDataProvider, Is.TypeOf((typeof(EntityStubSerializationDataProvider))));
         }
 	}
-
-    public class EntityStub{}
-    public class EntityStubSerializationDataProvider:SerializationDataProvider<EntityStub> {
-        protected override dynamic GetJsonData(EntityStub content)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override XDocument GetXmlData(EntityStub content)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
