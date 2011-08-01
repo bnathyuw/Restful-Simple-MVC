@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Configuration;
-using RestfulSimpleMvc.Web.Configuration;
 
 namespace RestfulSimpleMvc.Web
 {
@@ -16,55 +16,16 @@ namespace RestfulSimpleMvc.Web
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.MapRoute(
-				"Root",
-				"",
-				new { controller = "Home", action = "Get"});
-
-			routes.MapRoute(
-				"RootWithType",
-				".{responseType}",
-				new { controller = "Home", action = "Get" });
-
-			routes.MapRoute(
-				"ExceptionWithType",
-				"Exceptions/{httpStatusCode}.{responseType}",
-				new { controller = "Exception", action = "Get" });
-
-			routes.MapRoute(
-				"Exception",
-				"Exceptions/{httpStatusCode}",
-				new { controller = "Exception", action = "Get" });
-
-			routes.MapRoute(
-				"BrokenWithType",
-				"Broken.{responseType}",
-				new { controller = "Broken", action = "Get" });
-			
-			routes.MapRoute(
-				"Broken",
-				"Broken",
-				new {controller = "Broken", action = "Get" });
-
-			routes.MapRoute(
-				"GetAddressWithType",
-				"Addresses/{id}.{responseType}",
-				new { controller = "Address", action = "Get" });
-
-			routes.MapRoute(
-				"GetAddress",
-				"Addresses/{id}",
-				new { controller = "Address", action = "Get" });
-
-			routes.MapRoute(
-				"GetAddressesWithType",
-				"Addresses.{responseType}",
-				new { controller = "Addresses", action = "Get" });
-
-			routes.MapRoute(
-				"GetAddresses",
-				"Addresses",
-				new { controller = "Addresses", action = "Get" });
+			routes.Add(new RestfulRoute("", "Home"));
+			routes.Add(new RestfulRoute(".{responseType}", "Home"));
+			routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}.{responseType}", "Exception"));
+			routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}", "Exception"));
+			routes.Add(new RestfulRoute("Broken.{responseType}", "Broken"));
+			routes.Add(new RestfulRoute("Broken", "Broken"));
+			routes.Add(new RestfulRoute("Addresses/{id}.{responseType}", "Address"));
+			routes.Add(new RestfulRoute("Addresses/{id}", "Address"));
+			routes.Add(new RestfulRoute("Addresses.{responseType}", "Addresses"));
+			routes.Add(new RestfulRoute("Addresses", "Addresses"));
 
 		}
 

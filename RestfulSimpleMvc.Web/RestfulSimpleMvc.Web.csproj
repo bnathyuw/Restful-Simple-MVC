@@ -69,10 +69,12 @@
     <Compile Include="Configuration\RepositoryRegistry.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\MethodsController.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\IAddressRepository.cs" />
     <Compile Include="Models\Inhabitant.cs" />
     <Compile Include="Models\InMemoryAddressRepository.cs" />
+    <Compile Include="Models\Method.cs" />
     <Compile Include="SerializationDataProviders\AddressesSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\AddressSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\HomeSerializationDataProvider.cs" />

@@ -65,6 +65,7 @@
     <Compile Include="IEnumNameParser.cs" />
     <Compile Include="ResponseType\IResponseTypeResolver.cs" />
     <Compile Include="ResponseWriters\IResponseWriter.cs" />
+    <Compile Include="RestfulRoute.cs" />
     <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\DefaultStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\IStatusCoded.cs" />

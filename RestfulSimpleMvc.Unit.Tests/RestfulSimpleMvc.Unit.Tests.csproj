@@ -56,6 +56,7 @@
     <Compile Include="ResponseType\ContextResponseTypeResolverTests.cs" />
     <Compile Include="Exceptions\RestfulExceptionTests.cs" />
     <Compile Include="RestfulActionInvokerTests.cs" />
+    <Compile Include="RestfulRouteTests.cs" />
     <Compile Include="Results\RestfulResultFactoryTests.cs" />
     <Compile Include="Results\RestfulResultTests.cs" />
     <Compile Include="ResponseType\RouteDataResponseTypeResolver.cs" />
