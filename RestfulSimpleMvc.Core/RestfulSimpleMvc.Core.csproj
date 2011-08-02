@@ -56,14 +56,12 @@
     <Compile Include="ResponseType\AcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="Configuration\MvcRegistry.cs" />
     <Compile Include="Configuration\ResponseWriterConvention.cs" />
-    <Compile Include="ResponseType\ContextResponseTypeResolver.cs" />
     <Compile Include="EnumNameParser.cs" />
     <Compile Include="Exceptions\RestfulException.cs" />
     <Compile Include="ResponseWriters\HtmlResponseWriter.cs" />
     <Compile Include="IAcceptHeaderParser.cs" />
-    <Compile Include="ResponseType\IContextResponseTypeResolver.cs" />
     <Compile Include="IEnumNameParser.cs" />
-    <Compile Include="ResponseType\IResponseTypeResolver.cs" />
+    <Compile Include="ResponseType\IAcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="ResponseWriters\IResponseWriter.cs" />
     <Compile Include="RestfulRoute.cs" />
     <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
@@ -78,7 +76,6 @@
     <Compile Include="Results\IRestfulResultFactory.cs" />
     <Compile Include="Results\RestfulResult.cs" />
     <Compile Include="Results\RestfulResultFactory.cs" />
-    <Compile Include="ResponseType\RouteDataResponseTypeResolver.cs" />
     <Compile Include="SerializationDataProviders\SerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\RestfulExceptionSerializationDataProvider.cs" />
     <Compile Include="SerializationDataProviders\ISerializationDataProvider.cs" />

@@ -1,5 +1,6 @@
+using System.Web.Mvc;
+using System.Web.Routing;
 using NUnit.Framework;
-using RestfulSimpleMvc.Core.ResponseType;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.StatusCodes;
@@ -12,17 +13,21 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 	public class TypedResultFactoryTests
 	{
 		private TypedResultFactory _typedResultFactory;
-		private IContextResponseTypeResolver _contextResponseTypeResolver;
-		private IRestfulResultFactory _restfulResultFactory;
+	    private IRestfulResultFactory _restfulResultFactory;
 		private IContainer _container;
+	    private ControllerContext _controllerContext;
+	    private RouteData _routeData;
 
-		[SetUp]
+	    [SetUp]
 		public void SetUp() {
-			_contextResponseTypeResolver = MockRepository.GenerateStub<IContextResponseTypeResolver>();
 			_restfulResultFactory = MockRepository.GenerateStub<IRestfulResultFactory>();
 			_container = MockRepository.GenerateStub<IContainer>();
-			_typedResultFactory = new TypedResultFactory(_contextResponseTypeResolver, _restfulResultFactory, _container);
-		}
+			_typedResultFactory = new TypedResultFactory(_restfulResultFactory, _container);
+	        _controllerContext = MockRepository.GenerateStrictMock<ControllerContext>();
+	        _routeData = new RouteData();
+            _routeData.Values.Add("responseType", Core.ResponseType.ResponseType.Xml);
+	        _controllerContext.Stub(c => c.RouteData).Return(_routeData);
+	    }
 
 		[Test]
 		public void CreateCallsRestfulResultFactoryWithWriterBuiltByResponseWriterFactory() {
@@ -31,7 +36,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			IStatusCodeWriter statusCodeWriter = new DefaultStatusCodeWriter();
 			_container.Stub(c => c.GetInstance<IStatusCodeWriter>()).Return(statusCodeWriter);
 			var actionReturnValue = new object();
-			_typedResultFactory.Build(null, actionReturnValue, null);
+			_typedResultFactory.Build(_controllerContext, actionReturnValue, null);
 
 			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null, statusCodeWriter));
 		}
@@ -41,7 +46,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			var restfulResult = new RestfulResult(null, null, null, null);
 			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything, Arg<IStatusCodeWriter>.Is.Anything)).Return(restfulResult);
 
-			var actionResult = _typedResultFactory.Build(null, null, null);
+            var actionResult = _typedResultFactory.Build(_controllerContext, null, null);
 
 			Assert.That(actionResult, Is.EqualTo(restfulResult));
 		}

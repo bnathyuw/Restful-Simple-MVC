@@ -52,14 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constraints\ResponseTypeConstraintTests.cs" />
+    <Compile Include="RestfulRouteResponseTypeTests.cs" />
     <Compile Include="ResponseType\AcceptHeaderResponseTypeResolverTests.cs" />
-    <Compile Include="ResponseType\ContextResponseTypeResolverTests.cs" />
     <Compile Include="Exceptions\RestfulExceptionTests.cs" />
     <Compile Include="RestfulActionInvokerTests.cs" />
-    <Compile Include="RestfulRouteTests.cs" />
+    <Compile Include="RestfulRouteActionTests.cs" />
     <Compile Include="Results\RestfulResultFactoryTests.cs" />
     <Compile Include="Results\RestfulResultTests.cs" />
-    <Compile Include="ResponseType\RouteDataResponseTypeResolver.cs" />
     <Compile Include="Results\TypedResultFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

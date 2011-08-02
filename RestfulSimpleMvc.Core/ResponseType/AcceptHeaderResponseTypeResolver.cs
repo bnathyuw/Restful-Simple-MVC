@@ -2,7 +2,7 @@
 
 namespace RestfulSimpleMvc.Core.ResponseType
 {
-	public class AcceptHeaderResponseTypeResolver : IResponseTypeResolver
+	public class AcceptHeaderResponseTypeResolver : IAcceptHeaderResponseTypeResolver
 	{
 		private readonly IAcceptHeaderParser _acceptHeaderParser;
 		private readonly IEnumNameParser<ResponseType> _enumNameParser;

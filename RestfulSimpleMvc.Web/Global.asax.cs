@@ -2,12 +2,22 @@
 using System.Web.Routing;
 using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Configuration;
+using RestfulSimpleMvc.Core.ResponseType;
+using StructureMap;
 
 namespace RestfulSimpleMvc.Web
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
-		private static void RegisterGlobalFilters(GlobalFilterCollection filters)
+	    private static readonly IContainer _container;
+	    private static readonly AcceptHeaderResponseTypeResolver _acceptHeaderResponseTypeResolver;
+
+	    static MvcApplication() {
+	        _container = StructureMapBootstrapper.Container;
+	        _acceptHeaderResponseTypeResolver = _container.GetInstance<AcceptHeaderResponseTypeResolver>();
+	    }
+
+	    private static void RegisterGlobalFilters(GlobalFilterCollection filters)
 		{
 			filters.Add(new HandleErrorAttribute());
 		}
@@ -16,24 +26,19 @@ namespace RestfulSimpleMvc.Web
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.Add(new RestfulRoute("", "Home"));
-			routes.Add(new RestfulRoute(".{responseType}", "Home"));
-			routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}.{responseType}", "Exception"));
-			routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}", "Exception"));
-			routes.Add(new RestfulRoute("Broken.{responseType}", "Broken"));
-			routes.Add(new RestfulRoute("Broken", "Broken"));
-			routes.Add(new RestfulRoute("Addresses/{id}.{responseType}", "Address"));
-			routes.Add(new RestfulRoute("Addresses/{id}", "Address"));
-			routes.Add(new RestfulRoute("Addresses.{responseType}", "Addresses"));
-			routes.Add(new RestfulRoute("Addresses", "Addresses"));
+			routes.Add(new RestfulRoute("", "Home", _acceptHeaderResponseTypeResolver));
+            routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}", "Exception", _acceptHeaderResponseTypeResolver));
+            routes.Add(new RestfulRoute("Broken", "Broken", _acceptHeaderResponseTypeResolver));
+            routes.Add(new RestfulRoute("Addresses/{id}", "Address", _acceptHeaderResponseTypeResolver));
+            routes.Add(new RestfulRoute("Addresses", "Addresses", _acceptHeaderResponseTypeResolver));
 
 		}
 
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
-			
-			DependencyResolver.SetResolver(new StructureMapDependencyResolver(StructureMapBootstrapper.Container));
+
+		    DependencyResolver.SetResolver(new StructureMapDependencyResolver(_container));
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 		}
