@@ -26,15 +26,19 @@ namespace RestfulSimpleMvc.Web
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.Add(new RestfulRoute("", "Home", _acceptHeaderResponseTypeResolver));
-            routes.Add(new RestfulRoute("Exceptions/{httpStatusCode}", "Exception", _acceptHeaderResponseTypeResolver));
-            routes.Add(new RestfulRoute("Broken", "Broken", _acceptHeaderResponseTypeResolver));
-            routes.Add(new RestfulRoute("Addresses/{id}", "Address", _acceptHeaderResponseTypeResolver));
-            routes.Add(new RestfulRoute("Addresses", "Addresses", _acceptHeaderResponseTypeResolver));
+			routes.Add(RestfulRoute("", "Home"));
+            routes.Add(RestfulRoute("Exceptions/{httpStatusCode}", "Exception"));
+            routes.Add(RestfulRoute("Broken", "Broken"));
+            routes.Add(RestfulRoute("Addresses/{id}", "Address"));
+            routes.Add(RestfulRoute("Addresses", "Addresses"));
 
 		}
 
-		protected void Application_Start()
+	    private static RestfulRoute RestfulRoute(string url, string controller) {
+	        return new RestfulRoute(url, controller, _acceptHeaderResponseTypeResolver);
+	    }
+
+	    protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
 
