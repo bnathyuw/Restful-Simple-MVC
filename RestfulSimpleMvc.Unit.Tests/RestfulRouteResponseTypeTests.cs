@@ -27,7 +27,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             _form = new NameValueCollection();
             _httpRequest.Stub(r => r.Form).Return(_form);
             _acceptHeaderResponseTypeResolver = MockRepository.GenerateMock<IAcceptHeaderResponseTypeResolver>();
-            _route = new RestfulRoute(URL, CONTROLLER, _acceptHeaderResponseTypeResolver);
+            _route = new RestfulRoute(URL, CONTROLLER, new ResponseTypeMapper(_acceptHeaderResponseTypeResolver));
             _httpRequest.Stub(r => r.HttpMethod).Return("Get");
             _headers = new NameValueCollection();
             _httpRequest.Stub(r => r.Headers).Return(_headers);

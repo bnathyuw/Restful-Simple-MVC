@@ -1,4 +1,3 @@
-using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -7,43 +6,33 @@ namespace RestfulSimpleMvc.Core.Routes {
     public class RestfulRoute : RouteBase {
         private readonly Route _innerRoute;
         private readonly Route _innerRouteWithResponseType;
-        private readonly IAcceptHeaderResponseTypeResolver _acceptHeaderResponseTypeResolver;
+    	private readonly IResponseTypeMapper _responseTypeMapper;
 
-        public RestfulRoute(string url, string controller, IAcceptHeaderResponseTypeResolver acceptHeaderResponseTypeResolver) {
-            _innerRoute = new Route(url,
-                new RouteValueDictionary(new { controller }),
-                new RouteValueDictionary(),
-                new RouteValueDictionary(),
-                new MvcRouteHandler());
-            _innerRouteWithResponseType = new Route(url + ".{rt}",
-                 new RouteValueDictionary(new { controller }),
-                new RouteValueDictionary(),
-                new RouteValueDictionary(),
-                new MvcRouteHandler());
-            _acceptHeaderResponseTypeResolver = acceptHeaderResponseTypeResolver;
+        public RestfulRoute(string url, string controller, IResponseTypeMapper responseTypeMapper) {
+            _innerRoute = CreateRoute(url, controller);
+        	_innerRouteWithResponseType = CreateRoute(url + ".{rt}", controller);
+        	_responseTypeMapper = responseTypeMapper;
         }
 
-        public override RouteData GetRouteData(HttpContextBase httpContext) {
+    	private static Route CreateRoute(string url, string controller) {
+    		return new Route(url,
+    		                 new RouteValueDictionary(new { controller }),
+    		                 new RouteValueDictionary(),
+    		                 new RouteValueDictionary(),
+    		                 new MvcRouteHandler());
+    	}
+
+    	public override RouteData GetRouteData(HttpContextBase httpContext) {
             var routeData = _innerRouteWithResponseType.GetRouteData(httpContext) ?? _innerRoute.GetRouteData(httpContext);
             if (routeData != null) {
-                MapAction(httpContext, routeData);
-                routeData.Values.Add("responseType", ParseResponseType(routeData) 
-                    ?? _acceptHeaderResponseTypeResolver.Resolve(httpContext.Request.Headers["Accept"]) 
-                    ?? ResponseType.Xml);
-           }
-            return routeData;
+            	MapAction(httpContext, routeData);
+            	_responseTypeMapper.MapResponseType(httpContext, routeData);
+            }
+        	return routeData;
         }
 
-        private static ResponseType? ParseResponseType(RouteData routeData) {
-            var rt = routeData.Values["rt"];
-            if (rt == null) 
-                return null;
 
-            ResponseType responseType;
-            return Enum.TryParse(rt.ToString(), true, out responseType) ? responseType : (ResponseType?) null;
-        }
-
-        private static void MapAction(HttpContextBase httpContext, RouteData routeData) {
+    	private static void MapAction(HttpContextBase httpContext, RouteData routeData) {
             var httpMethod = httpContext.Request.HttpMethod;
             if (httpMethod.ToUpperInvariant() == "POST") {
                 httpMethod = httpContext.Request.Form["_action"] ?? httpMethod;

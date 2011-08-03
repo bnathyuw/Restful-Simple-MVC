@@ -9,11 +9,11 @@ namespace RestfulSimpleMvc.Web
 	public class MvcApplication : System.Web.HttpApplication
 	{
 	    private static readonly IContainer _container;
-	    private static readonly AcceptHeaderResponseTypeResolver _acceptHeaderResponseTypeResolver;
+	    private static readonly IResponseTypeMapper _responseTypeMapper;
 
 	    static MvcApplication() {
 	        _container = StructureMapBootstrapper.Container;
-	        _acceptHeaderResponseTypeResolver = _container.GetInstance<AcceptHeaderResponseTypeResolver>();
+	        _responseTypeMapper = _container.GetInstance<IResponseTypeMapper>();
 	    }
 
 	    private static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -34,7 +34,7 @@ namespace RestfulSimpleMvc.Web
 		}
 
 	    private static RestfulRoute RestfulRoute(string url, string controller) {
-	        return new RestfulRoute(url, controller, _acceptHeaderResponseTypeResolver);
+	        return new RestfulRoute(url, controller, _responseTypeMapper);
 	    }
 
 	    protected void Application_Start()
