@@ -21,12 +21,16 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 	    [SetUp]
 		public void SetUp() {
 			_restfulResultFactory = MockRepository.GenerateStub<IRestfulResultFactory>();
+			
 			_container = MockRepository.GenerateStub<IContainer>();
+			
 			_typedResultFactory = new TypedResultFactory(_restfulResultFactory, _container);
-	        _controllerContext = MockRepository.GenerateStrictMock<ControllerContext>();
-	        _routeData = new RouteData();
-            _routeData.Values.Add("responseType", Core.Routes.ResponseType.Xml);
-	        _controllerContext.Stub(c => c.RouteData).Return(_routeData);
+	    	
+			_routeData = new RouteData();
+	    	_routeData.Values.Add("responseType", Core.Routes.ResponseType.Xml);
+
+	    	_controllerContext = MockRepository.GenerateStub<ControllerContext>();
+	    	_controllerContext.RouteData = _routeData;
 	    }
 
 		[Test]

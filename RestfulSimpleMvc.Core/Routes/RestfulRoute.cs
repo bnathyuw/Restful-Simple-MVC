@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -37,9 +38,20 @@ namespace RestfulSimpleMvc.Core.Routes {
         }
 
     	public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values) {
-            if (values.ContainsKey("action")) values.Remove("action");
-            var virtualPathData = _innerRoute.GetVirtualPath(requestContext, values);
-            return virtualPathData;
-        }
+    		ResolveAction(values);
+    		_responseTypeMapper.ResolveResponseType(values, requestContext.HttpContext);
+
+    		var route = values.ContainsKey("rt") 
+				? _innerRouteWithResponseType 
+				: _innerRoute;
+
+    		return route.GetVirtualPath(requestContext, values);
+    	}
+
+    	private static void ResolveAction(IDictionary<string, object> values) {
+    		if (values.ContainsKey("action")) {
+    			values.Remove("action");
+    		}
+    	}
     }
 }

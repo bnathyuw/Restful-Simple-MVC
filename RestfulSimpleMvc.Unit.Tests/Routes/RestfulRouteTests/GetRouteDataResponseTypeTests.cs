@@ -5,34 +5,32 @@ using NUnit.Framework;
 using RestfulSimpleMvc.Core.Routes;
 using Rhino.Mocks;
 
-namespace RestfulSimpleMvc.Unit.Tests {
+namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
     [TestFixture]
-    public class RestfulRouteResponseTypeTests {
+    public class GetRouteDataResponseTypeTests {
         private HttpContextBase _httpContext;
         private HttpRequestBase _httpRequest;
         private RestfulRoute _route;
-        private NameValueCollection _form;
+		private readonly NameValueCollection _form = new NameValueCollection();
         private IAcceptHeaderResponseTypeResolver _acceptHeaderResponseTypeResolver;
         private const string CONTROLLER = "Methods";
         private const string URL = "Methods";
-        private NameValueCollection _headers;
+		private readonly NameValueCollection _headers = new NameValueCollection();
 
-
-        [SetUp]
+    	[SetUp]
         public void SetUp() {
-            _httpContext = MockRepository.GenerateStub<HttpContextBase>();
-            _httpRequest = MockRepository.GenerateStub<HttpRequestBase>();
-            _httpContext.Stub(c => c.Request).Return(_httpRequest);
-            _httpRequest.Stub(r => r.PathInfo).Return("");
-            _form = new NameValueCollection();
-            _httpRequest.Stub(r => r.Form).Return(_form);
-            _acceptHeaderResponseTypeResolver = MockRepository.GenerateMock<IAcceptHeaderResponseTypeResolver>();
-            _route = new RestfulRoute(URL, CONTROLLER, new ResponseTypeMapper(_acceptHeaderResponseTypeResolver), new ActionMapper());
-            _httpRequest.Stub(r => r.HttpMethod).Return("Get");
-            _headers = new NameValueCollection();
-            _httpRequest.Stub(r => r.Headers).Return(_headers);
+    		_httpRequest = MockRepository.GenerateStub<HttpRequestBase>();
+    		_httpRequest.Stub(r => r.PathInfo).Return("");
+    		_httpRequest.Stub(r => r.Form).Return(_form);
+    		_httpRequest.Stub(r => r.HttpMethod).Return("Get");
+    		_httpRequest.Stub(r => r.Headers).Return(_headers);
 
-        }
+    		_httpContext = MockRepository.GenerateStub<HttpContextBase>();
+    		_httpContext.Stub(c => c.Request).Return(_httpRequest);
+    		
+			_acceptHeaderResponseTypeResolver = MockRepository.GenerateStub<IAcceptHeaderResponseTypeResolver>();
+    		_route = new RestfulRoute(URL, CONTROLLER, new ResponseTypeMapper(_acceptHeaderResponseTypeResolver), new ActionMapper());
+    	}
 
         [Test]
         public void DefaultIsXml() {
@@ -104,7 +102,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             Assert.That(routeData.Values["responseType"], Is.EqualTo(ResponseType.Json));
         }
 
-        private void StubAcceptHeader(string value) {
+    	private void StubAcceptHeader(string value) {
             _headers.Add("Accept", value);
         }
 
@@ -118,6 +116,5 @@ namespace RestfulSimpleMvc.Unit.Tests {
             Assert.That(routeData != null, "No matching route found");
             return routeData;
         }
-
     }
 }
