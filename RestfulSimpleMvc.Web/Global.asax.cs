@@ -10,10 +10,12 @@ namespace RestfulSimpleMvc.Web
 	{
 	    private static readonly IContainer _container;
 	    private static readonly IResponseTypeMapper _responseTypeMapper;
+		private static readonly IActionMapper _actionMapper;
 
 	    static MvcApplication() {
 	        _container = StructureMapBootstrapper.Container;
 	        _responseTypeMapper = _container.GetInstance<IResponseTypeMapper>();
+	    	_actionMapper = _container.GetInstance<IActionMapper>();
 	    }
 
 	    private static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -30,11 +32,10 @@ namespace RestfulSimpleMvc.Web
             routes.Add(RestfulRoute("Broken", "Broken"));
             routes.Add(RestfulRoute("Addresses/{id}", "Address"));
             routes.Add(RestfulRoute("Addresses", "Addresses"));
-
 		}
 
 	    private static RestfulRoute RestfulRoute(string url, string controller) {
-	        return new RestfulRoute(url, controller, _responseTypeMapper);
+	        return new RestfulRoute(url, controller, _responseTypeMapper, _actionMapper);
 	    }
 
 	    protected void Application_Start()

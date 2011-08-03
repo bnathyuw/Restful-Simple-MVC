@@ -59,10 +59,14 @@
     <Compile Include="EnumNameParser.cs" />
     <Compile Include="Exceptions\RestfulException.cs" />
     <Compile Include="ResponseWriters\HtmlResponseWriter.cs" />
+    <Compile Include="Routes\ActionMapper.cs" />
     <Compile Include="Routes\IAcceptHeaderParser.cs" />
     <Compile Include="IEnumNameParser.cs" />
     <Compile Include="Routes\IAcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="ResponseWriters\IResponseWriter.cs" />
+    <Compile Include="Routes\IActionMapper.cs" />
+    <Compile Include="Routes\IResponseTypeMapper.cs" />
+    <Compile Include="Routes\ResponseTypeMapper.cs" />
     <Compile Include="Routes\RestfulRoute.cs" />
     <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\DefaultStatusCodeWriter.cs" />
