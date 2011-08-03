@@ -22,20 +22,17 @@ namespace RestfulSimpleMvc.Unit.Tests
 		[Test]
 		public void CreateActionResultWithViewResultReturnsThatResult()
 		{
-			ControllerContext controllerContext = null;
-			ActionDescriptor actionDescriptor = null;
 			object actionReturnValue = new ViewResult();
-			var actionResult = _actionInvoker.CreateActionResult(controllerContext, actionDescriptor, actionReturnValue);
+			var actionResult = _actionInvoker.CreateActionResult(null, null, actionReturnValue);
 			Assert.That(actionResult, Is.EqualTo(actionReturnValue));
 		}
 
 		[Test]
 		public void CreateActionResultWithObjectReturnsSomethingElse()
 		{
-			ControllerContext controllerContext = null;
 			var actionDescriptor = MockRepository.GenerateStub<ActionDescriptor>();
 			object actionReturnValue = new {};
-			var actionResult = _actionInvoker.CreateActionResult(controllerContext, actionDescriptor, actionReturnValue);
+			var actionResult = _actionInvoker.CreateActionResult(null, actionDescriptor, actionReturnValue);
 			Assert.That(actionResult, Is.Not.EqualTo(actionReturnValue));
 		}
 	}

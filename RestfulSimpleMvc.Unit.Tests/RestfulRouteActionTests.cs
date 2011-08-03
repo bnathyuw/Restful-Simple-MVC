@@ -2,7 +2,6 @@ using System.Collections.Specialized;
 using System.Web;
 using System.Web.Routing;
 using NUnit.Framework;
-using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Routes;
 using Rhino.Mocks;
 

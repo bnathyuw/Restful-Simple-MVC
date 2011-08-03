@@ -14,7 +14,7 @@ namespace RestfulSimpleMvc.Core.Routes
 		private static AcceptedType ParseAcceptedType(string typeString)
 		{
 			var typeSpec = typeString.Split(';');
-			var typeParams = typeSpec.Skip(1).Select(ParseTypeParam);
+			var typeParams = typeSpec.Skip(1).Select(ParseTypeParam).ToList();
 			var priority = typeParams.Any(p => p.Key == "q") ? typeParams.First(p => p.Key == "q").Value : 1;
 			return new AcceptedType
 			{
