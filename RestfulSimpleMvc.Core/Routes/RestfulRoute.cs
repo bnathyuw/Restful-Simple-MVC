@@ -2,9 +2,8 @@ using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using RestfulSimpleMvc.Core.ResponseType;
 
-namespace RestfulSimpleMvc.Core {
+namespace RestfulSimpleMvc.Core.Routes {
     public class RestfulRoute : RouteBase {
         private readonly Route _innerRoute;
         private readonly Route _innerRouteWithResponseType;
@@ -30,18 +29,18 @@ namespace RestfulSimpleMvc.Core {
                 MapAction(httpContext, routeData);
                 routeData.Values.Add("responseType", ParseResponseType(routeData) 
                     ?? _acceptHeaderResponseTypeResolver.Resolve(httpContext.Request.Headers["Accept"]) 
-                    ?? ResponseType.ResponseType.Xml);
+                    ?? ResponseType.Xml);
            }
             return routeData;
         }
 
-        private static ResponseType.ResponseType? ParseResponseType(RouteData routeData) {
+        private static ResponseType? ParseResponseType(RouteData routeData) {
             var rt = routeData.Values["rt"];
             if (rt == null) 
                 return null;
 
-            ResponseType.ResponseType responseType;
-            return Enum.TryParse(rt.ToString(), true, out responseType) ? responseType : (ResponseType.ResponseType?) null;
+            ResponseType responseType;
+            return Enum.TryParse(rt.ToString(), true, out responseType) ? responseType : (ResponseType?) null;
         }
 
         private static void MapAction(HttpContextBase httpContext, RouteData routeData) {

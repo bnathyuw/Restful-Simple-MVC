@@ -25,7 +25,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_typedResultFactory = new TypedResultFactory(_restfulResultFactory, _container);
 	        _controllerContext = MockRepository.GenerateStrictMock<ControllerContext>();
 	        _routeData = new RouteData();
-            _routeData.Values.Add("responseType", Core.ResponseType.ResponseType.Xml);
+            _routeData.Values.Add("responseType", Core.Routes.ResponseType.Xml);
 	        _controllerContext.Stub(c => c.RouteData).Return(_routeData);
 	    }
 

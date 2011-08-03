@@ -2,7 +2,7 @@
 using System.Web.Routing;
 using RestfulSimpleMvc.Core;
 using RestfulSimpleMvc.Core.Configuration;
-using RestfulSimpleMvc.Core.ResponseType;
+using RestfulSimpleMvc.Core.Routes;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Web

@@ -1,4 +1,4 @@
-﻿namespace RestfulSimpleMvc.Core.ResponseType
+﻿namespace RestfulSimpleMvc.Core.Routes
 {
 	public enum ResponseType
 	{

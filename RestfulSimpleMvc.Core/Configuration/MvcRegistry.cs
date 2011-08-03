@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Web.Mvc;
+using RestfulSimpleMvc.Core.Routes;
 using RestfulSimpleMvc.Core.SerializationDataProviders;
 using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap.Configuration.DSL;
@@ -23,7 +24,7 @@ namespace RestfulSimpleMvc.Core.Configuration
             For<IStatusCodeWriter>().MissingNamedInstanceIs.TheInstanceNamed("Default");
             For<IActionInvoker>().Use<RestfulActionInvoker>();
             SetAllProperties(c => c.OfType<IActionInvoker>());
-            For<IEnumNameParser<ResponseType.ResponseType>>().Use<EnumNameParser<ResponseType.ResponseType>>();
+            For<IEnumNameParser<ResponseType>>().Use<EnumNameParser<ResponseType>>();
         }
 
         private static bool ExcludeAssemblies(Assembly assembly)

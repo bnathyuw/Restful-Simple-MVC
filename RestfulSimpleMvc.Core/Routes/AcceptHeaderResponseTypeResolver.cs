@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace RestfulSimpleMvc.Core.ResponseType
+namespace RestfulSimpleMvc.Core.Routes
 {
 	public class AcceptHeaderResponseTypeResolver : IAcceptHeaderResponseTypeResolver
 	{

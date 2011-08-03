@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="Constraints\ResponseTypeConstraintTests.cs" />
     <Compile Include="RestfulRouteResponseTypeTests.cs" />
-    <Compile Include="ResponseType\AcceptHeaderResponseTypeResolverTests.cs" />
+    <Compile Include="Routes\AcceptHeaderResponseTypeResolverTests.cs" />
     <Compile Include="Exceptions\RestfulExceptionTests.cs" />
     <Compile Include="RestfulActionInvokerTests.cs" />
     <Compile Include="RestfulRouteActionTests.cs" />

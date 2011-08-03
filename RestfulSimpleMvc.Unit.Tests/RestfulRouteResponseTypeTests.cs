@@ -3,7 +3,7 @@ using System.Web;
 using System.Web.Routing;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core;
-using RestfulSimpleMvc.Core.ResponseType;
+using RestfulSimpleMvc.Core.Routes;
 using Rhino.Mocks;
 
 namespace RestfulSimpleMvc.Unit.Tests {
@@ -39,7 +39,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
         public void DefaultIsXml() {
             StubUrl();
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Xml));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Xml));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             StubUrl(URL + ".html");
          
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Html));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Html));
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             StubUrl(URL + ".json");
 
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Json));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Json));
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             StubUrl(URL + ".xml");
 
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Xml));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Xml));
         }
 
         [Test]
@@ -71,7 +71,7 @@ namespace RestfulSimpleMvc.Unit.Tests {
             StubUrl(URL + ".junk");
 
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Xml));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Xml));
         }
 
         [Test]
@@ -99,10 +99,10 @@ namespace RestfulSimpleMvc.Unit.Tests {
             StubUrl();
             const string acceptValue = "text/html";
             StubAcceptHeader(acceptValue);
-            _acceptHeaderResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(Core.ResponseType.ResponseType.Json);
+            _acceptHeaderResponseTypeResolver.Stub(r => r.Resolve(Arg<string>.Is.Anything)).Return(Core.Routes.ResponseType.Json);
 
             var routeData = GetRouteData();
-            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.ResponseType.ResponseType.Json));
+            Assert.That(routeData.Values["responseType"], Is.EqualTo(Core.Routes.ResponseType.Json));
         }
 
         private void StubAcceptHeader(string value) {

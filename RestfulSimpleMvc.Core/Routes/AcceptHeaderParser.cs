@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestfulSimpleMvc.Core
+namespace RestfulSimpleMvc.Core.Routes
 {
 	public class AcceptHeaderParser : IAcceptHeaderParser
 	{

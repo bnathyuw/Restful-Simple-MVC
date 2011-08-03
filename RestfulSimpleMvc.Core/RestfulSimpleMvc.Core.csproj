@@ -48,22 +48,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcceptedType.cs" />
-    <Compile Include="AcceptHeaderParser.cs" />
+    <Compile Include="Routes\AcceptHeaderParser.cs" />
     <Compile Include="Configuration\StatusCodeWriterConvention.cs" />
     <Compile Include="Configuration\StructureMapBootstrapper.cs" />
     <Compile Include="Configuration\StructureMapDependencyResolver.cs" />
     <Compile Include="Constraints\ResponseTypeConstraint.cs" />
-    <Compile Include="ResponseType\AcceptHeaderResponseTypeResolver.cs" />
+    <Compile Include="Routes\AcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="Configuration\MvcRegistry.cs" />
     <Compile Include="Configuration\ResponseWriterConvention.cs" />
     <Compile Include="EnumNameParser.cs" />
     <Compile Include="Exceptions\RestfulException.cs" />
     <Compile Include="ResponseWriters\HtmlResponseWriter.cs" />
-    <Compile Include="IAcceptHeaderParser.cs" />
+    <Compile Include="Routes\IAcceptHeaderParser.cs" />
     <Compile Include="IEnumNameParser.cs" />
-    <Compile Include="ResponseType\IAcceptHeaderResponseTypeResolver.cs" />
+    <Compile Include="Routes\IAcceptHeaderResponseTypeResolver.cs" />
     <Compile Include="ResponseWriters\IResponseWriter.cs" />
-    <Compile Include="RestfulRoute.cs" />
+    <Compile Include="Routes\RestfulRoute.cs" />
     <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\DefaultStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\IStatusCoded.cs" />
@@ -71,7 +71,7 @@
     <Compile Include="ResponseWriters\JsonResponseWriter.cs" />
     <Compile Include="NamesAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResponseType\ResponseType.cs" />
+    <Compile Include="Routes\ResponseType.cs" />
     <Compile Include="RestfulActionInvoker.cs" />
     <Compile Include="Results\IRestfulResultFactory.cs" />
     <Compile Include="Results\RestfulResult.cs" />
