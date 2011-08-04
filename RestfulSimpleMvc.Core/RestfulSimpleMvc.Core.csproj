@@ -68,6 +68,7 @@
     <Compile Include="Routes\IResponseTypeMapper.cs" />
     <Compile Include="Routes\ResponseTypeMapper.cs" />
     <Compile Include="Routes\RestfulRoute.cs" />
+    <Compile Include="Routes\RouteCollectionExtensions.cs" />
     <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\DefaultStatusCodeWriter.cs" />
     <Compile Include="StatusCodes\IStatusCoded.cs" />
