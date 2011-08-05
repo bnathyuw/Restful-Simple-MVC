@@ -1,27 +1,21 @@
 ﻿using System.Web.Mvc;
-using System.Xml;
-using RestfulSimpleMvc.Core.Serialization;
-using StructureMap;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public class XmlResponseWriter : IResponseWriter {
-		private readonly IContainer _container;
+		private readonly IResponseUpdater _responseUpdater;
+		private readonly ISerializationDataProviderFactory _serializationDataProviderFactory;
 
-    	public XmlResponseWriter(IContainer container) {
-    		_container = container;
+    	public XmlResponseWriter(IResponseUpdater responseUpdater, ISerializationDataProviderFactory serializationDataProviderFactory) {
+    		_responseUpdater = responseUpdater;
+    		_serializationDataProviderFactory = serializationDataProviderFactory;
     	}
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName) {
-			var serializer = _container
-				.ForGenericType(typeof(SerializationDataProvider<>))
-				.WithParameters(content.GetType())
-				.GetInstanceAs<ISerializationDataProvider>();
+			var serializer = _serializationDataProviderFactory.Build(content);
 			var xDocument = serializer.GetXmlData(content);
-			var xmlWriter = XmlWriter.Create(controllerContext.HttpContext.Response.OutputStream);
-			xDocument.WriteTo(xmlWriter);
-			xmlWriter.Close();
-			controllerContext.HttpContext.Response.ContentType = "text/xml";
+			_responseUpdater.WriteOutputToResponse(controllerContext, xDocument.ToString());
+			_responseUpdater.SetContentType(controllerContext, "text/xml");
 		}
 	}
 }
