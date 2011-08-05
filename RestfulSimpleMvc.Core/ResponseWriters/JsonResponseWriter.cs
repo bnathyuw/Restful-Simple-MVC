@@ -1,33 +1,27 @@
-﻿using System.Text;
-using System.Web.Mvc;
-using System.Web.Script.Serialization;
+﻿using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Serialization;
-using StructureMap;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {
 	public class JsonResponseWriter : IResponseWriter
 	{
-		private readonly IContainer _container;
+		private readonly IJsonSerializer _jsonSerializer;
+		private readonly IResponseUpdater _responseUpdater;
+		private readonly ISerializationDataProviderFactory _serializationDataProviderFactory;
 
-		public JsonResponseWriter(IContainer container)
-		{
-			_container = container;
+		public JsonResponseWriter(IJsonSerializer jsonSerializer, IResponseUpdater responseUpdater, ISerializationDataProviderFactory serializationDataProviderFactory) {
+			_jsonSerializer = jsonSerializer;
+			_responseUpdater = responseUpdater;
+			_serializationDataProviderFactory = serializationDataProviderFactory;
 		}
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
 		{
-			var serializer = _container
-				.ForGenericType(typeof(SerializationDataProvider<>))
-				.WithParameters(content.GetType())
-				.GetInstanceAs<ISerializationDataProvider>();
+			var serializer = _serializationDataProviderFactory.Build(content);
 			var jsonData = serializer.GetJsonData(content);
-			var javaScriptSerializer = new JavaScriptSerializer();
-			var serialize = javaScriptSerializer.Serialize(jsonData);
-			var bytes = Encoding.UTF8.GetBytes(serialize);
-			controllerContext.HttpContext.Response.OutputStream.Write(bytes, 0, bytes.Length);
-			var response = controllerContext.HttpContext.Response;
-			response.ContentType = "application/json";
+			string output = _jsonSerializer.Serialize(jsonData);
+			_responseUpdater.WriteOutputToResponse(controllerContext, output);
+			_responseUpdater.SetContentType(controllerContext, "application/json");
 		}
 	}
 }
