@@ -48,6 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcceptedType.cs" />
+    <Compile Include="Configuration\SerializationRegistry.cs" />
+    <Compile Include="Serialization\IJsonSerializer.cs" />
+    <Compile Include="ResponseWriters\IResponseUpdater.cs" />
+    <Compile Include="ResponseWriters\ISerializationDataProviderFactory.cs" />
+    <Compile Include="ResponseWriters\JsonPResponseWriter.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="ResponseWriters\ResponseUpdater.cs" />
+    <Compile Include="Serialization\SerializationDataProviderFactory.cs" />
     <Compile Include="Routes\AcceptHeaderParser.cs" />
     <Compile Include="Configuration\StatusCodeWriterConvention.cs" />
     <Compile Include="Configuration\StructureMapBootstrapper.cs" />
@@ -81,9 +89,9 @@
     <Compile Include="Results\IRestfulResultFactory.cs" />
     <Compile Include="Results\RestfulResult.cs" />
     <Compile Include="Results\RestfulResultFactory.cs" />
-    <Compile Include="SerializationDataProviders\SerializationDataProvider.cs" />
-    <Compile Include="SerializationDataProviders\RestfulExceptionSerializationDataProvider.cs" />
-    <Compile Include="SerializationDataProviders\ISerializationDataProvider.cs" />
+    <Compile Include="Serialization\SerializationDataProvider.cs" />
+    <Compile Include="Serialization\RestfulExceptionSerializationDataProvider.cs" />
+    <Compile Include="Serialization\ISerializationDataProvider.cs" />
     <Compile Include="Results\TypedResultFactory.cs" />
     <Compile Include="ResponseWriters\XmlResponseWriter.cs" />
     <Compile Include="StatusCodes\IStatusCodeWriter.cs" />

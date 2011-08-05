@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace RestfulSimpleMvc.Core.SerializationDataProviders
+namespace RestfulSimpleMvc.Core.Serialization
 {
 	public abstract class SerializationDataProvider<T>: ISerializationDataProvider {
 		public dynamic GetJsonData(object content) {

@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Routes;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap.Configuration.DSL;
 

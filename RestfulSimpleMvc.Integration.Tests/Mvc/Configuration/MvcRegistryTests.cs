@@ -6,7 +6,7 @@ using RestfulSimpleMvc.Core.Exceptions;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.Routes;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap;
 

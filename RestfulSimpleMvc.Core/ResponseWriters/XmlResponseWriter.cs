@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Xml;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters

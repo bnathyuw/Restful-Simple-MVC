@@ -4,9 +4,11 @@
 	{
 		[Names("text/html")]
 		Html,
-		[Names("application/json")]
+		[Names("text/json", "application/json")]
 		Json,
-		[Names("text/xml","application/xml")]
-		Xml
+		[Names("text/xml", "application/xml")]
+		Xml,
+		[Names("text/json-p", "application/json-p")]
+		JsonP
 	}
 }

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using RestfulSimpleMvc.Core.Exceptions;
 using RestfulSimpleMvc.Core.StatusCodes;
 
-namespace RestfulSimpleMvc.Core.SerializationDataProviders
+namespace RestfulSimpleMvc.Core.Serialization
 {
 	public class RestfulExceptionSerializationDataProvider: SerializationDataProvider<RestfulException>
 	{

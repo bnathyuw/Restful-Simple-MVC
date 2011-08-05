@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 using RestfulSimpleMvc.Web.Models;
 
 namespace RestfulSimpleMvc.Web.SerializationDataProviders

@@ -1,6 +1,6 @@
 using System;
 using System.Xml.Linq;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 
 namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 {

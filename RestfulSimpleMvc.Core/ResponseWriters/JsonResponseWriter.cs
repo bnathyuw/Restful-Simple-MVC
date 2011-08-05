@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
-using RestfulSimpleMvc.Core.SerializationDataProviders;
+using RestfulSimpleMvc.Core.Serialization;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters

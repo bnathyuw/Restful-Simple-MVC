@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constraints\ResponseTypeConstraintTests.cs" />
+    <Compile Include="ResponseWriters\JsonPResponseWriterTests.cs" />
     <Compile Include="Routes\RestfulRouteTests\GetRouteDataResponseTypeTests.cs" />
     <Compile Include="Routes\RestfulRouteTests\GetVirtualPathActionTests.cs" />
     <Compile Include="Routes\RestfulRouteTests\GetVirtualPathResponseTypeTests.cs" />
@@ -74,9 +76,7 @@
       <Name>RestfulSimpleMvc.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ResponseWriters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
