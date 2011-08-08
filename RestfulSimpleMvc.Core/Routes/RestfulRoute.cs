@@ -39,7 +39,11 @@ namespace RestfulSimpleMvc.Core.Routes {
 
     	public override VirtualPathData GetVirtualPath(RequestContext requestContext, RouteValueDictionary values) {
     		ResolveAction(values);
+
     		_responseTypeMapper.ResolveResponseType(values, requestContext.HttpContext);
+
+			if (values.ContainsKey("rt") && values["rt"].ToString() == "jsonp" && !values.ContainsKey("callback"))
+				values["callback"] = "callback";
 
     		var route = values.ContainsKey("rt") 
 				? _innerRouteWithResponseType 

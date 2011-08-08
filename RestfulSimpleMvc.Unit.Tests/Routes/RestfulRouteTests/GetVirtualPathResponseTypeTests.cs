@@ -71,6 +71,18 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
 			Assert.AreEqual(URL + ".json", virtualPathData.VirtualPath);
 		}
 
+    	[Test]
+    	public void AddsDefaultCallbackToJsonPPath() {
+    		var virtualPathData = GetVirtualPath(new {action = "Get", controller = CONTROLLER, responseType = ResponseType.JsonP});
+			Assert.AreEqual(URL + ".jsonp?callback=callback", virtualPathData.VirtualPath);
+    	}
+
+    	[Test]
+    	public void DoesNotAddCallbackIfItExists() {
+			var virtualPathData = GetVirtualPath(new { action = "Get", controller = CONTROLLER, responseType = ResponseType.JsonP, callback="handleJson" });
+			Assert.AreEqual(URL + ".jsonp?callback=handleJson", virtualPathData.VirtualPath);
+    	}
+
     	private VirtualPathData GetVirtualPath(object routeValues) {
 			var routeValueDictionary = new RouteValueDictionary(routeValues);
 			var virtualPathData = _route.GetVirtualPath(_requestContext, routeValueDictionary);
