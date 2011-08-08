@@ -42,14 +42,19 @@ namespace RestfulSimpleMvc.Core.Routes {
 
     		_responseTypeMapper.ResolveResponseType(values, requestContext.HttpContext);
 
-			if (values.ContainsKey("rt") && values["rt"].ToString() == "jsonp" && !values.ContainsKey("callback"))
-				values["callback"] = "callback";
+			ResolveCallback(values);
 
     		var route = values.ContainsKey("rt") 
 				? _innerRouteWithResponseType 
 				: _innerRoute;
 
     		return route.GetVirtualPath(requestContext, values);
+    	}
+
+    	private static void ResolveCallback(IDictionary<string, object> values) {
+    		if (values.ContainsKey("rt") && values["rt"].ToString() == "jsonp" && !values.ContainsKey("callback")) {
+    			values["callback"] = "callback";
+    		}
     	}
 
     	private static void ResolveAction(IDictionary<string, object> values) {
