@@ -61,6 +61,18 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         	Assert.That(virtualPathData.VirtualPath, Is.EqualTo(URL));
         }
 
+		[Test]
+		public void AddReturnsCorrectPath() {
+			var virtualPathData = GetVirtualPathData(new { controller = CONTROLLER, action = "Add" });
+			Assert.That(virtualPathData.VirtualPath, Is.EqualTo(URL + "/Add"));
+		}
+
+		[Test]
+		public void AddWithFormatReturnsCorrectPath() {
+			var virtualPathData = GetVirtualPathData(new { controller = CONTROLLER, action = "Add", responseType = ResponseType.Json });
+			Assert.That(virtualPathData.VirtualPath, Is.EqualTo(URL + "/Add.json"));
+		}
+
     	private VirtualPathData GetVirtualPathData(object routeValues) {
     		var virtualPathData = _route.GetVirtualPath(_requestContext, new RouteValueDictionary(routeValues));
     		Assert.That(virtualPathData != null);
