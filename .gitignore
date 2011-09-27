@@ -6,3 +6,5 @@ _ReSharper*
 *.docstates
 *.user
 *.suo
+*.nunit
+TestResult.xml
