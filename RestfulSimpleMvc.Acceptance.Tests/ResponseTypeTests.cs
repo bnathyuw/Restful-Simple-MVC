@@ -16,7 +16,7 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 		}
 
 		[Test]
-		public void IfCallbackIsSpecifiedWithJsonPInQueryThenReturnOk() {
+		public void IfCallbackIsSpecifiedWithJsonPInQueryThenReturnOK() {
 			var response = _webRequester.Get("http://localhost/restful-simple-mvc/.jsonp?callback=callback");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
 		}

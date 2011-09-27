@@ -6,13 +6,11 @@ namespace RestfulSimpleMvc.Core.Routes
 	public class ActionMapper : IActionMapper
 	{
 		public void MapAction(HttpContextBase httpContext, RouteData routeData) {
-			if (!routeData.Values.ContainsKey("action")) {
-				var httpMethod = httpContext.Request.HttpMethod;
-				if (httpMethod.ToUpperInvariant() == "POST") {
-					httpMethod = httpContext.Request.Form["_action"] ?? httpMethod;
-				}
-				routeData.Values.Add("action", httpMethod);
+			var httpMethod = httpContext.Request.HttpMethod;
+			if (httpMethod.ToUpperInvariant() == "POST") {
+				httpMethod = httpContext.Request.Form["_action"] ?? httpMethod;
 			}
+			routeData.Values.Add("action", httpMethod);
 		}
 	}
 }

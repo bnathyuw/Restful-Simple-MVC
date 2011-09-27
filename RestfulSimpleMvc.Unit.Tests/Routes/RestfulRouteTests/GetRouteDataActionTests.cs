@@ -19,6 +19,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         [SetUp]
         public void SetUp() {
         	_httpRequest = MockRepository.GenerateStub<HttpRequestBase>();
+        	_httpRequest.Stub(r => r.AppRelativeCurrentExecutionFilePath).Return("~/" + URL);
         	_httpRequest.Stub(r => r.PathInfo).Return("");
         	_httpRequest.Stub(r => r.Form).Return(_form);
         	_httpRequest.Stub(r => r.Headers).Return(_headers);
@@ -33,7 +34,6 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         [Test]
         public void GetCorrespondsToGetMethod() {
             StubHttpMethod("Get");
-			StubUrl();
 			var routeData = GetRouteData();
             Assert.That(routeData.Values["action"], Is.EqualTo("Get"));
         }
@@ -41,7 +41,6 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
     	[Test]
         public void PutCorrespondsToPutMethod() {
 			StubHttpMethod("Put");
-			StubUrl();
 			var routeData = GetRouteData();
             Assert.That(routeData.Values["action"], Is.EqualTo("Put"));
         }
@@ -49,7 +48,6 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
     	[Test]
         public void PostCorrespondsToPostMethod() {
 			StubHttpMethod("Post");
-			StubUrl();
             var routeData = GetRouteData();
     		Assert.That(routeData.Values["action"], Is.EqualTo("Post"));
         }
@@ -57,31 +55,10 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
     	[Test]
         public void PostWithActionParamCorrespondsToPutMethod() {
 			StubHttpMethod("Post");
-			StubUrl();
             _form.Add("_action", "Put");
 			var routeData = GetRouteData();
             Assert.That(routeData.Values["action"], Is.EqualTo("Put"));
         }
-
-		[Test]
-		public void ExplicitActionCorrespondsToGetMethod() {
-			StubHttpMethod("Get");
-			StubUrl(URL + "/Add");
-			var routeData = GetRouteData();
-			Assert.That(routeData.Values["action"], Is.EqualTo("Add"));
-		}
-
-		[Test]
-		public void ExplicitActionAndResponseFormatCorrespondsToGetMethod() {
-			StubHttpMethod("Get");
-			StubUrl(URL + "/Add.json");
-			var routeData = GetRouteData();
-			Assert.That(routeData.Values["action"], Is.EqualTo("Add"));
-		}
-
-		private void StubUrl(string url = URL) {
-			_httpRequest.Stub(r => r.AppRelativeCurrentExecutionFilePath).Return("~/" + url);
-		}
 
     	private void StubHttpMethod(string methodName) {
     		_httpRequest.Stub(r => r.HttpMethod).Return(methodName);
