@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Exceptions;
@@ -23,7 +24,7 @@ namespace RestfulSimpleMvc.Core
 			return actionResult;
 		}
 
-		protected override ExceptionContext InvokeExceptionFilters(ControllerContext controllerContext, System.Collections.Generic.IList<IExceptionFilter> filters, System.Exception exception)
+		protected override ExceptionContext InvokeExceptionFilters(ControllerContext controllerContext, IList<IExceptionFilter> filters, System.Exception exception)
 		{
 			var context = new ExceptionContext(controllerContext, exception);
 			foreach (var filter in filters.Reverse())
