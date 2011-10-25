@@ -8,3 +8,4 @@ _ReSharper*
 *.suo
 *.nunit
 TestResult.xml
+*.VisualState.xml
