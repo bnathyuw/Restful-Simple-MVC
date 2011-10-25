@@ -33,6 +33,15 @@ namespace RestfulSimpleMvc.Core.Routes {
     		
     		_actionMapper.MapAction(httpContext, routeData);
     		_responseTypeMapper.MapResponseType(httpContext, routeData);
+			
+			if (httpContext.Request.QueryString["callback"] != null) {
+				routeData.Values["callback"] = httpContext.Request.QueryString["callback"]
+					?? httpContext.Request.Form["callback"];
+			}
+			else if (httpContext.Request.Form["callback"] != null) {
+				routeData.Values["callback"] = httpContext.Request.Form["callback"];
+			}
+
     		
 			return routeData;
         }

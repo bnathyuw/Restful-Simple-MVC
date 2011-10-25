@@ -16,6 +16,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         private const string CONTROLLER = "Methods";
         private const string URL = "Methods";
 		private readonly NameValueCollection _headers = new NameValueCollection();
+    	private readonly NameValueCollection _queryString = new NameValueCollection();
 
     	[SetUp]
         public void SetUp() {
@@ -24,6 +25,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
     		_httpRequest.Stub(r => r.Form).Return(_form);
     		_httpRequest.Stub(r => r.HttpMethod).Return("Get");
     		_httpRequest.Stub(r => r.Headers).Return(_headers);
+    		_httpRequest.Stub(r => r.QueryString).Return(_queryString);
 
     		_httpContext = MockRepository.GenerateStub<HttpContextBase>();
     		_httpContext.Stub(c => c.Request).Return(_httpRequest);

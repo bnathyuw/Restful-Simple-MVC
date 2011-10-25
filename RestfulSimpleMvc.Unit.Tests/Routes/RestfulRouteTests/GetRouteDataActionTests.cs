@@ -13,7 +13,8 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         private RestfulRoute _route;
 		private readonly NameValueCollection _form = new NameValueCollection();
 		private readonly NameValueCollection _headers = new NameValueCollection();
-        private const string CONTROLLER = "Methods";
+    	private readonly NameValueCollection _queryString = new NameValueCollection();
+    	private const string CONTROLLER = "Methods";
         private const string URL = "Methods";
 
         [SetUp]
@@ -23,6 +24,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Routes.RestfulRouteTests {
         	_httpRequest.Stub(r => r.PathInfo).Return("");
         	_httpRequest.Stub(r => r.Form).Return(_form);
         	_httpRequest.Stub(r => r.Headers).Return(_headers);
+        	_httpRequest.Stub(r => r.QueryString).Return(_queryString);
 
         	_httpContext = MockRepository.GenerateStub<HttpContextBase>();
         	_httpContext.Stub(c => c.Request).Return(_httpRequest);
