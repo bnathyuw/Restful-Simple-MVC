@@ -30,7 +30,7 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 
 				LogResponse(response);
 
-				throw;
+				return response as HttpWebResponse;
 			}
 		}
 
