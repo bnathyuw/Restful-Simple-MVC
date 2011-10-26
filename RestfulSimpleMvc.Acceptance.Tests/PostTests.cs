@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using NUnit.Framework;
 
 namespace RestfulSimpleMvc.Acceptance.Tests
@@ -6,29 +7,55 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 	[TestFixture]
 	public class PostTests
 	{
+		private const string URL = "http://localhost/restful-simple-mvc/posts";
+
 		[Test]
 		public void Post_with_xml_response_type_returns_correct_response_code() {
-			var response = WebRequester.Post("http://localhost/restful-simple-mvc/posts", "", acceptHeader: "application/xml");
+			var response = WebRequester.Post(URL, "", acceptHeader: "application/xml");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
 		}
 
 		[Test]
 		public void Post_with_json_response_type_returns_correct_response_code() {
-			var response = WebRequester.Post("http://localhost/restful-simple-mvc/posts", "", acceptHeader: "application/json");
+			var response = WebRequester.Post(URL, "", acceptHeader: "application/json");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
 		}
 
 		[Test]
 		public void Post_with_html_response_type_returns_correct_response_code() {
-			var response = WebRequester.Post("http://localhost/restful-simple-mvc/posts", "", acceptHeader: "text/html");
+			var response = WebRequester.Post(URL, "", acceptHeader: "text/html");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.MovedPermanently));
 		}
 
 		[Test]
 		public void Post_with_jsonp_response_type_returns_correct_response_code() {
-			var response = WebRequester.Post("http://localhost/restful-simple-mvc/posts", "callback=callback", acceptHeader: "application/json-p");
+			var response = WebRequester.Post(URL, "callback=callback", acceptHeader: "application/json-p");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
 		}
-		 
+
+		[Test]
+		public void Post_with_xml_response_type_returns_location_of_resource_in_location_header() {
+			var response = WebRequester.Post(URL, "", acceptHeader: "application/xml");
+			var location = response.Headers["location"];
+			Assert.That(location, Is.StringMatching(URL + "/.*"));
+		}
+		[Test]
+		public void Post_with_json_response_type_returns_location_of_resource_in_location_header() {
+			var response = WebRequester.Post(URL, "", acceptHeader: "application/json");
+			var location = response.Headers["location"];
+			Assert.That(location, Is.StringMatching(URL + "/.*"));
+		}
+		[Test]
+		public void Post_with_jsonp_response_type_returns_location_of_resource_in_location_header() {
+			var response = WebRequester.Post(URL, "callback=callback", acceptHeader: "application/json-p");
+			var location = response.Headers["location"];
+			Assert.That(location, Is.StringMatching(URL + "/.*"));
+		}
+		[Test]
+		public void Post_with_html_response_type_returns_location_of_resource_in_location_header() {
+			var response = WebRequester.Post(URL, "", acceptHeader: "text/html");
+			var location = response.Headers["location"];
+			Assert.That(location, Is.StringMatching(URL + "/.*"));
+		}
 	}
 }

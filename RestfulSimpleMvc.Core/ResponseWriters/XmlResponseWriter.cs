@@ -15,6 +15,9 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName) {
 			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
 				controllerContext.HttpContext.Response.StatusCode = (int) HttpStatusCode.Created;
+				if (content is ILocated) {
+					controllerContext.HttpContext.Response.Headers.Add("Location", ((ILocated)content).GetLocation());
+				}
 				return;
 			}
 			var serializer = _serializationDataProviderFactory.Build(content);

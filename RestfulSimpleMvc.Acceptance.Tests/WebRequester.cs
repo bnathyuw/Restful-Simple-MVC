@@ -16,8 +16,9 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 		}
 		
 		private static HttpWebResponse DoRequest(string url, string acceptHeader, string method, string data, string contentType) {
-			var request = WebRequest.Create(url);
+			var request = (HttpWebRequest)WebRequest.Create(url);
 			request.Method = method;
+			request.AllowAutoRedirect = false;
 
 			if (data != null) {
 				var requestStream = request.GetRequestStream();

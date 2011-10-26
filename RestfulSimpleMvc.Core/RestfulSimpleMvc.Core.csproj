@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AcceptedType.cs" />
     <Compile Include="Configuration\SerializationRegistry.cs" />
+    <Compile Include="ILocated.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
     <Compile Include="ResponseWriters\IResponseUpdater.cs" />
     <Compile Include="ResponseWriters\ISerializationDataProviderFactory.cs" />
