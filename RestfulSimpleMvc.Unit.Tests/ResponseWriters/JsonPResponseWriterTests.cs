@@ -37,6 +37,7 @@ namespace RestfulSimpleMvc.Unit.Tests.ResponseWriters
 
 		[Test]
 		public void WrapsOutputInCallback() {
+			_routeData.Values.Add("action", "Get");
 			_responseWriter.WriteResponse(_controllerContext, null, null);
 
 			_responseUpdater.AssertWasCalled(w => w.WriteOutputToResponse(_controllerContext, string.Format("{0}({1})", CALLBACK, JSON_OUTPUT)));

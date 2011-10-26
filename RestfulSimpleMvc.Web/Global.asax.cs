@@ -19,6 +19,7 @@ namespace RestfulSimpleMvc.Web
 			routes.MapResource("Broken", "Broken");
 			routes.MapResource("Addresses/{id}", "Address");
 			routes.MapResource("Addresses", "Addresses");
+			routes.MapResource("Posts", "Posts");
 		}
 
 		protected void Application_Start() {

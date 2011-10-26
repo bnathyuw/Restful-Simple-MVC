@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Serialization;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
@@ -17,6 +18,10 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
 		{
+			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
+				controllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.Created;
+				return;
+			} 
 			var serializer = _serializationDataProviderFactory.Build(content);
 			var jsonData = serializer.GetJsonData(content);
 			string output = _jsonSerializer.Serialize(jsonData);

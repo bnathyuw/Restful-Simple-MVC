@@ -1,11 +1,16 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Mvc;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {
     public class HtmlResponseWriter : IResponseWriter {
         public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
         {
-            var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, viewName, null);
+			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
+				controllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.MovedPermanently;
+				return;
+			} 
+			var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, viewName, null);
             var textWriter = controllerContext.HttpContext.Response.Output;
             var view = viewEngineResult.View;
             var viewData = new ViewDataDictionary {Model = content};

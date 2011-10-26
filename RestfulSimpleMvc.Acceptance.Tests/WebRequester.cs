@@ -1,20 +1,36 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Text;
 using NUnit.Framework;
 
 namespace RestfulSimpleMvc.Acceptance.Tests
 {
 	public static class WebRequester{
 		public static HttpWebResponse Get(string url, string acceptHeader = null) {
+			return DoRequest(url, acceptHeader, "GET", null, null);
+		}
+
+		public static HttpWebResponse Post(string url, string data, string contentType = "application/x-www-form-urlencoded", string acceptHeader = null) {
+			return DoRequest(url, acceptHeader, "POST", data, contentType);
+		}
+		
+		private static HttpWebResponse DoRequest(string url, string acceptHeader, string method, string data, string contentType) {
 			var request = WebRequest.Create(url);
+			request.Method = method;
+
+			if (data != null) {
+				var requestStream = request.GetRequestStream();
+				var bytes = Encoding.UTF8.GetBytes(data);
+				requestStream.Write(bytes, 0, bytes.Length);
+				request.ContentType = contentType;
+			}
 
 			AddAcceptHeader(request, acceptHeader);
 
 			LogRequest(request);
 
-			try
-			{
+			try {
 				var response = request.GetResponse();
 
 				Assert.That(response != null);
@@ -22,8 +38,7 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 				LogResponse(response);
 
 				return response as HttpWebResponse;
-			}
-			catch (WebException ex) {
+			} catch (WebException ex) {
 				var response = ex.Response;
 
 				Assert.That(response != null);
