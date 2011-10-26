@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace RestfulSimpleMvc.Acceptance.Tests
 {
 	public static class WebRequester{
-		public static HttpWebResponse MakeGetRequest(string url, string acceptHeader = null) {
+		public static HttpWebResponse Get(string url, string acceptHeader = null) {
 			var request = WebRequest.Create(url);
 
 			AddAcceptHeader(request, acceptHeader);
