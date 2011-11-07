@@ -9,7 +9,7 @@ namespace RestfulSimpleMvc.Core.Configuration {
 		public void Process(Type type, Registry registry) {
 			if (!type.CanBeCastTo(typeof(IStatusCodeTranslator))) return;
 
-			var name = type.Name.Replace("StatusCodeProvider", "");
+			var name = type.Name.Replace("StatusCodeTranslator", "");
 
 			registry.AddType(typeof (IStatusCodeTranslator), type, name);
 		}

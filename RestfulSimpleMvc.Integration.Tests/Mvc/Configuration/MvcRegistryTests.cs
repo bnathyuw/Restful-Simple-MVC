@@ -7,6 +7,7 @@ using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.Routes;
 using RestfulSimpleMvc.Core.Serialization;
+using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
@@ -51,6 +52,12 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 		}
 
 		[Test]
+		public void CanResolveResponseWriterForJsonP() {
+			var responseWriter = _container.GetInstance<IResponseWriter>(ResponseType.JsonP.ToString());
+			Assert.That(responseWriter, Is.TypeOf((typeof(JsonPResponseWriter))));
+		}
+
+		[Test]
 		public void CanResolveResponseWriterForXml()
 		{
 			var responseWriter = _container.GetInstance<IResponseWriter>(ResponseType.Xml.ToString());
@@ -69,5 +76,29 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
             var serializationDataProvider = _container.GetInstance<SerializationDataProvider<EntityStub>>();
             Assert.That(serializationDataProvider, Is.TypeOf((typeof(EntityStubSerializationDataProvider))));
         }
+
+		[Test]
+		public void Can_resolve_status_code_translator_for_html() {
+			var statusCodeTranslator = _container.GetInstance<IStatusCodeTranslator>(ResponseType.Html.ToString());
+			Assert.That(statusCodeTranslator, Is.TypeOf((typeof(HtmlStatusCodeTranslator))));
+		}
+
+		[Test]
+		public void Can_resolve_status_code_translator_for_xml() {
+			var statusCodeTranslator = _container.GetInstance<IStatusCodeTranslator>(ResponseType.Xml.ToString());
+			Assert.That(statusCodeTranslator, Is.TypeOf((typeof(DefaultStatusCodeTranslator))));
+		}
+
+		[Test]
+		public void Can_resolve_status_code_translator_for_json() {
+			var statusCodeTranslator = _container.GetInstance<IStatusCodeTranslator>(ResponseType.Json.ToString());
+			Assert.That(statusCodeTranslator, Is.TypeOf((typeof(DefaultStatusCodeTranslator))));
+		}
+
+		[Test]
+		public void Can_resolve_status_code_translator_for_jsonp() {
+			var statusCodeTranslator = _container.GetInstance<IStatusCodeTranslator>(ResponseType.JsonP.ToString());
+			Assert.That(statusCodeTranslator, Is.TypeOf((typeof(DefaultStatusCodeTranslator))));
+		}
 	}
 }

@@ -1,8 +1,10 @@
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
+using RestfulSimpleMvc.Core.StatusCodes;
 using Rhino.Mocks;
 
 namespace RestfulSimpleMvc.Unit.Tests.Results
@@ -14,7 +16,6 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		private HttpContextBase _httpContext;
 		private HttpResponseBase _httpResponse;
 		private RestfulResult _restfulResult;
-		private IResponseWriter _responseWriter;
 		private object _content;
 
 		[SetUp]
@@ -24,15 +25,25 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_controllerContext.HttpContext = _httpContext;
 			_httpResponse = MockRepository.GenerateStub<HttpResponseBase>();
 			_httpContext.Stub(c => c.Response).Return(_httpResponse); 
-			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
 			_content = new {};
-			_restfulResult = new RestfulResult(_responseWriter, _content, null, null, null);
 		}
 
 		[Test]
 		public void ExecuteResultCallsWriteResponseCorrectly() {
+			var responseWriter = MockRepository.GenerateStub<IResponseWriter>();
+			_restfulResult = new RestfulResult(responseWriter, _content, null, null, null);
 			_restfulResult.ExecuteResult(_controllerContext);
-			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content, null));
+			responseWriter.AssertWasCalled(rw => rw.WriteResponse(_controllerContext, _content, null));
+		}
+
+		[Test]
+		public void Execute_result_looks_up_created_status_code_if_view_name_is_post() {
+			var statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
+			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
+			_restfulResult = new RestfulResult(null, _content, "POST", responseUpdater, statusCodeTranslator);
+			_restfulResult.ExecuteResult(_controllerContext);
+			statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.Created));
+
 		}
 	}
 }
