@@ -1,9 +1,6 @@
-﻿using RestfulSimpleMvc.Core;
-
-namespace RestfulSimpleMvc.Web.Models
+﻿namespace RestfulSimpleMvc.Web.Models
 {
-	public class Post:ILocated	
-	{
+	public class Post {
 		public string GetLocation() {
 			return "http://localhost/restful-simple-mvc/posts/abc";
 		}

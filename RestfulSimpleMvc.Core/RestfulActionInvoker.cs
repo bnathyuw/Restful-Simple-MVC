@@ -23,7 +23,8 @@ namespace RestfulSimpleMvc.Core
 			if (actionReturnValue == null)
 				return new EmptyResult();
 
-			var actionResult = (actionReturnValue as ActionResult) ?? _typedResultFactory.Build(controllerContext, actionReturnValue, actionDescriptor.ActionName);
+			var actionResult = (actionReturnValue as ActionResult)
+				?? _typedResultFactory.Build(controllerContext, actionReturnValue, actionDescriptor.ActionName);
 
 			return actionResult;
 		}
@@ -40,7 +41,9 @@ namespace RestfulSimpleMvc.Core
 		private static void CheckJsonPHasCallback(ControllerContext controllerContext) {
 			var routeValueDictionary = controllerContext.RouteData.Values;
 
-			if ((ResponseType) routeValueDictionary["responseType"] == ResponseType.JsonP && routeValueDictionary["callback"] == null) throw RestfulException.BadRequest();
+			if ((ResponseType) routeValueDictionary["responseType"] == ResponseType.JsonP 
+				&& routeValueDictionary["callback"] == null) 
+				throw RestfulException.BadRequest();
 		}
 
 		private void SetExceptionResult(ControllerContext controllerContext, ExceptionContext context) {

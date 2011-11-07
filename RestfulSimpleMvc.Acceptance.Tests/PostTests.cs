@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Net;
+﻿using System.Net;
 using NUnit.Framework;
 
 namespace RestfulSimpleMvc.Acceptance.Tests
@@ -39,18 +38,21 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 			var location = response.Headers["location"];
 			Assert.That(location, Is.StringMatching(URL + "/.*"));
 		}
+
 		[Test]
 		public void Post_with_json_response_type_returns_location_of_resource_in_location_header() {
 			var response = WebRequester.Post(URL, "", acceptHeader: "application/json");
 			var location = response.Headers["location"];
 			Assert.That(location, Is.StringMatching(URL + "/.*"));
 		}
+
 		[Test]
 		public void Post_with_jsonp_response_type_returns_location_of_resource_in_location_header() {
 			var response = WebRequester.Post(URL, "callback=callback", acceptHeader: "application/json-p");
 			var location = response.Headers["location"];
 			Assert.That(location, Is.StringMatching(URL + "/.*"));
 		}
+
 		[Test]
 		public void Post_with_html_response_type_returns_location_of_resource_in_location_header() {
 			var response = WebRequester.Post(URL, "", acceptHeader: "text/html");

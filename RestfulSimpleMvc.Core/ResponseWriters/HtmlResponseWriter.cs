@@ -8,9 +8,7 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
         {
 			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
 				controllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.MovedPermanently;
-				if (content is ILocated) {
-					controllerContext.HttpContext.Response.Headers.Add("Location", ((ILocated)content).GetLocation());
-				} 
+				
 				return;
 			} 
 			var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, viewName, null);

@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using NUnit.Framework;
-using WebRequestWrapper;
 
 namespace RestfulSimpleMvc.Acceptance.Tests
 {
@@ -8,13 +7,13 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 	public class ResponseTypeTests
 	{
 		[Test]
-		public void IfNoCallbackIsSpecifiedWithJsonPInQueryThenReturnBadRequest() {
+		public void If_no_callback_is_specified_with_jsonp_in_query_then_return_bad_request() {
 			var response = WebRequester.Get("http://localhost/restful-simple-mvc/.jsonp");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
 		}
 
 		[Test]
-		public void IfCallbackIsSpecifiedWithJsonPInQueryThenReturnOK() {
+		public void If_callback_is_specified_with_jsonp_in_query_then_return_ok() {
 			var response = WebRequester.Get("http://localhost/restful-simple-mvc/.jsonp?callback=callback");
 			Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
 		}
