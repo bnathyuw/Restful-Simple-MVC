@@ -57,7 +57,6 @@
     <Compile Include="ResponseWriters\ResponseUpdater.cs" />
     <Compile Include="Serialization\SerializationDataProviderFactory.cs" />
     <Compile Include="Routes\AcceptHeaderParser.cs" />
-    <Compile Include="Configuration\StatusCodeWriterConvention.cs" />
     <Compile Include="Configuration\StructureMapBootstrapper.cs" />
     <Compile Include="Configuration\StructureMapDependencyResolver.cs" />
     <Compile Include="Constraints\ResponseTypeConstraint.cs" />
@@ -77,9 +76,6 @@
     <Compile Include="Routes\ResponseTypeMapper.cs" />
     <Compile Include="Routes\RestfulRoute.cs" />
     <Compile Include="Routes\RouteCollectionExtensions.cs" />
-    <Compile Include="StatusCodes\HtmlStatusCodeWriter.cs" />
-    <Compile Include="StatusCodes\DefaultStatusCodeWriter.cs" />
-    <Compile Include="StatusCodes\IStatusCoded.cs" />
     <Compile Include="Results\ITypedResultFactory.cs" />
     <Compile Include="ResponseWriters\JsonResponseWriter.cs" />
     <Compile Include="NamesAttribute.cs" />
@@ -94,7 +90,6 @@
     <Compile Include="Serialization\ISerializationDataProvider.cs" />
     <Compile Include="Results\TypedResultFactory.cs" />
     <Compile Include="ResponseWriters\XmlResponseWriter.cs" />
-    <Compile Include="StatusCodes\IStatusCodeWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

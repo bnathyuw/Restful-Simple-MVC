@@ -3,7 +3,6 @@ using System.Web.Routing;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
-using RestfulSimpleMvc.Core.StatusCodes;
 using Rhino.Mocks;
 using StructureMap;
 
@@ -39,8 +38,6 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
 			IResponseWriter responseWriter = new HtmlResponseWriter(responseUpdater);
 			_container.Stub(c => c.GetInstance<IResponseWriter>(Arg<string>.Is.Anything)).Return(responseWriter);
-			IStatusCodeWriter statusCodeWriter = new DefaultStatusCodeWriter();
-			_container.Stub(c => c.GetInstance<IStatusCodeWriter>()).Return(statusCodeWriter);
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(_controllerContext, actionReturnValue, null);
 

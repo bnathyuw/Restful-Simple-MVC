@@ -1,6 +1,6 @@
 using System.Web.Mvc;
+using RestfulSimpleMvc.Core.Exceptions;
 using RestfulSimpleMvc.Core.ResponseWriters;
-using RestfulSimpleMvc.Core.StatusCodes;
 
 namespace RestfulSimpleMvc.Core.Results
 {

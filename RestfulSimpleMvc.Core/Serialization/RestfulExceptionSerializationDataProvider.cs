@@ -1,7 +1,6 @@
 using System;
 using System.Xml.Linq;
 using RestfulSimpleMvc.Core.Exceptions;
-using RestfulSimpleMvc.Core.StatusCodes;
 
 namespace RestfulSimpleMvc.Core.Serialization
 {

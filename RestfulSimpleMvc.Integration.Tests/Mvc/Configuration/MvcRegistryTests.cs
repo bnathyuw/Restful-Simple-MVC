@@ -7,7 +7,6 @@ using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.Routes;
 using RestfulSimpleMvc.Core.Serialization;
-using RestfulSimpleMvc.Core.StatusCodes;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
@@ -62,25 +61,6 @@ namespace RestfulSimpleMvc.Integration.Tests.Mvc.Configuration
 		public void CanResolveISerializationDataProviderForRestfulException() {
 			var serializer = _container.GetInstance<SerializationDataProvider<RestfulException>>();
 			Assert.That(serializer, Is.TypeOf(typeof(RestfulExceptionSerializationDataProvider)));
-		}
-
-		[Test]
-		public void CanResolveDefaultStatusCodeWriter() {
-			var statusCodeWriter = _container.GetInstance<IStatusCodeWriter>();
-			Assert.That(statusCodeWriter, Is.TypeOf(typeof(DefaultStatusCodeWriter)));
-		}
-
-		[Test]
-		public void CanResolveHtmlStatusCodeWriter() {
-			var statusCodeWriter = _container.GetInstance<IStatusCodeWriter>(ResponseType.Html.ToString());
-			Assert.That(statusCodeWriter, Is.TypeOf(typeof(HtmlStatusCodeWriter)));
-		}
-
-		[Test]
-		public void CanResolveJsonStatusCodeWriter()
-		{
-			var statusCodeWriter = _container.GetInstance<IStatusCodeWriter>(ResponseType.Json.ToString());
-			Assert.That(statusCodeWriter, Is.TypeOf(typeof(DefaultStatusCodeWriter)));
 		}
 
         [Test]
