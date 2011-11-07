@@ -9,18 +9,25 @@ namespace RestfulSimpleMvc.Core.Results
 		private readonly IResponseWriter _responseWriter;
 		private readonly object _content;
 		private readonly string _viewName;
-		private readonly IStatusCodeWriter _statusCodeWriter;
+		private readonly IResponseUpdater _responseUpdater;
 
-		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IStatusCodeWriter statusCodeWriter) {
+		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater) {
 			_responseWriter = responseWriter;
-			_statusCodeWriter = statusCodeWriter;
+			_responseUpdater = responseUpdater;
 			_viewName = viewName;
 			_content = content;
 		}
 
 		public override void ExecuteResult(ControllerContext context) {
-			_responseWriter.WriteResponse(context, _content, _viewName);
-			_statusCodeWriter.WriteStatusCode(context, _content);
+			if (_viewName == "POST") {
+				_responseWriter.WriteCreated(context, _content);
+			}
+			else {
+				_responseWriter.WriteResponse(context, _content, _viewName);
+				if (_content is IStatusCoded) {
+					_responseUpdater.SetStatusCode(context, ((IStatusCoded) _content).HttpStatusCode);
+				}
+			}
 		}
 	}
 }

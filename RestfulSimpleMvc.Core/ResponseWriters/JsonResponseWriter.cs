@@ -18,15 +18,15 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
 		{
-			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
-				controllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.Created;
-				return;
-			} 
 			var serializer = _serializationDataProviderFactory.Build(content);
 			var jsonData = serializer.GetJsonData(content);
 			string output = _jsonSerializer.Serialize(jsonData);
 			_responseUpdater.WriteOutputToResponse(controllerContext, output);
 			_responseUpdater.SetContentType(controllerContext, "application/json");
+		}
+
+		public void WriteCreated(ControllerContext controllerContext, object content) {
+			_responseUpdater.SetStatusCode(controllerContext, HttpStatusCode.Created);
 		}
 	}
 }

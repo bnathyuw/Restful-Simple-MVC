@@ -4,13 +4,14 @@ using System.Web.Mvc;
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {
     public class HtmlResponseWriter : IResponseWriter {
-        public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
+    	private readonly IResponseUpdater _responseUpdater;
+
+    	public HtmlResponseWriter(IResponseUpdater responseUpdater) {
+    		_responseUpdater = responseUpdater;
+    	}
+
+    	public void WriteResponse(ControllerContext controllerContext, object content, string viewName)
         {
-			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
-				controllerContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.MovedPermanently;
-				
-				return;
-			} 
 			var viewEngineResult = ViewEngines.Engines.FindView(controllerContext, viewName, null);
             var textWriter = controllerContext.HttpContext.Response.Output;
             var view = viewEngineResult.View;
@@ -19,5 +20,9 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
             var viewContext = new ViewContext(controllerContext, view, viewData, tempData, textWriter);
             view.Render(viewContext, textWriter);
         }
+
+    	public void WriteCreated(ControllerContext controllerContext, object content) {
+			_responseUpdater.SetStatusCode(controllerContext, HttpStatusCode.MovedPermanently);
+		}
     }
 }

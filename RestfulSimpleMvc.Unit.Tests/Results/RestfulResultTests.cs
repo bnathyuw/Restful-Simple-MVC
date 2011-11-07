@@ -29,7 +29,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
 			_content = new {};
 			_statusCodeWriter = MockRepository.GenerateStub<IStatusCodeWriter>();
-			_restfulResult = new RestfulResult(_responseWriter, _content, null, _statusCodeWriter);
+			_restfulResult = new RestfulResult(_responseWriter, _content, null, null);
 		}
 
 		[Test]

@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text;
 using System.Web.Mvc;
 
@@ -12,6 +13,10 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 
 		public void SetContentType(ControllerContext controllerContext, string contentType) {
 			controllerContext.HttpContext.Response.ContentType = contentType;
+		}
+
+		public void SetStatusCode(ControllerContext controllerContext, HttpStatusCode statusCode) {
+			controllerContext.HttpContext.Response.StatusCode = (int)statusCode;
 		}
 	}
 }

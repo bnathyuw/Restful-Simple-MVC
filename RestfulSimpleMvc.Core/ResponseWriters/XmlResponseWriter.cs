@@ -13,15 +13,14 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
     	}
 
 		public void WriteResponse(ControllerContext controllerContext, object content, string viewName) {
-			if (controllerContext.RouteData.Values["action"].ToString() == "POST") {
-				controllerContext.HttpContext.Response.StatusCode = (int) HttpStatusCode.Created;
-				
-				return;
-			}
 			var serializer = _serializationDataProviderFactory.Build(content);
 			var xDocument = serializer.GetXmlData(content);
 			_responseUpdater.WriteOutputToResponse(controllerContext, xDocument.ToString());
 			_responseUpdater.SetContentType(controllerContext, "text/xml");
+		}
+
+		public void WriteCreated(ControllerContext controllerContext, object content) {
+			_responseUpdater.SetStatusCode(controllerContext, HttpStatusCode.Created);
 		}
 	}
 }
