@@ -44,8 +44,4 @@ namespace RestfulSimpleMvc.Core.Exceptions
 			return new RestfulException(HttpStatusCode.NotFound, message, innerException);
 		}
 	}
-
-	public interface IStatusCoded {
-		HttpStatusCode HttpStatusCode { get; }
-	}
 }
