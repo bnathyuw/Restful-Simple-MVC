@@ -25,6 +25,7 @@ namespace RestfulSimpleMvc.Core.Results
 			if (_viewName == "POST") {
 				var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.Created);
 				_responseUpdater.SetStatusCode(context, statusCode);
+				_responseUpdater.SetLocation(context, "http://localhost/restful-simple-mvc/posts/abc");
 			}
 			else {
 				_responseWriter.WriteResponse(context, _content, _viewName);

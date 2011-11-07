@@ -18,5 +18,9 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 		public void SetStatusCode(ControllerContext controllerContext, HttpStatusCode statusCode) {
 			controllerContext.HttpContext.Response.StatusCode = (int)statusCode;
 		}
+
+		public void SetLocation(ControllerContext controllerContext, string location) {
+			controllerContext.HttpContext.Response.RedirectLocation = location;
+		}
 	}
 }
