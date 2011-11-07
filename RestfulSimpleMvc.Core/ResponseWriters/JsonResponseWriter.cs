@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Serialization;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
@@ -23,10 +22,6 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 			string output = _jsonSerializer.Serialize(jsonData);
 			_responseUpdater.WriteOutputToResponse(controllerContext, output);
 			_responseUpdater.SetContentType(controllerContext, "application/json");
-		}
-
-		public void WriteCreated(ControllerContext controllerContext, object content) {
-			_responseUpdater.SetStatusCode(controllerContext, HttpStatusCode.Created);
 		}
 	}
 }

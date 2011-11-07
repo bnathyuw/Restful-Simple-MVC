@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="AcceptedType.cs" />
     <Compile Include="Configuration\SerializationRegistry.cs" />
-    <Compile Include="Exceptions\IStatusCoded.cs" />
+    <Compile Include="Configuration\StatusCodeProviderConvention.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
     <Compile Include="ResponseWriters\IResponseUpdater.cs" />
     <Compile Include="ResponseWriters\ISerializationDataProviderFactory.cs" />
@@ -91,6 +91,10 @@
     <Compile Include="Serialization\ISerializationDataProvider.cs" />
     <Compile Include="Results\TypedResultFactory.cs" />
     <Compile Include="ResponseWriters\XmlResponseWriter.cs" />
+    <Compile Include="StatusCodes\DefaultStatusCodeTranslator.cs" />
+    <Compile Include="StatusCodes\HtmlStatusCodeTranslator.cs" />
+    <Compile Include="StatusCodes\IStatusCoded.cs" />
+    <Compile Include="StatusCodes\IStatusCodeTranslator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

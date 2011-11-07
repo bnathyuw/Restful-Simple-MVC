@@ -18,7 +18,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		[Test]
 		public void BuildReturnsRestfulResponse() {
 			var responseWriter = MockRepository.GenerateStub<IResponseWriter>();
-			var response = _factory.Build(responseWriter, null, null, null);
+			var response = _factory.Build(responseWriter, null, null, null, null);
 			Assert.That(response,Is.Not.Null);
 		}
 	}

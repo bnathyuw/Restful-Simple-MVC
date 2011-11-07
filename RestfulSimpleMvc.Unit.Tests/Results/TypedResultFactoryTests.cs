@@ -3,6 +3,7 @@ using System.Web.Routing;
 using NUnit.Framework;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
+using RestfulSimpleMvc.Core.StatusCodes;
 using Rhino.Mocks;
 using StructureMap;
 
@@ -35,19 +36,18 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 
 		[Test]
 		public void CreateCallsRestfulResultFactoryWithWriterBuiltByResponseWriterFactory() {
-			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
-			IResponseWriter responseWriter = new HtmlResponseWriter(responseUpdater);
+			IResponseWriter responseWriter = new HtmlResponseWriter();
 			_container.Stub(c => c.GetInstance<IResponseWriter>(Arg<string>.Is.Anything)).Return(responseWriter);
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(_controllerContext, actionReturnValue, null);
 
-			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null, _responseUpdater));
+			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null, _responseUpdater, null));
 		}
 
 		[Test]
 		public void CreateReturnsValueFromRestfulResultFactory() {
-			var restfulResult = new RestfulResult(null, null, null, _responseUpdater);
-			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything, Arg<IResponseUpdater>.Is.Anything)).Return(restfulResult);
+			var restfulResult = new RestfulResult(null, null, null, _responseUpdater, null);
+			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything, Arg<IResponseUpdater>.Is.Anything, Arg<IStatusCodeTranslator>.Is.Anything)).Return(restfulResult);
 
             var actionResult = _typedResultFactory.Build(_controllerContext, null, null);
 

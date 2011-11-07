@@ -26,7 +26,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_httpContext.Stub(c => c.Response).Return(_httpResponse); 
 			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
 			_content = new {};
-			_restfulResult = new RestfulResult(_responseWriter, _content, null, null);
+			_restfulResult = new RestfulResult(_responseWriter, _content, null, null, null);
 		}
 
 		[Test]

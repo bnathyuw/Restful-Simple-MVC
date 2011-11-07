@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {
@@ -17,10 +16,6 @@ namespace RestfulSimpleMvc.Core.ResponseWriters
 			var xDocument = serializer.GetXmlData(content);
 			_responseUpdater.WriteOutputToResponse(controllerContext, xDocument.ToString());
 			_responseUpdater.SetContentType(controllerContext, "text/xml");
-		}
-
-		public void WriteCreated(ControllerContext controllerContext, object content) {
-			_responseUpdater.SetStatusCode(controllerContext, HttpStatusCode.Created);
 		}
 	}
 }
