@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Web.Mvc;
+using RestfulSimpleMvc.Core.Location;
 using RestfulSimpleMvc.Core.Routes;
 using RestfulSimpleMvc.Core.Serialization;
 using RestfulSimpleMvc.Core.StatusCodes;
@@ -19,6 +20,7 @@ namespace RestfulSimpleMvc.Core.Configuration
                      x.Convention<ResponseWriterConvention>();
 					 x.Convention<StatusCodeProviderConvention>();
                      x.ConnectImplementationsToTypesClosing(typeof (SerializationDataProvider<>));
+                 	x.ConnectImplementationsToTypesClosing(typeof (LocationProvider<>));
                  });
 
             For<IActionInvoker>().Use<RestfulActionInvoker>();

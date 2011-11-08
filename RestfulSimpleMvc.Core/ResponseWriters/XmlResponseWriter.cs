@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using RestfulSimpleMvc.Core.Serialization;
 
 namespace RestfulSimpleMvc.Core.ResponseWriters
 {

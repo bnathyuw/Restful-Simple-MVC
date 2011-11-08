@@ -1,5 +1,6 @@
 using System.Net;
 using System.Web.Mvc;
+using RestfulSimpleMvc.Core.Location;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.StatusCodes;
 
@@ -12,11 +13,13 @@ namespace RestfulSimpleMvc.Core.Results
 		private readonly string _viewName;
 		private readonly IResponseUpdater _responseUpdater;
 		private readonly IStatusCodeTranslator _statusCodeTranslator;
+		private readonly ILocationProvider _locationProvider;
 
-		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater, IStatusCodeTranslator statusCodeTranslator) {
+		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater, IStatusCodeTranslator statusCodeTranslator, ILocationProvider locationProvider) {
 			_responseWriter = responseWriter;
 			_responseUpdater = responseUpdater;
 			_statusCodeTranslator = statusCodeTranslator;
+			_locationProvider = locationProvider;
 			_viewName = viewName;
 			_content = content;
 		}
@@ -25,7 +28,8 @@ namespace RestfulSimpleMvc.Core.Results
 			if (_viewName == "POST") {
 				var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.Created);
 				_responseUpdater.SetStatusCode(context, statusCode);
-				_responseUpdater.SetLocation(context, "http://localhost/restful-simple-mvc/posts/abc");
+				var location = _locationProvider.GetLocation(_content, context);
+				_responseUpdater.SetLocation(context, location);
 			}
 			else {
 				_responseWriter.WriteResponse(context, _content, _viewName);

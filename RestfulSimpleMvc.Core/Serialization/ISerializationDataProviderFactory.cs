@@ -1,6 +1,4 @@
-using RestfulSimpleMvc.Core.Serialization;
-
-namespace RestfulSimpleMvc.Core.ResponseWriters
+namespace RestfulSimpleMvc.Core.Serialization
 {
 	public interface ISerializationDataProviderFactory
 	{

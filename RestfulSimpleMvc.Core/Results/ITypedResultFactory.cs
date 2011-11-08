@@ -3,6 +3,6 @@
 namespace RestfulSimpleMvc.Core.Results
 {
 	public interface ITypedResultFactory {
-		ActionResult Build(ControllerContext controllerContext, object actionReturnValue, string viewName);
+		ActionResult Build(ControllerContext controllerContext, object content, string viewName);
 	}
 }

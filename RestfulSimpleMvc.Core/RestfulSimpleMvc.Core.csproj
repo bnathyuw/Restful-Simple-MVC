@@ -50,9 +50,14 @@
     <Compile Include="AcceptedType.cs" />
     <Compile Include="Configuration\SerializationRegistry.cs" />
     <Compile Include="Configuration\StatusCodeProviderConvention.cs" />
+    <Compile Include="Location\ILocationProvider.cs" />
+    <Compile Include="Location\ILocationProviderFactory.cs" />
+    <Compile Include="Location\LocationProvider.cs" />
+    <Compile Include="Location\LocationProviderFactory.cs" />
+    <Compile Include="Location\RestfulExceptionLocationProvider.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
     <Compile Include="ResponseWriters\IResponseUpdater.cs" />
-    <Compile Include="ResponseWriters\ISerializationDataProviderFactory.cs" />
+    <Compile Include="Serialization\ISerializationDataProviderFactory.cs" />
     <Compile Include="ResponseWriters\JsonPResponseWriter.cs" />
     <Compile Include="Serialization\JsonSerializer.cs" />
     <Compile Include="ResponseWriters\ResponseUpdater.cs" />

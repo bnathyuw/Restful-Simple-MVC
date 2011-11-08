@@ -1,5 +1,6 @@
 using System.Net;
 using NUnit.Framework;
+using RestfulSimpleMvc.Core.Location;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.StatusCodes;
@@ -21,7 +22,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		[Test]
 		public void ExecuteResultCallsWriteResponseCorrectly() {
 			var responseWriter = MockRepository.GenerateStub<IResponseWriter>();
-			_restfulResult = new RestfulResult(responseWriter, _content, null, null, null);
+			_restfulResult = new RestfulResult(responseWriter, _content, null, null, null, null);
 			_restfulResult.ExecuteResult(null);
 			responseWriter.AssertWasCalled(rw => rw.WriteResponse(null, _content, null));
 		}
@@ -30,7 +31,8 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		public void Execute_result_looks_up_created_status_code_if_view_name_is_post() {
 			var statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
 			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
-			_restfulResult = new RestfulResult(null, _content, "POST", responseUpdater, statusCodeTranslator);
+			ILocationProvider locationProvider = MockRepository.GenerateStub<ILocationProvider>();
+			_restfulResult = new RestfulResult(null, _content, "POST", responseUpdater, statusCodeTranslator, locationProvider);
 			_restfulResult.ExecuteResult(null);
 			statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.Created));
 
