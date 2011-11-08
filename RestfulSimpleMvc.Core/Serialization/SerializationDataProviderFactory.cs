@@ -1,4 +1,3 @@
-using RestfulSimpleMvc.Core.ResponseWriters;
 using StructureMap;
 
 namespace RestfulSimpleMvc.Core.Serialization

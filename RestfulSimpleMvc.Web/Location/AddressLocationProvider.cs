@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using RestfulSimpleMvc.Core.Exceptions;
 using RestfulSimpleMvc.Core.Location;
 using RestfulSimpleMvc.Web.Models;
 
