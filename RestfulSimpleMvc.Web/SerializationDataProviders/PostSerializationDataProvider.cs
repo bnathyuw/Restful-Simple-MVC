@@ -1,5 +1,4 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using RestfulSimpleMvc.Core.Serialization;
 using RestfulSimpleMvc.Web.Models;
 
