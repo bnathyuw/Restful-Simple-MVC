@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Web.Mvc;
 using RestfulSimpleMvc.Core.Location;
@@ -14,12 +15,14 @@ namespace RestfulSimpleMvc.Core.Results
 		private readonly IResponseUpdater _responseUpdater;
 		private readonly IStatusCodeTranslator _statusCodeTranslator;
 		private readonly ILocationProvider _locationProvider;
+		private readonly IContextHelper _contextHelper;
 
-		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater, IStatusCodeTranslator statusCodeTranslator, ILocationProvider locationProvider) {
+		public RestfulResult(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater, IStatusCodeTranslator statusCodeTranslator, ILocationProvider locationProvider, IContextHelper contextHelper) {
 			_responseWriter = responseWriter;
 			_responseUpdater = responseUpdater;
 			_statusCodeTranslator = statusCodeTranslator;
 			_locationProvider = locationProvider;
+			_contextHelper = contextHelper;
 			_viewName = viewName;
 			_content = content;
 		}
@@ -31,12 +34,31 @@ namespace RestfulSimpleMvc.Core.Results
 				var location = _locationProvider.GetLocation(_content, context);
 				_responseUpdater.SetLocation(context, location);
 			}
+			else if (_viewName == "PUT") {
+				var newLocation = _locationProvider.GetLocation(_content, context);
+				var currentLocation = _contextHelper.GetRequestLocation(context);
+				if (!newLocation.Equals(currentLocation, StringComparison.InvariantCultureIgnoreCase)) {
+					var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.MovedPermanently);
+					_responseUpdater.SetStatusCode(context, statusCode);
+					_responseUpdater.SetLocation(context, newLocation);
+				}
+			}
 			else {
 				_responseWriter.WriteResponse(context, _content, _viewName);
 				if (_content is IStatusCoded) {
-					_responseUpdater.SetStatusCode(context, ((IStatusCoded) _content).HttpStatusCode);
+					_responseUpdater.SetStatusCode(context, ((IStatusCoded)_content).HttpStatusCode);
 				}
 			}
+		}
+	}
+
+	public interface IContextHelper {
+		string GetRequestLocation(ControllerContext context);
+	}
+
+	public class ContextHelper:IContextHelper{
+		public string GetRequestLocation(ControllerContext context) {
+			return context.HttpContext.Request.Path;
 		}
 	}
 }

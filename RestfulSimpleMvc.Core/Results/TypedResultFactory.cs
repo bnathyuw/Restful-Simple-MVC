@@ -10,12 +10,10 @@ namespace RestfulSimpleMvc.Core.Results
 	{
 	    private readonly IRestfulResultFactory _restfulResultFactory;
 		private readonly IContainer _container;
-		private readonly IResponseUpdater _responseUpdater;
 		private readonly ILocationProviderFactory _locationProviderFactory;
 
-		public TypedResultFactory(IRestfulResultFactory restfulResultFactory, IContainer container, IResponseUpdater responseUpdater, ILocationProviderFactory locationProviderFactory) {
+		public TypedResultFactory(IRestfulResultFactory restfulResultFactory, IContainer container, ILocationProviderFactory locationProviderFactory) {
 		    _container = container;
-			_responseUpdater = responseUpdater;
 			_locationProviderFactory = locationProviderFactory;
 			_restfulResultFactory = restfulResultFactory;
 		}
@@ -25,7 +23,7 @@ namespace RestfulSimpleMvc.Core.Results
 			var responseWriter = _container.GetInstance<IResponseWriter>(responseType.ToString());
 			var statusCodeProvider = _container.GetInstance<IStatusCodeTranslator>(responseType.ToString());
 			var locationProvider = _locationProviderFactory.Build(content);
-			return _restfulResultFactory.Build(responseWriter, content, viewName, _responseUpdater, statusCodeProvider, locationProvider);
+			return _restfulResultFactory.Build(responseWriter, content, viewName, statusCodeProvider, locationProvider);
 		}
 	}
 }

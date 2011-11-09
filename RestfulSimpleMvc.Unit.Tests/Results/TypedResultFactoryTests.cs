@@ -28,7 +28,7 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_container = MockRepository.GenerateStub<IContainer>();
 			_responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
 			_locationProviderFactory = MockRepository.GenerateStub<ILocationProviderFactory>();
-			_typedResultFactory = new TypedResultFactory(_restfulResultFactory, _container, _responseUpdater, _locationProviderFactory);
+			_typedResultFactory = new TypedResultFactory(_restfulResultFactory, _container, _locationProviderFactory);
 	    	
 			_routeData = new RouteData();
 	    	_routeData.Values.Add("responseType", Core.Routes.ResponseType.Xml);
@@ -44,13 +44,13 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			var actionReturnValue = new object();
 			_typedResultFactory.Build(_controllerContext, actionReturnValue, null);
 
-			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null, _responseUpdater, null, null));
+			_restfulResultFactory.AssertWasCalled(f => f.Build(responseWriter, actionReturnValue, null, null, null));
 		}
 
 		[Test]
 		public void CreateReturnsValueFromRestfulResultFactory() {
-			var restfulResult = new RestfulResult(null, null, null, _responseUpdater, null, null);
-			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything, Arg<IResponseUpdater>.Is.Anything, Arg<IStatusCodeTranslator>.Is.Anything, Arg<ILocationProvider>.Is.Anything)).Return(restfulResult);
+			var restfulResult = new RestfulResult(null, null, null, _responseUpdater, null, null, null);
+			_restfulResultFactory.Stub(f => f.Build(Arg<IResponseWriter>.Is.Anything, Arg<object>.Is.Anything, Arg<string>.Is.Anything, Arg<IStatusCodeTranslator>.Is.Anything, Arg<ILocationProvider>.Is.Anything)).Return(restfulResult);
             var actionResult = _typedResultFactory.Build(_controllerContext, null, null);
 
 			Assert.That(actionResult, Is.EqualTo(restfulResult));

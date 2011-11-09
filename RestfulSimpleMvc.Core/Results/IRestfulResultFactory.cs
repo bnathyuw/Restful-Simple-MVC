@@ -5,6 +5,6 @@ using RestfulSimpleMvc.Core.StatusCodes;
 namespace RestfulSimpleMvc.Core.Results
 {
 	public interface IRestfulResultFactory {
-		RestfulResult Build(IResponseWriter responseWriter, object content, string viewName, IResponseUpdater responseUpdater, IStatusCodeTranslator statusCodeTranslator, ILocationProvider locationProviderFactory);
+		RestfulResult Build(IResponseWriter responseWriter, object content, string viewName, IStatusCodeTranslator statusCodeTranslator, ILocationProvider locationProviderFactory);
 	}
 }
