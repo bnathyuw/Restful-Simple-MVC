@@ -20,9 +20,6 @@ namespace RestfulSimpleMvc.Core
 		}
 
 		protected override ActionResult CreateActionResult(ControllerContext controllerContext, ActionDescriptor actionDescriptor, object actionReturnValue) {
-			if (actionReturnValue == null)
-				return new EmptyResult();
-
 			var actionResult = (actionReturnValue as ActionResult)
 				?? _typedResultFactory.Build(controllerContext, actionReturnValue, actionDescriptor.ActionName);
 

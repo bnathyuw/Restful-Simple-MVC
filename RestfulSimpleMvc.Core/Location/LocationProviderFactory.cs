@@ -8,6 +8,7 @@ namespace RestfulSimpleMvc.Core.Location {
 		}
 
 		public ILocationProvider Build(object content) {
+			if (content == null) return null;
 			return _container.ForGenericType(typeof(LocationProvider<>)).WithParameters(content.GetType()).GetInstanceAs<ILocationProvider>();
 		}
 	}

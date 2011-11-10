@@ -18,6 +18,10 @@ namespace RestfulSimpleMvc.Acceptance.Tests
 		public static HttpWebResponse Put(string url, string data, string contentType = "application/x-www-form-urlencoded", string acceptHeader = null) {
 			return DoRequest(url, acceptHeader, "PUT", data, contentType);
 		}
+
+		public static HttpWebResponse Delete(string url, string acceptHeader = null) {
+			return DoRequest(url, acceptHeader, "DELETE", null, null);
+		}
 		
 		private static HttpWebResponse DoRequest(string url, string acceptHeader, string method, string data, string contentType) {
 			var request = (HttpWebRequest)WebRequest.Create(url);

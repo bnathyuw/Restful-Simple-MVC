@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constraints\ResponseTypeConstraintTests.cs" />
+    <Compile Include="Location\LocationProviderFactoryTests.cs" />
     <Compile Include="ResponseWriters\JsonPResponseWriterTests.cs" />
     <Compile Include="Routes\RestfulRouteTests\GetRouteDataResponseTypeTests.cs" />
     <Compile Include="Routes\RestfulRouteTests\GetVirtualPathActionTests.cs" />

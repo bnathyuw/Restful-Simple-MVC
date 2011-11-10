@@ -5,7 +5,6 @@ using RestfulSimpleMvc.Core.Location;
 using RestfulSimpleMvc.Core.ResponseWriters;
 using RestfulSimpleMvc.Core.Results;
 using RestfulSimpleMvc.Core.StatusCodes;
-using RestfulSimpleMvc.Web.Models;
 using Rhino.Mocks;
 
 namespace RestfulSimpleMvc.Unit.Tests.Results
@@ -15,52 +14,79 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 	{
 		private RestfulResult _restfulResult;
 		private object _content;
+		private IResponseWriter _responseWriter;
+		private IStatusCodeTranslator _statusCodeTranslator;
+		private IResponseUpdater _responseUpdater;
+		private ILocationProvider _locationProvider;
+		private IContextHelper _contextHelper;
 
 		[SetUp]
 		public void SetUp() {
+			_responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
+			_responseWriter = MockRepository.GenerateStub<IResponseWriter>();
+			_statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
+			_locationProvider = MockRepository.GenerateStub<ILocationProvider>();
+			_contextHelper = MockRepository.GenerateStub<IContextHelper>();
 			_content = new {};
 		}
 
 		[Test]
-		public void ExecuteResultCallsWriteResponseCorrectly() {
-			var responseWriter = MockRepository.GenerateStub<IResponseWriter>();
-			_restfulResult = new RestfulResult(responseWriter, _content, null, null, null, null, null);
+		public void Execute_result_calls_write_response_correctly() {
+			_restfulResult = new RestfulResult(_responseWriter, _content, null, null, null, null, null);
+			
 			_restfulResult.ExecuteResult(null);
-			responseWriter.AssertWasCalled(rw => rw.WriteResponse(null, _content, null));
+			
+			_responseWriter.AssertWasCalled(rw => rw.WriteResponse(null, _content, null));
+		}
+
+		[Test]
+		public void Execute_result_gets_no_content_status_code_if_content_is_null() {
+			_restfulResult = new RestfulResult(_responseWriter, null, null, _responseUpdater, _statusCodeTranslator, null, null);
+			_statusCodeTranslator.Stub(t => t.LookUp(Arg<HttpStatusCode>.Is.Anything)).Return(HttpStatusCode.NoContent);
+			
+			_restfulResult.ExecuteResult(null);
+			
+			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.NoContent));
+		}
+
+		[Test]
+		public void Execute_restult_sets_code_from_translator_when_content_is_null() {
+			_restfulResult = new RestfulResult(_responseWriter, null, null, _responseUpdater, _statusCodeTranslator, null, null);
+			_statusCodeTranslator.Stub(t => t.LookUp(Arg<HttpStatusCode>.Is.Anything)).Return(HttpStatusCode.NonAuthoritativeInformation);
+
+			_restfulResult.ExecuteResult(null);
+
+			_responseUpdater.AssertWasCalled(u => u.SetStatusCode(null, HttpStatusCode.NonAuthoritativeInformation));
 		}
 
 		[Test]
 		public void Execute_result_looks_up_created_status_code_if_view_name_is_post() {
-			var statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
-			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
-			var locationProvider = MockRepository.GenerateStub<ILocationProvider>();
-			_restfulResult = new RestfulResult(null, _content, "POST", responseUpdater, statusCodeTranslator, locationProvider, null);
+			_restfulResult = new RestfulResult(null, _content, "POST", _responseUpdater, _statusCodeTranslator, _locationProvider, null);
+			
 			_restfulResult.ExecuteResult(null);
-			statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.Created));
+			
+			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.Created));
 		}
 
 		[Test]
 		public void Execute_result_looks_up_location_if_view_name_is_post() {
-			var statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
-			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
-			var locationProvider = MockRepository.GenerateStub<ILocationProvider>();
-			_restfulResult = new RestfulResult(null, _content, "POST", responseUpdater, statusCodeTranslator, locationProvider, null);
+			_restfulResult = new RestfulResult(null, _content, "POST", _responseUpdater, _statusCodeTranslator, _locationProvider, null);
+			
 			_restfulResult.ExecuteResult(null);
-			locationProvider.AssertWasCalled(p => p.GetLocation(_content, null));
+			
+			_locationProvider.AssertWasCalled(p => p.GetLocation(_content, null));
 		}
 
 		[Test]
 		public void Execute_result_looks_up_location_if_view_name_is_put() {
-			var statusCodeTranslator = MockRepository.GenerateStub<IStatusCodeTranslator>();
-			var responseUpdater = MockRepository.GenerateStub<IResponseUpdater>();
-			var locationProvider = MockRepository.GenerateStub<ILocationProvider>();
 			const string location = "abc";
-			locationProvider.Stub(p => p.GetLocation(Arg<object>.Is.Anything, Arg<ControllerContext>.Is.Anything)).Return(location);
-			var contextHelper = MockRepository.GenerateStub<IContextHelper>();
-			contextHelper.Stub(h => h.GetRequestLocation(Arg<ControllerContext>.Is.Anything)).Return(location);
-			_restfulResult = new RestfulResult(null, _content, "PUT", responseUpdater, statusCodeTranslator, locationProvider, contextHelper);
+			_locationProvider.Stub(p => p.GetLocation(Arg<object>.Is.Anything, Arg<ControllerContext>.Is.Anything)).Return(location);
+			_contextHelper.Stub(h => h.GetRequestLocation(Arg<ControllerContext>.Is.Anything)).Return(location);
+			_restfulResult = new RestfulResult(null, _content, "PUT", _responseUpdater, _statusCodeTranslator, _locationProvider, _contextHelper);
+			
 			_restfulResult.ExecuteResult(null);
-			locationProvider.AssertWasCalled(p => p.GetLocation(_content, null));
+			
+			_locationProvider.AssertWasCalled(p => p.GetLocation(_content, null));
 		}
 	}
 }

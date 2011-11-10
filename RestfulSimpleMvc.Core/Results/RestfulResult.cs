@@ -44,10 +44,20 @@ namespace RestfulSimpleMvc.Core.Results
 				}
 			}
 			else {
-				_responseWriter.WriteResponse(context, _content, _viewName);
+				
 				if (_content is IStatusCoded) {
 					_responseUpdater.SetStatusCode(context, ((IStatusCoded)_content).HttpStatusCode);
+					_responseWriter.WriteResponse(context, _content, _viewName);
 				}
+				else if (_content == null) {
+					var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.NoContent);
+					_responseUpdater.SetStatusCode(context, statusCode);
+				}
+				else {
+					_responseWriter.WriteResponse(context, _content, _viewName);
+				}
+
+
 			}
 		}
 	}
