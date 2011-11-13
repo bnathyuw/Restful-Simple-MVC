@@ -28,42 +28,49 @@ namespace RestfulSimpleMvc.Core.Results
 		}
 
 		public override void ExecuteResult(ControllerContext context) {
-			if (_viewName == "POST") {
-				var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.Created);
-				_responseUpdater.SetStatusCode(context, statusCode);
-				var location = _locationProvider.GetLocation(_content, context);
-				_responseUpdater.SetLocation(context, location);
-			}
-			else if (_viewName == "PUT") {
-				var newLocation = _locationProvider.GetLocation(_content, context);
-				var currentLocation = _contextHelper.GetRequestLocation(context);
-				if (!newLocation.Equals(currentLocation, StringComparison.InvariantCultureIgnoreCase)) {
-					var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.MovedPermanently);
-					_responseUpdater.SetStatusCode(context, statusCode);
-					_responseUpdater.SetLocation(context, newLocation);
+			switch (_viewName) {
+				case "POST": {
+					ExecutePostResult(context);
 				}
-			}
-			else {
-				
-				if (_content is IStatusCoded) {
-					_responseUpdater.SetStatusCode(context, ((IStatusCoded)_content).HttpStatusCode);
-					_responseWriter.WriteResponse(context, _content, _viewName);
+					break;
+				case "PUT": {
+					ExecutePutResult(context);
 				}
-				else if (_content == null) {
-					var statusCode = _statusCodeTranslator.LookUp(HttpStatusCode.NoContent);
-					_responseUpdater.SetStatusCode(context, statusCode);
-				}
-				else {
-					_responseWriter.WriteResponse(context, _content, _viewName);
-				}
-
-
+					break;
+				default:
+					ExecuteDefaultResult(context);
+					break;
 			}
 		}
-	}
 
-	public interface IContextHelper {
-		string GetRequestLocation(ControllerContext context);
+		private void ExecuteDefaultResult(ControllerContext context) {
+			if (_content is IStatusCoded) {
+				_responseUpdater.SetStatusCode(context, ((IStatusCoded) _content).HttpStatusCode);
+				_responseWriter.WriteResponse(context, _content, _viewName);
+			}
+			else if (_content == null) {
+				var statusCode = _statusCodeTranslator.LookUp(ResourceStatus.Deleted);
+				_responseUpdater.SetStatusCode(context, statusCode);
+			}
+			else _responseWriter.WriteResponse(context, _content, _viewName);
+		}
+
+		private void ExecutePutResult(ControllerContext context) {
+			var newLocation = _locationProvider.GetLocation(_content, context);
+			var currentLocation = _contextHelper.GetRequestLocation(context);
+			if (!newLocation.Equals(currentLocation, StringComparison.InvariantCultureIgnoreCase)) {
+				var statusCode = _statusCodeTranslator.LookUp(ResourceStatus.Moved);
+				_responseUpdater.SetStatusCode(context, statusCode);
+				_responseUpdater.SetLocation(context, newLocation);
+			}
+		}
+
+		private void ExecutePostResult(ControllerContext context) {
+			var statusCode = _statusCodeTranslator.LookUp(ResourceStatus.Created);
+			_responseUpdater.SetStatusCode(context, statusCode);
+			var location = _locationProvider.GetLocation(_content, context);
+			_responseUpdater.SetLocation(context, location);
+		}
 	}
 
 	public class ContextHelper:IContextHelper{

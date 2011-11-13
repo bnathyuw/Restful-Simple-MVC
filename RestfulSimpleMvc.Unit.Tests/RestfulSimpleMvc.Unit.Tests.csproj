@@ -66,6 +66,8 @@
     <Compile Include="Results\RestfulResultTests.cs" />
     <Compile Include="Results\TypedResultFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusCodes\HtmlStatusCodeTranslatorTests.cs" />
+    <Compile Include="StatusCodes\DefaultStatusCodeTranslatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RestfulSimpleMvc.Core\RestfulSimpleMvc.Core.csproj">

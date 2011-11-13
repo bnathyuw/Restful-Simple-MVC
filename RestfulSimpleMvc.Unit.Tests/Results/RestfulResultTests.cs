@@ -42,17 +42,17 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 		[Test]
 		public void Execute_result_gets_no_content_status_code_if_content_is_null() {
 			_restfulResult = new RestfulResult(_responseWriter, null, null, _responseUpdater, _statusCodeTranslator, null, null);
-			_statusCodeTranslator.Stub(t => t.LookUp(Arg<HttpStatusCode>.Is.Anything)).Return(HttpStatusCode.NoContent);
+			_statusCodeTranslator.Stub(t => t.LookUp(Arg<ResourceStatus>.Is.Anything)).Return(HttpStatusCode.NoContent);
 			
 			_restfulResult.ExecuteResult(null);
-			
-			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.NoContent));
+
+			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(ResourceStatus.Deleted));
 		}
 
 		[Test]
 		public void Execute_restult_sets_code_from_translator_when_content_is_null() {
 			_restfulResult = new RestfulResult(_responseWriter, null, null, _responseUpdater, _statusCodeTranslator, null, null);
-			_statusCodeTranslator.Stub(t => t.LookUp(Arg<HttpStatusCode>.Is.Anything)).Return(HttpStatusCode.NonAuthoritativeInformation);
+			_statusCodeTranslator.Stub(t => t.LookUp(Arg<ResourceStatus>.Is.Anything)).Return(HttpStatusCode.NonAuthoritativeInformation);
 
 			_restfulResult.ExecuteResult(null);
 
@@ -64,8 +64,8 @@ namespace RestfulSimpleMvc.Unit.Tests.Results
 			_restfulResult = new RestfulResult(null, _content, "POST", _responseUpdater, _statusCodeTranslator, _locationProvider, null);
 			
 			_restfulResult.ExecuteResult(null);
-			
-			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(HttpStatusCode.Created));
+
+			_statusCodeTranslator.AssertWasCalled(t => t.LookUp(ResourceStatus.Created));
 		}
 
 		[Test]

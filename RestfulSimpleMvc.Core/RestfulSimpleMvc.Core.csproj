@@ -55,6 +55,7 @@
     <Compile Include="Location\LocationProvider.cs" />
     <Compile Include="Location\LocationProviderFactory.cs" />
     <Compile Include="Location\RestfulExceptionLocationProvider.cs" />
+    <Compile Include="Results\IContextHelper.cs" />
     <Compile Include="Serialization\IJsonSerializer.cs" />
     <Compile Include="ResponseWriters\IResponseUpdater.cs" />
     <Compile Include="Serialization\ISerializationDataProviderFactory.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="StatusCodes\HtmlStatusCodeTranslator.cs" />
     <Compile Include="StatusCodes\IStatusCoded.cs" />
     <Compile Include="StatusCodes\IStatusCodeTranslator.cs" />
+    <Compile Include="StatusCodes\ResourceStatus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
